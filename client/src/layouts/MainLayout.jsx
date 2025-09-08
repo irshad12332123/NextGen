@@ -1,21 +1,19 @@
 // src/layouts/MainLayout.jsx
-import { Outlet } from "react-router-dom"; // placeholder for child pages
+import { Outlet } from "react-router-dom";
 import NavBar from "../pages/NavBar";
 import Footer from "../pages/Footer";
 
 export default function MainLayout() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-hidden">
       {/* Navbar component
        */}
       <NavBar />
-
       {/* Main page content */}
-      <main className="flex-grow p-4">
+      <main className="flex-grow ">
         <Outlet />
       </main>
-
-      <Footer />
+      {/* <Footer /> */}
       {/* Footer component here */}
     </div>
   );
