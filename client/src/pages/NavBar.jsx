@@ -2,8 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import phone from "../assets/phone.png";
 import clsx from "clsx";
-import images from "../../types/Image";
-import Image from "../components/CompanyDisplay";
 
 const NavBar = () => {
   const navLinks = [
@@ -13,8 +11,9 @@ const NavBar = () => {
     { linkName: "Courses", route: "/courses" },
     { linkName: "Contact Us", route: "/contact-us" },
   ];
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-10 flex justify-center mt-2 flex-col ">
+    <header className="fixed top-0 left-0 right-0 z-10 flex justify-center flex-col ">
       <nav className="bg-white px-3 py-2 flex justify-between items-center w-full">
         {/* Next Gen logo compartment */}
         <div className="flex flex-col leading-tight">
@@ -60,11 +59,7 @@ const NavBar = () => {
           </div>
         </div>
       </nav>
-      <div className="h-15 w-full bg-[#012F6D] shadow-xl shadow-[#343038] flex ">
-        {images.map((imgObj, idx) => (
-          <Image logo={imgObj.logo} packageLPA={imgObj.LPA} key={idx} />
-        ))}
-      </div>
+      <div className="h-15 w-full bg-[#012F6D] flex"></div>
     </header>
   );
 };

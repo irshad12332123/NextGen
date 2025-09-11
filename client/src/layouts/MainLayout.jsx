@@ -5,7 +5,7 @@ import Footer from "../pages/Footer";
 
 export default function MainLayout() {
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
+    <div className="flex flex-col min-h-screen">
       {/* Navbar component
        */}
       <NavBar />
