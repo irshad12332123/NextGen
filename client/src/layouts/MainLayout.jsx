@@ -14,7 +14,7 @@ export default function MainLayout() {
         <Outlet />
       </main>
       {/* <Footer /> */}
-      {/* Footer component here */}
+      <Footer />
     </div>
   );
 }
