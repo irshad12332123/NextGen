@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Courses from "./pages/Courses";
 import Home from "./pages/Home";
+
 const App = () => {
   return (
     <BrowserRouter>

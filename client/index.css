@@ -2,3 +2,30 @@
   font-family: Outfit;
   box-sizing: border-box;
 }
+
+html{
+   scroll-behavior: smooth;
+}
+
+/* Pagination bullets */
+.custom-swiper .swiper-pagination-bullet {
+  background: gray;
+  opacity: 0.6;
+}
+
+.custom-swiper .swiper-pagination-bullet-active {
+  background: #f59e0b; /* amber */
+  opacity: 1;
+}
+
+/* Navigation arrows */
+.custom-swiper .swiper-button-prev,
+.custom-swiper .swiper-button-next {
+  color: #f59e0b;
+}
+
+.custom-swiper .swiper-button-prev::after,
+.custom-swiper .swiper-button-next::after {
+  font-size: 24px;
+  font-weight: bold;
+}

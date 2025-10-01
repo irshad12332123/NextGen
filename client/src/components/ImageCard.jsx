@@ -1,19 +1,24 @@
 import React from "react";
 import CustomBtn from "./CustomBtn";
 
-function ImageCard() {
+function ImageCard({
+  buttonRequired = true,
+  title = "Enroll for the best Online Courses",
+}) {
   return (
-    <div className="relative w-full h-120 bg-amber-300 flex items-center justify-center overflow-hidden rounded-lg shadow-lg">
+    <div className="relative w-full md:h-120 flex items-center justify-center overflow-hidden">
       <img
-        src="https://imgs.search.brave.com/jf59zES8W8QcQu5yfM2HKNrlAf9upF32vuBA5WGbLfQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNjY5/Nzc1NzEyL3Bob3Rv/L3RlYWNoZXItZ2l2/aW5nLWFuLWl0LWNs/YXNzLWF0LXNjaG9v/bC10by1hLWdyb3Vw/LW9mLXN0dWRlbnRz/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1rRlJfX2hCTElN/LTBQVzZrNGxTcUFR/SkdvLXVrTHUtYmJz/T1FrX1Y2ZWRBPQ"
+        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
         alt="image-card"
         className="w-full h-full object-cover"
       />
       <div className="absolute z-1 flex flex-col items-center justify-center gap-5">
-        <p className="max-w-6xl text-5xl text-white font-bold">
-          Enroll for the best Online Courses
+        <p className="max-w-6xl md:text-5xl text-3xl text-white font-bold text-center">
+          {title}
         </p>
-        <CustomBtn customStyle={"border-1 border-white text-white"} />
+        {buttonRequired && (
+          <CustomBtn customStyle={"border-1 border-white text-white"} />
+        )}
       </div>
       <div className="absolute top-0 w-full h-full bg-black opacity-70"></div>
     </div>
