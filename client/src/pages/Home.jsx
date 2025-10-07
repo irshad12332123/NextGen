@@ -1,17 +1,16 @@
 import React from "react";
 import RBU_BANNER_IMAGE from "../assets/RBUbanner_home.webp";
 import RBU_BANNER_MOBILE_IMAGE from "../assets/RBUmobile-banner.webp";
-
-import CustomImageContainer from "../components/CustomImageContainer";
 import Announcements from "../components/Announcements";
-import CustomCard from "../components/CustomCard";
 import CustomBtn from "../components/CustomBtn";
 import EventCard from "../components/EventCard";
 import ReviewCard from "../components/ReviewCard";
 import ImageCard from "../components/ImageCard";
 import Carousel from "../components/Carousel";
 import RankingCard from "../components/RankingCard";
-import { galleryImages } from "../assets/galleryImages";
+import MarqueeSlider from "../components/MarqueeSlider";
+
+import { marqueeImages } from "../../types/Image";
 const Home = () => {
   const facilities = [
     {
@@ -116,6 +115,33 @@ const Home = () => {
     },
   ];
 
+  const marqueeTitles = [
+    {
+      title: "25+",
+      description: "Years of Excellence",
+    },
+    {
+      title: "20,000+",
+      description: "Active Students",
+    },
+    {
+      title: "65+",
+      description: "Countries Represented",
+    },
+    {
+      title: "150+",
+      description: "Academic Programs",
+    },
+    {
+      title: "1,000+",
+      description: "Research Publications",
+    },
+    {
+      title: "A+",
+      description: "NAAC Accreditation",
+    },
+  ];
+
   return (
     <div className="mt-30">
       {/* Landing Page */}
@@ -130,6 +156,7 @@ const Home = () => {
           alt="RBU_banner"
           className="block md:hidden h-full"
         />
+        <MarqueeSlider titlesList={marqueeTitles} />
       </div>
       <div className="h-full w-full flex flex-col">
         {/* Ranking Cards */}

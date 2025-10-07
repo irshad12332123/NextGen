@@ -2,7 +2,10 @@ import React from "react";
 
 function RankingCard() {
   return (
-    <div className="hover:bg-amber-200 bg-white p-5 flex flex-col items-center justify-center group rounded-br-4xl border-[0.01rem] hover:border-amber-200 border-[#20202061] transition-all duration-300 w-full">
+    <div
+      data-aos="fade-up"
+      className="hover:bg-amber-200 bg-white p-5 flex flex-col items-center justify-center group rounded-br-4xl border-[0.01rem] hover:border-amber-200 border-[#20202061] transition-all duration-300 w-full"
+    >
       <div className="flex items-center justify-center gap-2 group-hover:bg-amber-400 rounded-xl px-5 w-full transition-all duration-300 ">
         <p className="text-xl">RANKED</p>
         <p className="md:text-4xl text-xl"> #241</p>
