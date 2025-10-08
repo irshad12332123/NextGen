@@ -1,5 +1,5 @@
 import React from "react";
-import CustomBtn from "./CustomBtn";
+import CustomBtn from "../CustomBtn";
 
 function ImageCard({
   buttonRequired = true,

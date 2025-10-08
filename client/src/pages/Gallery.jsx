@@ -1,5 +1,5 @@
 import React from "react";
-import ImageContainer from "../components/ImageCard";
+import ImageContainer from "../components/cards/ImageCard";
 import DisplayGallery from "../components/DisplayGallery";
 import Carousel from "../components/Carousel";
 import { galleryImages } from "../assets/galleryImages";

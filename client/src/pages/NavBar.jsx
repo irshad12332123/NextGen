@@ -83,9 +83,9 @@ const NavBar = () => {
               key={index}
               className={({ isActive }) =>
                 clsx(
-                  "relative font-bold text-black after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-0 after:bg-blue-900 after:transition-all after:duration-300 hover:after:w-full",
+                  "relative font-bold text-black after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 hover:after:w-full",
                   isActive
-                    ? "text-[#012F6D]  px-4  text-sm relative font-bold after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:bg-blue-900"
+                    ? "text-blue-500  px-4  text-sm relative font-bold after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:bg-blue-900"
                     : " px-4 font-bold text-sm "
                 )
               }
@@ -95,7 +95,7 @@ const NavBar = () => {
             </NavLink>
           ))}
         </ul>
-        <div className="bg-[#012F6D] rounded-xl py-3 px-2 flex text-white gap-1">
+        <div className="bg-blue-500 rounded-xl py-3 px-2 flex text-white gap-1">
           <img src={phone} alt="call_img_png" className="self-center w-5" />
           <div className="md:block hidden">
             <h5 className="md:text-sm text-xs">Admission Helpline</h5>
@@ -103,22 +103,22 @@ const NavBar = () => {
           </div>
         </div>
       </nav>
-      <div className="md:h-12 md:relative h-10 w-full bg-[#2B363A] flex justify-center gap-40 items-center text-white">
+      <div className="md:h-12  md:relative h-10 w-full bg-[#2B363A] flex justify-center gap-40 items-center text-white">
         {headerNavLinks.map((item, i) => (
           <div
-            className="h-full flex items-center justify-center"
+            className="h-full flex items-center justify-center "
             onMouseEnter={() => handleMouseOn(i)}
             onMouseLeave={handleMouseOver}
             key={i}
           >
-            <div className="flex group items-center justify-center">
+            <div className="flex group items-center justify-center  ">
               <p className="text-sm text-gray-300 mr-1 cursor-pointer hover:text-white">
                 {item.title}
               </p>
               <RiArrowDownWideFill className="group-hover:text-white text-gray-300" />
             </div>
             {activeDropDowm === i && (
-              <div className="absolute shadow-lg bg-white rounded-b-xl border-1 border-gray-700 top-full z-20 px-10">
+              <div className="absolute shadow-lg  bg-white rounded-b-xl border-1 border-gray-700 top-full z-20 px-10">
                 {item.subTitles.map((sub, idx) => (
                   <p
                     key={idx}

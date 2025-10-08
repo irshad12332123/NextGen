@@ -1,28 +1,27 @@
-import React, { useState } from "react";
+// LazyCarousel.jsx
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import CustomCard from "./CustomCard";
+import CustomCard from "./cards/CustomCard";
 
-function Carousel({ carouselImages, isCard = false, type = "primary" }) {
-  // const [iterable, setIterable] = useState(null);
-  // children ? setIterable(children) : setIterable(carouselImages);
+const LazyCarousel = ({ carouselImages, isCard = false, type = "primary" }) => {
   return (
-    <div className="w-full md:h-[450px] h-[250px] mx-auto mt-10 ">
+    <div className="w-full md:h-[450px] h-[250px] mx-auto mt-10">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}
-        slidesPerView={isCard ? 3 : 1}
-        autoplay={true}
+        slidesPerView={isCard ? 5 : 1}
+        autoplay={{ delay: 3000 }}
         loop={true}
         className="w-full h-full"
       >
-        {isCard && type == "primary"
+        {isCard && type === "primary"
           ? carouselImages.map((card, i) => (
               <SwiperSlide key={i} className="flex items-center justify-center">
-                <CustomCard cardDetails={card} key={i} />
+                <CustomCard cardDetails={card} />
               </SwiperSlide>
             ))
           : carouselImages.map((image, i) => (
@@ -30,6 +29,7 @@ function Carousel({ carouselImages, isCard = false, type = "primary" }) {
                 <img
                   alt={image.title}
                   src={image.src}
+                  loading="lazy"
                   className="w-full h-full object-cover object-center"
                 />
               </SwiperSlide>
@@ -37,6 +37,6 @@ function Carousel({ carouselImages, isCard = false, type = "primary" }) {
       </Swiper>
     </div>
   );
-}
+};
 
-export default Carousel;
+export default LazyCarousel;

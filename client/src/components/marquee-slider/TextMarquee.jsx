@@ -1,22 +1,8 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-import image from "../assets/company-logo/accenture.svg";
-function MarqueeSlider({ images, titlesList }) {
+function TextMarquee({ titlesList }) {
   return (
     <div className="bg-[#012F6D] text-white flex flex-col gap-10">
-      {images ? (
-        <Marquee
-          gradient={true}
-          speed={100}
-          pauseOnHover={true}
-          className=""
-          autoFill={true}
-        >
-          {images.map((image, i) => (
-            <img src={image} className=" mr-25 w-12" />
-          ))}
-        </Marquee>
-      ) : null}
       {titlesList ? (
         <Marquee
           gradient={true}
@@ -38,4 +24,4 @@ function MarqueeSlider({ images, titlesList }) {
   );
 }
 
-export default MarqueeSlider;
+export default TextMarquee;

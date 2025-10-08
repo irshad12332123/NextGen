@@ -1,8 +1,6 @@
 import React from "react";
-import ImageCard from "../components/ImageCard";
-import CustomCard from "../components/CustomCard";
-import CustomImageContainer from "../components/CustomImageContainer";
-import AboutCard from "../components/AboutCard";
+import ImageCard from "../components/cards/ImageCard";
+import AboutCard from "../components/cards/AboutCard";
 
 const About = () => {
   return (

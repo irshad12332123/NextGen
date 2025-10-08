@@ -3,14 +3,13 @@ import RBU_BANNER_IMAGE from "../assets/RBUbanner_home.webp";
 import RBU_BANNER_MOBILE_IMAGE from "../assets/RBUmobile-banner.webp";
 import Announcements from "../components/Announcements";
 import CustomBtn from "../components/CustomBtn";
-import EventCard from "../components/EventCard";
-import ReviewCard from "../components/ReviewCard";
-import ImageCard from "../components/ImageCard";
+import EventCard from "../components/cards/EventCard";
+import ReviewCard from "../components/cards/ReviewCard";
+import ImageCard from "../components/cards/ImageCard";
 import Carousel from "../components/Carousel";
-import RankingCard from "../components/RankingCard";
-import MarqueeSlider from "../components/MarqueeSlider";
-
-import { marqueeImages } from "../../types/Image";
+import RankingCard from "../components/cards/RankingCard";
+import MarqueeSlider from "../components/marquee-slider/TextMarquee";
+import HiringCompanies from "../components/HiringCompanies";
 const Home = () => {
   const facilities = [
     {
@@ -51,7 +50,6 @@ const Home = () => {
     },
   ];
 
-  // here we are fetching the capus show off images from the DB -->
   const cardDetails = [
     {
       src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
@@ -150,24 +148,30 @@ const Home = () => {
           src={RBU_BANNER_IMAGE}
           alt="RBU_banner"
           className="md:block hidden h-full"
+          loading="lazy"
         />
         <img
           src={RBU_BANNER_MOBILE_IMAGE}
           alt="RBU_banner"
           className="block md:hidden h-full"
+          loading="lazy"
         />
         <MarqueeSlider titlesList={marqueeTitles} />
       </div>
       <div className="h-full w-full flex flex-col">
         {/* Ranking Cards */}
-        <div className="w-full h-full md:px-50 px-10 md:mt-30 bg-[#CAD5E2] py-10">
+        <div className="w-full h-full md:px-50 px-10 md:mt-20 bg-[#CAD5E2] py-10">
           <div className="flex items-center justify-center mb-10  ">
             <p className="text-center text-3xl font-bold max-w-2xl">
               Proudly Distinguished by Our Prestigious Rankings and
               Accreditations
             </p>
           </div>
-          <div className="md:flex-row grid grid-cols-2 justify-center items-center  md:flex-wrap gap-5 ">
+          <div className="md:flex-row grid grid-cols-5 justify-center items-center  md:flex-wrap gap-2 ">
+            <RankingCard />
+            <RankingCard />
+            <RankingCard />
+            <RankingCard />
             <RankingCard />
             <RankingCard />
             <RankingCard />
@@ -194,8 +198,8 @@ const Home = () => {
           </div>
         </div>
         {/* Courses We offer */}
-        <div className="w-full h-full mt-10 mb-20 flex flex-1 flex-col">
-          <div className="bg-slate-300 rounded-b-[15rem] p-5 flex flex-col items-center justify-center">
+        {/* <div className="w-full h-full mt-15 mb-10 flex flex-1 flex-col">
+          <div className="bg-slate-300 p-5 flex flex-col items-center justify-center">
             <p className="text-4xl font-bold text-[#2B2B2B]">
               Courses We offer
             </p>
@@ -203,29 +207,33 @@ const Home = () => {
               Lorem ipsum dolor sit, amet consectetur adipisicing elit
             </p>
 
-            <div className=" max-w-6xl h-full mt-20 mb-40 mx-auto py-10">
+            <div className=" max-w-6xl h-full mt-20 mb-20 mx-auto py-10">
               <Carousel carouselImages={facilities} isCard={true} />
             </div>
             <CustomBtn />
           </div>
-        </div>
+        </div> */}
+
+        {/* Hiring componenet */}
+        <HiringCompanies />
       </div>
-      <div className="flex p-5">
+      <div className="flex my-30">
         <div className="flex-1 flex items-center justify-center flex-col">
-          <p className="text-3xl font-bold">Events</p>
-          <p className="text-center mt-3 mb-10 max-w-lg  text-[#616161]">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae
-            doloribus ipsum nulla adipisci velit facilis optio ratione illum
-            impedit sit eligendi est quod, repellat qui inventore accusamus
-            expedita! Natus, in.
+          <p className="text-3xl font-semibold">Upcoming Events</p>
+          <p className="text-center mt-3 mb-10 text-xl max-w-lg  text-[#616161]">
+            Stay informed and get involved! Here are out latest community events
           </p>
+
           {/* Displaying Events */}
-          <div className="flex flex-col gap-10 max-w-5xl w-full h-full">
+          <div className="flex px-50 w-full h-full gap-2">
+            <div className=" bg-blue-300 border-1 w-2/3 h-150 border-blue-600"></div>
             {/* EventCard */}
-            <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
+            <div className="flex flex-col gap-5 self-end">
+              <EventCard />
+              <EventCard />
+              <EventCard />
+              <EventCard />
+            </div>
           </div>
         </div>
       </div>
@@ -236,26 +244,22 @@ const Home = () => {
           <p className=" text-[#6b6b6b] mt-5">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit
           </p>
-          <div className=" max-w-6xl w-full h-full mt-20 mb-40 ">
-            <Carousel
-              carouselImages={cardDetails}
-              isCard={true}
-              // type={"facilities"}
-            />
+          <div className="w-full h-full mt-5 mb-10 ">
+            <Carousel carouselImages={cardDetails} isCard={true} />
           </div>
           <CustomBtn />
         </div>
       </div>
       {/* Review Section */}
-      <div className="w-full h-full mt-10 md:mb-20  flex flex-1 flex-col">
-        <div className="  p-5 flex flex-col items-center justify-center">
-          <p className="text-4xl font-bold text-[#2B2B2B]">
-            What our student says
+      <div className="w-full h-full mt-10 md:mb-10  flex flex-col px-50">
+        <div className="items-center justify-center">
+          <p className="text-4xl  text-blue-600">
+            Real voices. Real stories. Real impact.
           </p>
-          <p className=" text-[#6b6b6b] mt-5">
+          <p className=" text-[#2d2d2d] mt-2">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit
           </p>
-          <div className="md:grid flex flex-col grid-cols-2 gap-10 max-w-6xl w-full h-full mt-20 md:mb-40  mx-auto py-10">
+          <div className=" w-full h-full flex gap-2  md:mb-10  flex-wrap  mx-auto py-10">
             <ReviewCard />
             <ReviewCard />
             <ReviewCard />
