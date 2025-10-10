@@ -6,6 +6,9 @@ import { useState } from "react";
 
 const About = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [from, setFrom] = useState("0f172a");
+  const [to, setTo] = useState("1e293b");
+  const [via, setVia] = useState("14b8a6");
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -26,6 +29,7 @@ const About = () => {
     "100+ International Collaborations",
     "Industry-Aligned Curriculum",
   ];
+
   return (
     <div>
       <ImageCard buttonRequired={false} title="About" />
@@ -90,7 +94,7 @@ const About = () => {
         >
           <div
             className="
-            absolute inset-0 pointer-events-none transition-opacity duration-300
+           animate-aurora absolute inset-0 pointer-events-none transition-opacity duration-300
             "
             style={{
               background: `
@@ -100,11 +104,25 @@ const About = () => {
               rgba(14,165,233,0.15),
               transparent 80%)
           `,
-              filter: "blur(40px)",
+              filter: "blur(20px)",
               opacity: 1,
             }}
-          ></div>
-          <div className=" grid grid-cols-4 gap-5 bg-gradient-to-r from-[#0f172a] to-[#1e293b]  w-full h-full p-15 rounded-2xl mt-15">
+          >
+            <style>
+              {`
+          @keyframes aurora {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+
+          .animate-aurora {
+            animation: aurora 10s ease infinite;
+          }
+        `}
+            </style>
+          </div>
+          <div className=" grid grid-cols-4 gap-5 bg-gradient-to-r from-[#0f172a] via-[#1e293b] via-[#38bdf8] to-[#14b8a6]   w-full h-full p-15 rounded-2xl mt-15">
             {partners.map((img, i) => (
               <div
                 className="py-5 px-6 rounded-2xl bg-white border-1 hover:border-blue-800
