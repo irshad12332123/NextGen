@@ -197,22 +197,6 @@ const Home = () => {
             <Carousel carouselImages={cardDetails} />
           </div>
         </div>
-        {/* Courses We offer */}
-        {/* <div className="w-full h-full mt-15 mb-10 flex flex-1 flex-col">
-          <div className="bg-slate-300 p-5 flex flex-col items-center justify-center">
-            <p className="text-4xl font-bold text-[#2B2B2B]">
-              Courses We offer
-            </p>
-            <p className=" text-[#6b6b6b] mt-5">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit
-            </p>
-
-            <div className=" max-w-6xl h-full mt-20 mb-20 mx-auto py-10">
-              <Carousel carouselImages={facilities} isCard={true} />
-            </div>
-            <CustomBtn />
-          </div>
-        </div> */}
 
         {/* Hiring componenet */}
         <HiringCompanies />
@@ -238,13 +222,15 @@ const Home = () => {
         </div>
       </div>
       {/* Facilities */}
-      <div className="w-full h-full mt-10 mb-20 flex flex-col flex-1">
+      <div className="relative w-full h-full mt-10 mb-20 flex flex-col flex-1 border-t-2 border-blue-900">
         <div className="bg-slate-300  p-5 flex flex-col items-center justify-center">
-          <p className="text-4xl font-bold text-[#2B2B2B]">Our Facilities</p>
-          <p className=" text-[#6b6b6b] mt-5">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit
-          </p>
-          <div className="w-full h-full mt-5 mb-10 ">
+          <div className=" flex flex-col items-center justify-center absolute -top-15 bg-blue-400 border-1 border-blue-900 rounded-2xl p-5">
+            <p className="text-4xl font-bold ">Our Facilities</p>
+            <p className=" text-white mt-5">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit
+            </p>
+          </div>
+          <div className="w-full h-full mt-20 mb-10 ">
             <Carousel carouselImages={cardDetails} isCard={true} />
           </div>
           <CustomBtn />

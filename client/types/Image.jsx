@@ -35,4 +35,24 @@ export const marqueeImages_2 = [
   nestle,
   royalEnfield,
 ];
+
 export const marqueeImages_3 = [techMahindra, vivo, wipro, zensar];
+
+export const partners = [
+  byjus,
+  capgemini,
+  cipla,
+  havells,
+  sunPharma,
+  nestle,
+  royalEnfield,
+  accenture,
+  airbnb,
+  techMahindra,
+  vivo,
+  wipro,
+  zensar,
+  amazon,
+  google,
+  apple,
+];

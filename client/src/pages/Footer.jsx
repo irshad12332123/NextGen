@@ -1,61 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 const Footer = () => {
+  const [email, setEmail] = useState("");
   const navLinks = [
     { linkName: "About", route: "/about" },
     { linkName: "Gallery", route: "/gallery" },
     { linkName: "Courses", route: "/courses" },
-    { linkName: "Privacy policy", route: "/privacy-policy" },
-    { linkName: "Privacy policy", route: "/privacy-policy" },
-    { linkName: "Privacy policy", route: "/privacy-policy" },
-    { linkName: "Privacy policy", route: "/privacy-policy" },
-    { linkName: "Privacy policy", route: "/privacy-policy" },
-    { linkName: "Contact Us", route: "/contact-us" },
-    { linkName: "Contact Us", route: "/contact-us" },
-    { linkName: "Contact Us", route: "/contact-us" },
-    { linkName: "Contact Us", route: "/contact-us" },
   ];
 
   const socialLinks = [
-    { linkName: "Instagram", route: "/instagram" },
-    { linkName: "LinkedIn", route: "/linkedIn" },
-    { linkName: "Twitter", route: "/twitter" },
-    { linkName: "Snapchat", route: "snapchat" },
+    { linkName: "<FaInstagram />", route: "/instagram" },
+    { linkName: "<FaLinkedin />", route: "/linkedIn" },
+    { linkName: "<FaXTwitter />", route: "/twitter" },
+    { linkName: "<FaFacebook />", route: "/facebook" },
+  ];
+
+  const support = [
+    { linkName: "Privacy policy", route: "/privacy-policy" },
+    { linkName: "Terms & Conditions", route: "/terms-and-conditions" },
+    { linkName: "Refund policy", route: "/refund-policy" },
+    { linkName: "Contact Us", route: "/contact-us" },
   ];
 
   return (
-    <div className="bg-[#CAD5E2] w-full h-full px-10 py-5 flex justify-between flex-col mb-15">
-      {/* Top container */}
-      <div className="flex items-center justify-between">
-        <p className="md:text-xl font-bold text-black self-start">JOIN NOW</p>
-        <div className="grid grid-cols-3 md:gap-x-8 gap-x-[0.1rem]">
-          {navLinks.map((linkObj, index) => (
-            <Link
-              to="linkObj.route"
-              key={index}
-              className="px-5 py-2 text-[#616161] md:text-xl text-sm  hover:text-green-700"
-            >
-              {linkObj.linkName}
-            </Link>
-          ))}
+    <div className=" bg-gradient-to-br from-[#0f172a] to-[#383f4b] gap-12 text-white w-full h-full pt-20 flex justify-between flex-col mb-15">
+      <p className="text-3xl font-bold px-20 ">JOIN NOW</p>
+      <div className="flex gap-15 px-20">
+        <div className="w-1/3">
+          <p className="text-2xl font-bold">About</p>
+          <p className="max-w-3xl text-[#cbd5e1]">
+            Next gen academy powers bla bla bla, Next gen academy powers bla bla
+            bla, Next gen academy powers bla bla bla, Next gen academy powers
+            bla bla bla....
+          </p>
+        </div>
+        <div className="w-1/2">
+          <div className="mb-5">
+            <p className="text-2xl  font-bold">Quick Links</p>
+            {navLinks.map((link, i) => (
+              <p className="text-md text-[#cbd5e1] " key={i}>
+                {link.linkName}
+              </p>
+            ))}
+          </div>
+          <div>
+            <p className="text-2xl  font-bold">Support</p>
+            {support.map((link, i) => (
+              <p className="text-md text-[#cbd5e1]" key={i}>
+                {link.linkName}
+              </p>
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col gap-5">
+          <p className="font-bold text-2xl">Join Our Community</p>
+          <p className="text-[#cbd5e1]">
+            Subscribe to our news letter and stay updated with our latest
+            courses and offers.
+          </p>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your email address"
+            className="focus:outline-0 outline-0 rounded-xl border-[0.05px] border-gray-600 text-md p-3"
+          />
+          <button className="py-3 px-5 bg-blue-500 rounded-xl border-[0.05px] border-blue-300">
+            Subscribe
+          </button>
+          <div className="text-[#38bdf8] flex gap-5 text-xl">
+            <FaFacebook />
+            <FaInstagram />
+            <FaLinkedin />
+            <FaXTwitter />
+          </div>
         </div>
       </div>
-      {/* Bottom container */}
-      <div className="flex md:justify-between flex-col">
-        <div className="md:mt-25 mt-2 ">
-          {socialLinks.map((linkObj, index) => (
-            <Link
-              to="linkObj.route"
-              key={index}
-              className="md:px-5 md:py-2 py-1 px-2 hover:bg-white text-[#616161] md:text-xl text-sm"
-            >
-              {linkObj.linkName}
-            </Link>
-          ))}
-        </div>
-        <p className="md:self-end text-[#616161] w-full md:text-xl text-sm">
-          © 2024 NextGen Academy. All rights reserved.
+      <div className="flex items-center justify-center  bg-gradient-to-r from-[#383f4b] to-[#0f172a] py-2">
+        <p>
+          © {new Date().getFullYear()} NextGen Academy. All rights reserved.
         </p>
       </div>
     </div>
