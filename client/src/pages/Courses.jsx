@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import ImageCard from "../components/cards/ImageCard";
 import CourseCard from "../components/cards/CourseCard";
 import { GiFlatPlatform } from "react-icons/gi";
 import { GrUserExpert } from "react-icons/gr";
 import { SiGooglemarketingplatform } from "react-icons/si";
 import { BsCircleSquare } from "react-icons/bs";
-import { motion } from "motion/react";
 import BlobAnimation from "../components/animated-components/BlobAnimation";
+import { RiSearchLine } from "react-icons/ri";
+
 const Courses = () => {
+  const [search, setSearch] = useState("");
+  const handleSearch = async (courseName) => {
+    console.log("Seardched Course", courseName);
+  };
   const cards = [
     {
       icon: GiFlatPlatform,
@@ -35,10 +40,12 @@ const Courses = () => {
     },
   ];
 
+  const courseFilterOp = ["B.Tech", "B.C.A"];
+
   return (
     <div>
       <ImageCard buttonRequired={false} title="Courses" />
-      <div className="px-50 mt-10">
+      <div className="px-50 my-20">
         <p className="text-3xl font-bold">Why choose Next Gen?</p>
         <p className="max-w-2xl mt-5 ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
@@ -52,47 +59,30 @@ const Courses = () => {
           {cards.map((card, i) => (
             <CourseCard key={i} courseCard={card} />
           ))}
-          <motion.div
-            animate={{
-              x: [0, 30, -20, 0],
-              y: [0, -20, 20, 0],
-              scale: [1, 1.6, 0.9, 1],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute -z-10 -bottom-15  rounded-full filter blur-2xl bg-blue-500 w-50 h-50 -left-15"
-          ></motion.div>
-          <motion.div
-            animate={{
-              x: [0, 30, -20, 0],
-              y: [0, -20, 20, 0],
-              scale: [1, 1.2, 0.9, 1],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute -z-10 -bottom-2  rounded-full filter blur-2xl 
-                       mix-blend-multiply
-                       bg-green-500 w-50 h-50 -left-25"
-          ></motion.div>
-          <motion.div
-            animate={{
-              x: [0, 30, -20, 0],
-              y: [0, -20, 20, 0],
-              scale: [1, 1.2, 0.9, 1],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute -z-10 -top-15  rounded-full filter blur-2xl bg-blue-500 w-50 h-50 -right-15"
-          ></motion.div>
+
+          <BlobAnimation
+            x={[0, 30, -20, 0]}
+            y={[0, -20, 20, 0]}
+            scale={[1, 1.6, 0.9, 1]}
+            positionStyles={" -bottom-8 bg-blue-500 -left-15"}
+            duration={10}
+          />
+
+          <BlobAnimation
+            x={[0, 30, 10, 0]}
+            y={[0, -10, 20, 0]}
+            scale={[1, 1.6, 0.5, 1]}
+            positionStyles={" -bottom-8 bg-green-500 -left-25"}
+            duration={10}
+          />
+
+          <BlobAnimation
+            x={[0, 30, -20, 0]}
+            y={[0, -20, 20, 0]}
+            scale={[1, 1.6, 0.9, 1]}
+            positionStyles={" -top-8 bg-blue-500 -right-10"}
+            duration={10}
+          />
 
           <BlobAnimation
             x={[0, 30, -20, 0]}
@@ -101,6 +91,28 @@ const Courses = () => {
             positionStyles={" top-8 bg-amber-500 -right-15"}
             duration={10}
           />
+        </div>
+      </div>
+      <div className="px-50 w-full">
+        <div className="mt-5 bg-green-200 w-1/2 flex p-2 rounded-full justify-between ">
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Which course are you looking for?"
+            className="focus:outline-0 flex-1  outline-0 rounded-xl  text-md p-3"
+          />
+          <RiSearchLine className=" hover:opacity-80 cursor-pointer md:text-5xl bg-amber-500 rounded-full p-2" />
+        </div>
+        <div className=" flex gap-5 mt-2">
+          {courseFilterOp.map((filter, i) => (
+            <p
+              className="px-5 py-2 rounded-full bg-amber-500 cursor-pointer hover:opacity-80"
+              key={i}
+            >
+              {filter}
+            </p>
+          ))}
         </div>
       </div>
     </div>
