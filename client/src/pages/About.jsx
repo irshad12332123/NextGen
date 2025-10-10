@@ -2,8 +2,18 @@ import ImageCard from "../components/cards/ImageCard";
 import AboutCard from "../components/cards/AboutCard";
 import HiringCompanies from "../components/HiringCompanies";
 import { partners } from "../../types/Image";
+import { useState } from "react";
 
 const About = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
   const benefitsList = [
     "State-of-the-Art Campus",
     "100+ International Collaborations",
@@ -19,7 +29,7 @@ const About = () => {
   return (
     <div>
       <ImageCard buttonRequired={false} title="About" />
-      <div className="flex flex-col my-20 ">
+      <div className="flex flex-col my-20  ">
         <div className=" px-50">
           <p className="text-3xl font-bold py-5 ">
             About{" "}
@@ -74,17 +84,42 @@ const About = () => {
           We are proud to collaborate with leading global brands
         </p>
 
-        <div className=" grid grid-cols-4 gap-5 bg-gray-100 w-full h-full p-15 rounded-md mt-15">
-          {partners.map((img, i) => (
-            <div className="py-5 bg-white rounded-xl shadow-md  ">
-              <img
-                src={img}
-                alt={`${img} ${i}`}
-                key={i}
-                className="md:h-15 object-contain mx-auto"
-              />
-            </div>
-          ))}
+        <div
+          className="relative cursor-crosshair"
+          onMouseMove={handleMouseMove}
+        >
+          <div
+            className="
+            absolute inset-0 pointer-events-none transition-opacity duration-300
+            "
+            style={{
+              background: `
+            radial-gradient(300px circle at ${position.x}px ${position.y}px,
+              rgba(56,189,248,0.35),
+              rgba(168,85,247,0.25),
+              rgba(14,165,233,0.15),
+              transparent 80%)
+          `,
+              filter: "blur(40px)",
+              opacity: 1,
+            }}
+          ></div>
+          <div className=" grid grid-cols-4 gap-5 bg-gradient-to-r from-[#0f172a] to-[#1e293b]  w-full h-full p-15 rounded-2xl mt-15">
+            {partners.map((img, i) => (
+              <div
+                className="py-5 px-6 rounded-2xl bg-white border-1 hover:border-blue-800
+  text-gray-200 shadow-lg 
+  transition-all duration-300 ease-in-out  "
+              >
+                <img
+                  src={img}
+                  alt={`${img} ${i}`}
+                  key={i}
+                  className="md:h-15 object-contain mx-auto"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
