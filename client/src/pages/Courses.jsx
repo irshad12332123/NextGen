@@ -6,6 +6,7 @@ import { GrUserExpert } from "react-icons/gr";
 import { SiGooglemarketingplatform } from "react-icons/si";
 import { BsCircleSquare } from "react-icons/bs";
 import { motion } from "motion/react";
+import BlobAnimation from "../components/animated-components/BlobAnimation";
 const Courses = () => {
   const cards = [
     {
@@ -93,19 +94,13 @@ const Courses = () => {
             className="absolute -z-10 -top-15  rounded-full filter blur-2xl bg-blue-500 w-50 h-50 -right-15"
           ></motion.div>
 
-          <motion.div
-            animate={{
-              x: [0, 30, -20, 0],
-              y: [0, -20, 20, 0],
-              scale: [1, 1.6, 0.9, 1],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute -z-10 top-8 mix-blend-multiply  rounded-full filter blur-2xl bg-amber-500 w-50 h-50 -right-15"
-          ></motion.div>
+          <BlobAnimation
+            x={[0, 30, -20, 0]}
+            y={[0, -20, 20, 0]}
+            scale={[1, 1.6, 0.9, 1]}
+            positionStyles={" top-8 bg-amber-500 -right-15"}
+            duration={10}
+          />
         </div>
       </div>
     </div>
