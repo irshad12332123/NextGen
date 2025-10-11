@@ -9,6 +9,7 @@ import { RiSearchLine } from "react-icons/ri";
 import CustomCard from "../components/cards/CustomCard";
 import { engineeringCourses } from "../../types/CourseData";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Courses = () => {
   const [search, setSearch] = useState("");
@@ -109,7 +110,7 @@ const Courses = () => {
         </div>
       </div>
       <div className="px-50 w-full">
-        <div className="mt-5 bg-blue-200 w-1/2 flex p-2 rounded-full shadow-md justify-between ">
+        <div className="mt-5 bg-blue-200 w-1/2 flex p-2 rounded-full shadow-md justify-between border-1  border-blue-400 ">
           <input
             type="text"
             value={search}
@@ -121,14 +122,17 @@ const Courses = () => {
             onClick={() => {
               handleSearch(search);
             }}
-            className=" hover:opacity-80 cursor-pointer md:text-5xl bg-blue-500 rounded-full p-2"
+            className=" hover:opacity-80 cursor-pointer  md:text-5xl bg-blue-500 rounded-full p-2"
           />
         </div>
-        <div className=" flex gap-5 mt-2">
+        <div className=" flex gap-5 mt-5">
           {courseFilterOp.map((filter, i) => (
             <p
               className="px-5 py-2 rounded-full bg-blue-100  cursor-pointer transition-all duration-100 shadow-xl hover:bg-blue-500 hover:text-white"
               key={i}
+              onClick={(e) => {
+                handleSearch(e.target.innerText);
+              }}
             >
               {filter}
             </p>
@@ -136,9 +140,13 @@ const Courses = () => {
         </div>
       </div>
 
-      <div className=" mt-20 grid grid-cols-4  py-15 px-50 gap-5 bg-gradient-to-br from-[#1e293b] to-[#0f172a] ">
+      <div className=" mt-10 grid grid-cols-4  py-15 px-50 gap-5  ">
         {filteredCourses.map((course, i) => (
-          <CustomCard cardDetails={course} key={i} />
+          <CustomCard
+            cardDetails={course}
+            key={i}
+            link={`/courses/${course.id}`}
+          />
         ))}
       </div>
     </div>
