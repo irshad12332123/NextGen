@@ -11,7 +11,7 @@ export default function MainLayout() {
       <NavBar />
       {/* Main page content */}
       <main className="flex-grow ">
-        <Outlet />k
+        <Outlet />
       </main>
       {/* <Footer /> */}
       <Footer />
