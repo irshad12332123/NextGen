@@ -1,18 +1,33 @@
-import React, { useState } from "react";
 import ImageCard from "../components/cards/ImageCard";
-import CourseCard from "../components/cards/CourseCard";
+import FeatureCard from "../components/cards/FeatureCard";
 import { GiFlatPlatform } from "react-icons/gi";
 import { GrUserExpert } from "react-icons/gr";
 import { SiGooglemarketingplatform } from "react-icons/si";
 import { BsCircleSquare } from "react-icons/bs";
 import BlobAnimation from "../components/animated-components/BlobAnimation";
 import { RiSearchLine } from "react-icons/ri";
+import CustomCard from "../components/cards/CustomCard";
+import { engineeringCourses } from "../../types/CourseData";
+import { useState } from "react";
 
 const Courses = () => {
   const [search, setSearch] = useState("");
-  const handleSearch = async (courseName) => {
-    console.log("Seardched Course", courseName);
+  const [filteredCourses, setFilteredCourses] = useState(
+    engineeringCourses.slice(0, 6)
+  );
+
+  const filterCourses = (search) => {
+    console.log(search);
+    return engineeringCourses
+      .filter((course) => course.name.toLowerCase().includes(search))
+      .slice(0, 6);
   };
+
+  const handleSearch = (courseName) => {
+    console.log("Seardched Course", courseName);
+    setFilteredCourses(filterCourses(courseName));
+  };
+
   const cards = [
     {
       icon: GiFlatPlatform,
@@ -57,7 +72,7 @@ const Courses = () => {
         {/*  cards */}
         <div className="relative mt-15 bg-gray-200 p-8 flex gap-5 rounded-md">
           {cards.map((card, i) => (
-            <CourseCard key={i} courseCard={card} />
+            <FeatureCard key={i} courseCard={card} />
           ))}
 
           <BlobAnimation
@@ -94,7 +109,7 @@ const Courses = () => {
         </div>
       </div>
       <div className="px-50 w-full">
-        <div className="mt-5 bg-green-200 w-1/2 flex p-2 rounded-full justify-between ">
+        <div className="mt-5 bg-blue-200 w-1/2 flex p-2 rounded-full shadow-md justify-between ">
           <input
             type="text"
             value={search}
@@ -102,18 +117,29 @@ const Courses = () => {
             placeholder="Which course are you looking for?"
             className="focus:outline-0 flex-1  outline-0 rounded-xl  text-md p-3"
           />
-          <RiSearchLine className=" hover:opacity-80 cursor-pointer md:text-5xl bg-amber-500 rounded-full p-2" />
+          <RiSearchLine
+            onClick={() => {
+              handleSearch(search);
+            }}
+            className=" hover:opacity-80 cursor-pointer md:text-5xl bg-blue-500 rounded-full p-2"
+          />
         </div>
         <div className=" flex gap-5 mt-2">
           {courseFilterOp.map((filter, i) => (
             <p
-              className="px-5 py-2 rounded-full bg-amber-500 cursor-pointer hover:opacity-80"
+              className="px-5 py-2 rounded-full bg-blue-100  cursor-pointer transition-all duration-100 shadow-xl hover:bg-blue-500 hover:text-white"
               key={i}
             >
               {filter}
             </p>
           ))}
         </div>
+      </div>
+
+      <div className=" mt-20 grid grid-cols-4  py-15 px-50 gap-5 bg-gradient-to-br from-[#1e293b] to-[#0f172a] ">
+        {filteredCourses.map((course, i) => (
+          <CustomCard cardDetails={course} key={i} />
+        ))}
       </div>
     </div>
   );

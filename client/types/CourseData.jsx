@@ -1,0 +1,86 @@
+export const engineeringCourses = [
+  {
+    id: "btech-cs",
+    name: "B.Tech in Computer Science and Engineering",
+    description: "Focuses on software, systems, and coding.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "btech-it",
+    name: "B.Tech in Information Technology",
+    description: "Covers networks, databases, and IT systems.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "btech-mech",
+    name: "B.Tech in Mechanical Engineering",
+    description: "Designs machines, tools, and mechanisms.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "btech-civil",
+    name: "B.Tech in Civil Engineering",
+    description: "Builds infrastructure, roads, and bridges.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "btech-elec",
+    name: "B.Tech in Electrical Engineering",
+    description: "Works with circuits, power, and electronics.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "btech-ece",
+    name: "B.Tech in Electronics and Communication Engineering",
+    description: "Focuses on signals, devices, and communication.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "btech-ai",
+    name: "B.Tech in Artificial Intelligence and Machine Learning",
+    description: "Teaches AI models and intelligent systems.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "btech-ds",
+    name: "B.Tech in Data Science",
+    description: "Analyzes data using ML and statistics.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "btech-cyber",
+    name: "B.Tech in Cyber Security",
+    description: "Protects data, systems, and networks.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "btech-robotics",
+    name: "B.Tech in Robotics and Automation",
+    description: "Combines AI, mechanics, and sensors.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "btech-iot",
+    name: "B.Tech in Internet of Things (IoT)",
+    description: "Connects smart devices via the Internet.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "bca-ai",
+    name: "BCA in Artificial Intelligence",
+    description: "Applies AI concepts to real problems.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "bca-cc",
+    name: "BCA in Cloud Computing",
+    description: "Focuses on cloud-based systems and apps.",
+    src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+  },
+  {
+    id: "bca-ds",
+    name: "BCA in Data Science",
+    description: "Extracts insights from structured data.",
+    src: "https://images.unsplash.com/photo-1458668383970-8d",
+  },
+];
