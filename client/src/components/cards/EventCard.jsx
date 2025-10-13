@@ -1,13 +1,20 @@
 import React from "react";
 import { SlCalender } from "react-icons/sl";
 import { FaChevronRight } from "react-icons/fa";
-function EventCard() {
+import { Link } from "react-router-dom";
+function EventCard({ type = "primary" }) {
   return (
-    <div className="flex items-center gap-4 shadow-xl border-1 border-gray-400 rounded-xl p-4 group">
+    <div className="flex hover:border-blue-500 items-center gap-4 shadow-xl group border-1 border-gray-400 rounded-md p-5 group">
       {/* Date Badge */}
-      <div className="bg-blue-200 rounded-xl shadow-md px-4 py-2 flex flex-col items-center justify-center">
-        <SlCalender className="text-2xl" />
-        <p className="text-xl font-bold text-black">12th</p>
+      <div
+        className={`bg-blue-200 rounded-md shadow-md  flex flex-col ${
+          type === "primary"
+            ? "px-4 py-2"
+            : "flex-col-reverse px-7 p-3 text-white bg-blue-500"
+        } items-center justify-center`}
+      >
+        {type === "primary" ? <SlCalender className="text-2xl" /> : <p>Nov</p>}
+        <p className="text-3xl font-bold ">12</p>
       </div>
 
       {/* Event Details */}
@@ -19,7 +26,9 @@ function EventCard() {
           magni, dignissimos natus? Illum beatae doloribus commodi quidem modi!
         </p>
       </div>
-      <FaChevronRight />
+      <Link to={"/events"}>
+        <FaChevronRight className="group-hover:bg-blue-400 p-2 text-4xl transition-all duration-150 rounded-xl hover:cursor-pointer" />
+      </Link>
     </div>
   );
 }

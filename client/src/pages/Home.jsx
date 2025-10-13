@@ -10,6 +10,7 @@ import Carousel from "../components/Carousel";
 import RankingCard from "../components/cards/RankingCard";
 import MarqueeSlider from "../components/marquee-slider/TextMarquee";
 import HiringCompanies from "../components/HiringCompanies";
+import CustomCard from "../components/cards/CustomCard";
 const Home = () => {
   const facilities = [
     {
@@ -76,40 +77,10 @@ const Home = () => {
       content: "Immerse yourself in history and art amidst lush forests.",
     },
     {
-      src: "https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0",
+      src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
       link: "Join Plantation",
       title: "Ocean Plantation Drive",
       content: "Participate in environmental conservation drives.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
-      link: "Student Life",
-      title: "Waterfall Student Life",
-      content: "Engage in vibrant campus events near natural waterfalls.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1507097634215-e82e6b518529",
-      link: "City Exploration",
-      title: "City Life",
-      content: "Experience student life in a bustling cityscape.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1500534623283-312aade485b7",
-      link: "Coffee & Study",
-      title: "Campus Cafe",
-      content: "Relax and study in cozy campus cafes.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29",
-      link: "Healthy Meals",
-      title: "Food Court",
-      content: "Enjoy nutritious meals and snacks at the campus food court.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1481349518771-20055b2a7b24",
-      link: "Read Books",
-      title: "Library Corner",
-      content: "Find your favorite books in quiet library corners.",
     },
   ];
 
@@ -230,8 +201,13 @@ const Home = () => {
               Lorem ipsum dolor sit, amet consectetur adipisicing elit
             </p>
           </div>
-          <div className="w-full h-full mt-20 mb-10 ">
-            <Carousel carouselImages={cardDetails} isCard={true} />
+          <div className="w-full h-full mt-20 mb-10 grid grid-cols-3 gap-1.5 px-50">
+            {/* <Carousel carouselImages={cardDetails} isCard={true} /> */}
+            {cardDetails.map((card, i) => (
+              <div key={i} className="max-h-140">
+                <CustomCard cardDetails={card} link={"/events"} />
+              </div>
+            ))}
           </div>
           <CustomBtn />
         </div>

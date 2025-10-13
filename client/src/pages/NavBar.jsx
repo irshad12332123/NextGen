@@ -33,13 +33,7 @@ const NavBar = () => {
     },
     {
       title: "Academics",
-      subTitles: [
-        "Undergraduate Programs",
-        "Graduate Programs",
-        "Online Learning",
-        "Departments",
-        "Course Catalog",
-      ],
+      subTitles: ["Undergraduate Programs", "Graduate Programs", "Departments"],
     },
     {
       title: "Research",

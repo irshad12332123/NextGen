@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ImageCard from "./ImageCard";
+import ImageCard from "../../components/cards/ImageCard";
 function AboutCard({ rowReverse = false }) {
   const [count, setCount] = useState(1);
   const images = {

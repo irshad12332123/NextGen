@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import ContactUs from "./pages/ContactUs";
+import Event from "./pages/Event";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Gallery = lazy(() => import("./pages/Gallery"));
@@ -21,6 +22,7 @@ const App = () => {
             <Route path="/courses" element={<Courses />} />
             <Route path="/courses/:courseId" element={<CourseDetails />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/events" element={<Event />} />
           </Route>
         </Routes>
       </Suspense>

@@ -50,7 +50,7 @@ function CourseDetails() {
             title={course.tuitionFee[0].title}
             description={course.tuitionFee[0].description}
           />
-        </div>
+          </div>
       </div>
     </div>
   );

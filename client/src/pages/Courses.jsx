@@ -9,7 +9,6 @@ import { RiSearchLine } from "react-icons/ri";
 import CustomCard from "../components/cards/CustomCard";
 import { engineeringCourses } from "../../types/CourseData";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const Courses = () => {
   const [search, setSearch] = useState("");

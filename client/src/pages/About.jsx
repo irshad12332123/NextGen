@@ -1,6 +1,5 @@
 import ImageCard from "../components/cards/ImageCard";
 import AboutCard from "../components/cards/AboutCard";
-import HiringCompanies from "../components/HiringCompanies";
 import { partners } from "../../types/Image";
 import { useState } from "react";
 

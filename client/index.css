@@ -1,7 +1,7 @@
 *{
   font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   box-sizing: border-box;
-  scrollbar-color: #155dfc  gray;
+  scrollbar-width: none;
 }
 
 html{
