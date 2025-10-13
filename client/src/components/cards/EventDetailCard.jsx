@@ -4,9 +4,10 @@ import { SlCalender } from "react-icons/sl";
 import { IoShareSocial } from "react-icons/io5";
 import eventBanner from "../../assets/event_page_banner.png";
 import { CiClock1 } from "react-icons/ci";
+import EventMetaData from "../EventMetaData";
 function EventDetailCard({ type = "primary" }) {
   return (
-    <div className="flex flex-col gap-3 bg-white rounded-xl shadow-xl ">
+    <div className="flex flex-col gap-3 bg-white rounded-xl shadow-md">
       {type === "primary" ? (
         <img
           src={eventBanner}
@@ -33,28 +34,12 @@ function EventDetailCard({ type = "primary" }) {
           consequuntur quia! Autem inventore voluptatibus aliquid provident enim
           ex nulla ad!
         </p>
-        <div className="flex gap-3 items-center text-[#626262]">
-          <span>
-            <SlCalender />
-          </span>{" "}
-          <p>Nov 01, 2025 - Nov 05, 2025</p>
-        </div>
+        <EventMetaData Icon={SlCalender} data={"Nov 01, 2025 - Nov 05, 2025"} />
 
         {type === "secondary" ? (
-          <div className="flex gap-3 items-center text-[#626262]">
-            <span>
-              <CiClock1 />
-            </span>{" "}
-            <p>10:00 A.M - 12:00 P.M</p>
-          </div>
+          <EventMetaData Icon={CiClock1} data={"10:00 A.M - 12:00 P.M"} />
         ) : null}
-
-        <div className="flex gap-3 items-center text-[#626262]">
-          <span>
-            <FaLocationPin />
-          </span>
-          Grand Auditorium
-        </div>
+        <EventMetaData Icon={FaLocationPin} data={"Grand Auditorium"} />
 
         <div className="flex justify-between items-center">
           {type === "primary" ? (

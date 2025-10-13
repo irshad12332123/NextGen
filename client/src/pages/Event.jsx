@@ -32,7 +32,7 @@ function Event() {
   ];
 
   return (
-    <div className="mt-30 w-full bg-[#F9FAFB] disable-scrollbar">
+    <div className="mt-30 w-full h-full bg-[#F9FAFB] disable-scrollbar">
       <ImageCard
         title="Discover Events"
         imageUrl={eventBanner}
@@ -96,7 +96,12 @@ function Event() {
           </div>
         </div>
 
-        <div className="">
+        <div className="mt-10 flex flex-col gap-5">
+          <EventCard type="secondary" />
+          <EventCard type="secondary" />
+          <EventCard type="secondary" />
+          <EventCard type="secondary" />
+          <EventCard type="secondary" />
           <EventCard type="secondary" />
         </div>
       </div>
