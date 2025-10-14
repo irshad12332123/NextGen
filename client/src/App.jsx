@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import ContactUs from "./pages/ContactUs";
 import Event from "./pages/Event";
+import Loader from "./components/Loader";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Gallery = lazy(() => import("./pages/Gallery"));
@@ -13,7 +14,7 @@ const App = () => {
   return (
     <BrowserRouter>
       {/* Wrapping all the children layouts */}
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />

@@ -14,7 +14,7 @@ function DisplayGallery({ galleryImages }) {
     console.log("lightGallery has been initialized");
   };
   return (
-    <div className="App">
+    <div className="mt-10">
       <LightGallery
         onInit={onInit}
         speed={300}
@@ -23,11 +23,12 @@ function DisplayGallery({ galleryImages }) {
         grid grid-cols-3
         "
       >
-        {galleryImages.map((image, index) => (
+        {galleryImages.slice(0, 8).map((image, index) => (
           <a key={index} href={image.src}>
             <img
               alt={image.title}
               src={image.src}
+              loading="lazy"
               className="max-w-[100%] block py-2 md:rounded-[2rem]"
             />
           </a>
