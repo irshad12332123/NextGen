@@ -201,7 +201,7 @@ const Home = () => {
               Lorem ipsum dolor sit, amet consectetur adipisicing elit
             </p>
           </div>
-          <div className="w-full h-full mt-20 mb-10 grid grid-cols-3 gap-1.5 px-50">
+          <div className="w-full h-full mt-20 mb-10 grid grid-cols-5 gap-1.5 ">
             {/* <Carousel carouselImages={cardDetails} isCard={true} /> */}
             {cardDetails.map((card, i) => (
               <div key={i} className="max-h-140">
