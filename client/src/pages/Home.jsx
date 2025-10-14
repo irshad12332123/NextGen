@@ -132,14 +132,14 @@ const Home = () => {
       </div>
       <div className="h-full w-full flex flex-col">
         {/* Ranking Cards */}
-        <div className="w-full h-full md:px-50 px-10 md:mt-20 bg-[#CAD5E2] py-10">
+        <div className="w-full h-full lg:px-50 px-10 md:mt-20 bg-[#CAD5E2] py-10">
           <div className="flex items-center justify-center mb-10  ">
             <p className="text-center text-3xl font-bold max-w-2xl">
               Proudly Distinguished by Our Prestigious Rankings and
               Accreditations
             </p>
           </div>
-          <div className="md:flex-row grid grid-cols-5 justify-center items-center  md:flex-wrap gap-2 ">
+          <div className="lg:flex-row grid md:grid-cols-4 lg:grid-cols-5 justify-center items-center lg:flex-wrap gap-2 ">
             <RankingCard />
             <RankingCard />
             <RankingCard />
@@ -153,9 +153,9 @@ const Home = () => {
           </div>
         </div>
         {/* Carousel */}
-        <div className="w-full h-full px-50 md:mt-30 ">
+        <div className="w-full h-full lg:px-50 md:px-20 md:mt-10 lg:mt-30 ">
           <div className="flex items-center justify-center mb-10 flex-col gap-1">
-            <p className="font-bold text-3xl max-w-5xl text-center">
+            <p className="font-bold text-3xl lg:max-w-5xl md:w-full text-center">
               Immerse yourself in a Global Educational Experience with peers
               from 65 countries
             </p>
@@ -181,10 +181,10 @@ const Home = () => {
           </p>
 
           {/* Displaying Events */}
-          <div className="flex px-50 w-full h-full gap-2">
-            <div className=" bg-blue-300 border-1 w-2/3 h-150 border-blue-600"></div>
+          <div className="flex lg:flex-row flex-row md:flex-col lg:px-50 md:px-20 w-full h-full gap-2">
+            <div className=" bg-blue-300 border-1 lg:w-2/3 md:w-full md:h-70 lg:h-150 border-blue-600"></div>
             {/* EventCard */}
-            <div className="flex flex-col gap-5 self-end">
+            <div className="flex flex-col gap-5 self-end md:mt-5">
               <EventCard />
               <EventCard />
               <EventCard />
@@ -202,19 +202,19 @@ const Home = () => {
               Lorem ipsum dolor sit, amet consectetur adipisicing elit
             </p>
           </div>
-          <div className="h-full mt-20 mb-10 grid grid-cols-5 px-20 gap-1.5 ">
-            {/* <Carousel carouselImages={cardDetails} isCard={true} /> */}
+          <div className="h-full mt-20 mb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 px-4 sm:px-10 lg:px-20 place-items-center">
             {cardDetails.map((card, i) => (
-              <div key={i} className="max-h-140">
-                <CustomCard cardDetails={card} link={"/events"} />
+              <div key={i} className="w-full">
+                <CustomCard cardDetails={card} link="/events" />
               </div>
             ))}
           </div>
+
           <CustomBtn />
         </div>
       </div>
       {/* Review Section */}
-      <div className="w-full h-full mt-10 md:mb-10  flex flex-col px-50">
+      <div className="w-full h-full mt-10 md:mb-10  flex flex-col md:px-20 lg:px-50">
         <div className="items-center justify-center">
           <p className="text-4xl  text-blue-600">
             Real voices. Real stories. Real impact.

@@ -15,7 +15,7 @@ function ImageMarquee({ imageList = marqueeImages, speed, where }) {
         >
           {imageList.map((item, i) => (
             <div
-              className={`flex gap-2 p-5 w-50 justify-center ${
+              className={`flex gap-2 lg:p-5 md:p-3 p-2 w-50 justify-center ${
                 i % 2 == 0 ? "bg-white" : "bg-[#F4F5F9]"
               }  border-r-1 border-gray-300 `}
             >

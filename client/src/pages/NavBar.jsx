@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, Links, NavLink } from "react-router-dom";
-import phone from "../assets/phone.png";
 import clsx from "clsx";
 import { RiArrowDownWideFill } from "react-icons/ri";
+import { PiPhoneDisconnectThin } from "react-icons/pi";
+
 const NavBar = () => {
   const [activeDropDowm, setActiveDropDowm] = useState(null);
   const handleMouseOn = (i) => {
@@ -57,7 +58,7 @@ const NavBar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-10 flex justify-center flex-col ">
-      <nav className="bg-white px-35 md:py-2 py-1 flex justify-between items-center w-full ">
+      <nav className="bg-white lg:px-35 md:px-5 px-2  md:py-2 py-1 flex justify-between items-center w-full ">
         {/* Next Gen logo compartment */}
         <div className="flex flex-col leading-tight">
           <p className="text-[#012F6D] font-bold md:text-3xl text-xl justify-self-end m-0 p-0">
@@ -70,7 +71,7 @@ const NavBar = () => {
           {/* Rayat bahra University Logo Section */}
         </div>
 
-        <ul className="gap-5 items-center justify-center p-3 border-[#012F6D] md:flex hidden">
+        <ul className="gap-5 items-center justify-center p-3 border-[#012F6D] lg:flex hidden">
           {/* Rendering all the links for diffnrtnt routes */}
           {navLinks.map((linkObj, index) => (
             <NavLink
@@ -90,17 +91,17 @@ const NavBar = () => {
           ))}
         </ul>
         <div className="bg-blue-500 rounded-xl py-3 px-2 flex text-white gap-1">
-          <img src={phone} alt="call_img_png" className="self-center w-5" />
-          <div className="md:block hidden">
-            <h5 className="md:text-sm text-xs">Admission Helpline</h5>
-            <p className="md:text-sm text-xs">+91 98XXXXXXX</p>
+          <PiPhoneDisconnectThin size={35} className=" self-center" />
+          <div className="lg:block hidden">
+            <h5 className="lg:text-sm text-xs">Admission Helpline</h5>
+            <p className="lg:text-sm text-xs">+91 98XXXXXXX</p>
           </div>
         </div>
       </nav>
       <div className="md:h-12  md:relative h-10 w-full bg-[#2B363A] flex justify-center gap-40 items-center text-white">
         {headerNavLinks.map((item, i) => (
           <div
-            className="h-full flex items-center justify-center "
+            className="h-full hidden lg:flex items-center justify-center "
             onMouseEnter={() => handleMouseOn(i)}
             onMouseLeave={handleMouseOver}
             key={i}
