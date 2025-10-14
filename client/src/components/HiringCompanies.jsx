@@ -4,11 +4,11 @@ import { marqueeImages_2 } from "../../types/Image";
 import { marqueeImages_3 } from "../../types/Image";
 function HiringCompanies({ noContent = false }) {
   return (
-    <div className=" lg:px-50 md:px-20">
+    <div className=" lg:px-50 px-10 md:px-20">
       {noContent ? null : (
-        <div className="flex lg:justify-between md:flex-col lg:flex-row flex-row mt-20 mb-30">
+        <div className="flex lg:justify-between flex-col lg:flex-row  mt-20 mb-30">
           <div className="lg:w-2/3 md:w-full">
-            <p className="lg:w-2/3 md:w-full  md:mb-10 mb-15 lg:mb-15 text-6xl">
+            <p className="lg:w-2/3 md:w-full mb-5  md:mb-10  lg:mb-15 text-4xl md:text-6xl">
               Our Esteemed Hiring Partners – Trusted by top MNCs and startups
               for talent
             </p>
@@ -19,7 +19,7 @@ function HiringCompanies({ noContent = false }) {
               quod? Id modi alias molestias.
             </p>
           </div>
-          <div className="lg:w-1/2 md:w-full md:mt-5 bg-blue-300 border-1 lg:h-150 md:h-70 border-blue-600"></div>
+          <div className="lg:w-1/2 md:w-full md:mt-5 bg-blue-300 border-1 lg:h-150 h-70 border-blue-600"></div>
         </div>
       )}
 

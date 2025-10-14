@@ -29,8 +29,8 @@ const Footer = () => {
   return (
     <div className=" bg-gradient-to-br from-[#0f172a] to-[#383f4b] gap-12 text-white w-full h-full pt-20 flex justify-between flex-col mb-15">
       <p className="text-3xl font-bold px-20 ">JOIN NOW</p>
-      <div className="flex gap-15 px-20">
-        <div className="w-1/3">
+      <div className="flex md:flex-row flex-col gap-15 md:px-20 px-10">
+        <div className="md:w-1/3 w-full">
           <p className="text-2xl font-bold">About</p>
           <p className="max-w-3xl text-[#cbd5e1]">
             Next gen academy powers bla bla bla, Next gen academy powers bla bla
@@ -38,7 +38,7 @@ const Footer = () => {
             bla bla bla....
           </p>
         </div>
-        <div className="w-1/2">
+        <div className="w-full flex flex-row justify-between md:flex-col md:w-1/2">
           <div className="mb-5">
             <p className="text-2xl  font-bold">Quick Links</p>
             {navLinks.map((link, i) => (

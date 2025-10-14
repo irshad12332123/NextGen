@@ -9,7 +9,7 @@ function ImageCard({
 }) {
   console.log(imageUrl);
   return (
-    <div className="relative w-full md:h-120 flex items-center justify-center overflow-hidden">
+    <div className="relative w-full h-70 md:h-120 flex items-center justify-center overflow-hidden">
       {imageRequired ? (
         <img
           src={imageUrl}
@@ -21,7 +21,7 @@ function ImageCard({
       )}
 
       <div className="absolute z-1 flex flex-col items-center justify-center gap-5">
-        <p className="max-w-6xl md:text-5xl text-3xl text-white font-bold text-center">
+        <p className="max-w-6xl md:text-5xl  text-2xl text-white font-bold text-center">
           {title}
         </p>
         {buttonRequired && (

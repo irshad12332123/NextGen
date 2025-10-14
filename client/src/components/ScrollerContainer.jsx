@@ -20,7 +20,7 @@ export default function HorizontalCarousel({ Card, length }) {
       {/* Left arrow */}
       <button
         onClick={() => scroll("left")}
-        className="absolute left-2 z-10 p-2 bg-blue-500 shadow-md  rounded-md hover:bg-black transition"
+        className="absolute left-2  p-2 bg-blue-500 shadow-md  rounded-md hover:bg-black transition"
       >
         <ChevronLeft size={22} className="text-white" />
       </button>
@@ -43,7 +43,7 @@ export default function HorizontalCarousel({ Card, length }) {
       {/* Right arrow */}
       <button
         onClick={() => scroll("right")}
-        className="absolute -right-5 z-10 p-2 bg-blue-500 shadow-md  rounded-md hover:bg-black transition"
+        className="absolute -right-5 p-2 bg-blue-500 shadow-md  rounded-md hover:bg-black transition"
       >
         <ChevronRight size={22} className="text-white" />
       </button>

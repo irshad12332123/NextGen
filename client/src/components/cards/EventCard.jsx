@@ -18,14 +18,14 @@ function EventCard({ type = "primary" }) {
         } items-center justify-center`}
       >
         {type === "primary" ? <SlCalender className="text-2xl" /> : <p>Nov</p>}
-        <p className="text-3xl font-bold ">12</p>
+        <p className="md:text-3xl text-xl font-bold ">12</p>
       </div>
 
       {/* Event Details */}
       <div>
         <p className="text-xl font-semibold">Community indexed data</p>
         <p
-          className={` text-gray-800 leading-relaxed max-w-5xl line-clamp-1  ${
+          className={` text-gray-800 md:text-xl text-sm leading-relaxed max-w-5xl line-clamp-1  ${
             type === "primary" ? "" : ""
           }`}
         >
