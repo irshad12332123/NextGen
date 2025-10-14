@@ -5,7 +5,7 @@ function CustomCard({ cardDetails, link }) {
   if (!cardDetails) return;
   return (
     <div className="flex flex-col h-full w-full relative  group rounded-2xl bg-white shadow-2xl">
-      <div className=" h-full w-full relative overflow-hidden rounded-t-2xl  ">
+      <div className="h-90 w-full relative overflow-hidden rounded-t-2xl  ">
         <img
           src={cardDetails.src}
           alt="Btech"

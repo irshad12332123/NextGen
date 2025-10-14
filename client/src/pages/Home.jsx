@@ -11,6 +11,7 @@ import RankingCard from "../components/cards/RankingCard";
 import MarqueeSlider from "../components/marquee-slider/TextMarquee";
 import HiringCompanies from "../components/HiringCompanies";
 import CustomCard from "../components/cards/CustomCard";
+import ScrollerContainer from "@/components/ScrollerContainer";
 const Home = () => {
   const facilities = [
     {
@@ -201,7 +202,7 @@ const Home = () => {
               Lorem ipsum dolor sit, amet consectetur adipisicing elit
             </p>
           </div>
-          <div className="w-full h-full mt-20 mb-10 grid grid-cols-5 gap-1.5 ">
+          <div className="h-full mt-20 mb-10 grid grid-cols-5 px-20 gap-1.5 ">
             {/* <Carousel carouselImages={cardDetails} isCard={true} /> */}
             {cardDetails.map((card, i) => (
               <div key={i} className="max-h-140">
@@ -221,11 +222,9 @@ const Home = () => {
           <p className=" text-[#2d2d2d] mt-2">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit
           </p>
-          <div className=" w-full h-full flex gap-2  md:mb-10  flex-wrap  mx-auto py-10">
-            <ReviewCard />
-            <ReviewCard />
-            <ReviewCard />
-            <ReviewCard />
+
+          <div className="w-full md:mb-10  bg-gray-50">
+            <ScrollerContainer Card={ReviewCard} length={10} />
           </div>
         </div>
       </div>

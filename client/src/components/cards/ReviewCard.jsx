@@ -1,7 +1,7 @@
 import profile from "../../assets/profile.png";
 function ReviewCard() {
   return (
-    <div className="rounded-xl border-gray-300 border-1 p-5 hover:border-blue-600 hover:shadow-[0_0_10px_rgb(120,120,255)] transition-all duration-100 max-w-92">
+    <div className="rounded-xl border-gray-300 border-1 p-5 hover:border-blue-600 hover:shadow-[0_0_10px_rgb(120,120,255)] transition-all duration-100 w-full">
       <div className="flex md:p-5 p-3 md:gap-5 gap-1 items-center border-b-1 mb-5 border-gray-400">
         <img
           src={profile}
