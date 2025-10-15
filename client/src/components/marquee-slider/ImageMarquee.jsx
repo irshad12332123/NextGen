@@ -1,9 +1,9 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { marqueeImages } from "../../../types/Image";
-function ImageMarquee({ imageList = marqueeImages, speed, where }) {
+function ImageMarquee({ imageList = marqueeImages, speed, where = "left" }) {
   return (
-    <div className=" flex flex-col gap-10  border-t-1 border-b-1 border-gray-300">
+    <div className=" flex flex-col gap-5 md:gap-10  border-t-1 border-b-1 border-gray-300">
       {imageList ? (
         <Marquee
           gradient={true}
@@ -11,18 +11,18 @@ function ImageMarquee({ imageList = marqueeImages, speed, where }) {
           pauseOnHover={true}
           className=""
           autoFill={true}
-          direction={where ? where : "left"}
+          direction={where}
         >
           {imageList.map((item, i) => (
             <div
-              className={`flex gap-2 lg:p-5 md:p-3 p-2 w-50 justify-center ${
+              className={`flex gap-2 lg:p-5 md:p-3 p-2 md:w-50 w-20 justify-center ${
                 i % 2 == 0 ? "bg-white" : "bg-[#F4F5F9]"
               }  border-r-1 border-gray-300 `}
             >
               <img
                 src={item}
                 alt={`item-${i}`}
-                className="h-12 w-auto object-contain"
+                className="md:h-12 h-7 w-auto object-contain"
               />
             </div>
           ))}

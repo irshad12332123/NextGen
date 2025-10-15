@@ -8,10 +8,10 @@ function Announcements() {
     "Perform your best",
   ];
   return (
-    <div className="fixed bottom-0 w-full h-15 bg-[#68737f] flex items-center z-50">
+    <div className="fixed bottom-0 w-full h-10 md:h-15 bg-[#68737f] flex items-center z-50">
       {/* TITLE */}
       <div className="bg-[#3b454e] absolute z-999 h-full flex items-center justify-center p-2">
-        <p className="text-white">ANNOUNCEMENT</p>
+        <p className="text-white md:text-xl text-xs">ANNOUNCEMENTS</p>
       </div>
       {/* ANNOUNCEMENTS */}
       <motion.div
@@ -23,7 +23,7 @@ function Announcements() {
           <Link
             key={index}
             to={""}
-            className=" font-medium text-xl border-r px-10"
+            className=" font-medium md:text-xl text-xs border-r px-10"
           >
             {announcement}
           </Link>

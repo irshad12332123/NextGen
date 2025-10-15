@@ -7,7 +7,7 @@ export default function HorizontalCarousel({ Card, length }) {
   const scroll = (direction) => {
     const { current } = scrollRef;
     if (current) {
-      const scrollAmount = 350; // adjust per card width
+      const scrollAmount = 500;
       current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -20,7 +20,7 @@ export default function HorizontalCarousel({ Card, length }) {
       {/* Left arrow */}
       <button
         onClick={() => scroll("left")}
-        className="absolute left-2  p-2 bg-blue-500 shadow-md  rounded-md hover:bg-black transition"
+        className="absolute  md:left-2  p-2 bg-blue-500 shadow-md  rounded-md hover:bg-black transition"
       >
         <ChevronLeft size={22} className="text-white" />
       </button>

@@ -132,9 +132,9 @@ const Home = () => {
       </div>
       <div className="h-full w-full flex flex-col">
         {/* Ranking Cards */}
-        <div className="w-full h-full lg:px-50 px-10 md:mt-20 bg-[#CAD5E2] py-10">
+        <div className="w-full h-full lg:px-50 px-2 md:mt-20 bg-[#CAD5E2] py-10">
           <div className="flex items-center justify-center mb-10  ">
-            <p className="text-center text-3xl font-bold max-w-2xl">
+            <p className="text-center text-xl md:text-3xl font-bold max-w-2xl">
               Proudly Distinguished by Our Prestigious Rankings and
               Accreditations
             </p>
@@ -153,13 +153,13 @@ const Home = () => {
           </div>
         </div>
         {/* Carousel */}
-        <div className="w-full h-full lg:px-50 md:px-20 px-20 mt-10 md:mt-10 lg:mt-30 ">
+        <div className="w-full h-full lg:px-50 md:px-20 px-5 mt-10 md:mt-10 lg:mt-30 ">
           <div className="flex items-center justify-center mb-10 flex-col gap-1">
-            <p className="font-bold lg:text-3xl md:text-3xl text-2xl lg:max-w-5xl md:w-full text-center">
+            <p className="font-bold w-full md:text-3xl text-xl lg:max-w-5xl md:text-center">
               Immerse yourself in a Global Educational Experience with peers
               from 65 countries
             </p>
-            <p className="opacity-70 lg:text-xl md:text-xl text:sm text-center max-w-3xl">
+            <p className="opacity-70 md:text-xl text-xs md:text-center max-w-3xl">
               Uniting students worldwide, our platform fosters a vibrant network
               with global learning opportunities and optimal learning
               experiences.
@@ -173,16 +173,18 @@ const Home = () => {
         {/* Hiring componenet */}
         <HiringCompanies />
       </div>
-      <div className="flex my-30">
-        <div className="flex-1 flex items-center justify-center flex-col">
-          <p className="text-3xl font-semibold">Upcoming Events</p>
-          <p className="text-center mt-3 mb-10 text-sm md:text-xl max-w-lg  text-[#616161]">
+      <div className="flex my-20 md:my-30">
+        <div className="flex-1 flex   justify-center flex-col">
+          <p className="md:text-3xl text-xl px-5 font-semibold">
+            Upcoming Events
+          </p>
+          <p className="md:text-center mt-3 mb-10 text-xs px-5  md:text-xl max-w-lg  text-[#616161]">
             Stay informed and get involved! Here are out latest community events
           </p>
 
           {/* Displaying Events */}
-          <div className="flex lg:flex-row flex-row md:flex-col lg:px-50 md:px-20 w-full h-full gap-2">
-            <div className=" bg-blue-300 border-1 lg:w-2/3 md:w-full md:h-70 lg:h-150 border-blue-600"></div>
+          <div className="flex lg:flex-row  flex-col lg:px-50 px-5 md:px-20 w-full h-full gap-2">
+            <div className=" bg-blue-300 border-1 lg:w-2/3 md:w-full h-50 md:h-70 lg:h-150 border-blue-600"></div>
             {/* EventCard */}
             <div className="flex flex-col gap-5 self-end md:mt-5">
               <EventCard />
@@ -194,15 +196,15 @@ const Home = () => {
         </div>
       </div>
       {/* Facilities */}
-      <div className="relative w-full h-full mt-10 mb-20 flex flex-col flex-1 border-t-2 border-blue-900">
+      <div className="relative w-full h-full md:my-20  flex flex-col flex-1 border-t-2 border-blue-900">
         <div className="bg-slate-300  p-5 flex flex-col items-center justify-center">
-          <div className=" flex flex-col items-center justify-center absolute -top-15 bg-blue-400 border-1 border-blue-900 rounded-2xl p-5">
-            <p className="text-2xl md:text-4xl font-bold ">Our Facilities</p>
-            <p className=" text-white text-sm md:text-xl mt-5">
+          <div className=" flex flex-col items-center justify-center absolute -top-10 md:-top-15 bg-blue-300 border-1 border-blue-900 rounded-md md:p-5 p-2">
+            <p className="text-xl md:text-4xl font-bold ">Our Facilities</p>
+            <p className=" text-gray-800 text-xs md:text-xl md:mt-5 mt-2">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit
             </p>
           </div>
-          <div className="h-full mt-20 mb-10 grid grid-cols-2  md:grid-cols-3 lg:grid-cols-5 gap-6 px-4 sm:px-10 lg:px-20 place-items-center">
+          <div className="h-full mt-20 mb-10 grid grid-cols-1  md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6  lg:px-20 place-items-center">
             {cardDetails.map((card, i) => (
               <div key={i} className="w-full">
                 <CustomCard cardDetails={card} link="/events" />
@@ -212,16 +214,16 @@ const Home = () => {
         </div>
       </div>
       {/* Review Section */}
-      <div className="w-full h-full mt-10 md:mb-10  flex flex-col px-10 md:px-20 lg:px-50">
+      <div className="w-full h-full md:mt-10 mt-5  md:mb-10  flex flex-col px-5 md:px-20 lg:px-50">
         <div className="items-center justify-center">
-          <p className="text-4xl  text-blue-600">
+          <p className="md:text-4xl text-xl text-blue-600">
             Real voices. Real stories. Real impact.
           </p>
-          <p className=" text-[#2d2d2d] mt-2">
+          <p className=" text-[#2d2d2d] mt-2 md:text-xl text-xs">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit
           </p>
 
-          <div className="w-full md:mb-10  bg-gray-50">
+          <div className="w-full md:mb-10  md:bg-gray-50">
             <ScrollerContainer Card={ReviewCard} length={10} />
           </div>
         </div>

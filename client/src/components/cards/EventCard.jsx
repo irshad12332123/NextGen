@@ -8,26 +8,30 @@ import { FaLocationPin } from "react-icons/fa6";
 import EventMetaData from "../EventMetaData";
 function EventCard({ type = "primary" }) {
   return (
-    <div className="flex hover:border-blue-500 items-center gap-4  justify-between group border-1 border-gray-400 rounded-md p-5 group">
+    <div className="flex hover:border-blue-500 items-center gap-4  justify-between group border-1 border-gray-400 rounded-md md:p-5 p-1 group">
       {/* Date Badge */}
       <div
         className={`bg-blue-200 rounded-md shadow-md  flex flex-col ${
           type === "primary"
-            ? "px-4 py-2"
-            : "flex-col-reverse px-7 p-3 text-white bg-blue-500"
+            ? "md:px-4 md:py-2 px-4 py-2"
+            : "flex-col-reverse md:px-7 md:p-3 px-5 p-2 text-white bg-blue-500"
         } items-center justify-center`}
       >
-        {type === "primary" ? <SlCalender className="text-2xl" /> : <p>Nov</p>}
-        <p className="md:text-3xl text-xl font-bold ">12</p>
+        {type === "primary" ? (
+          <SlCalender className="md:text-2xl text-xl" />
+        ) : (
+          <p>Nov</p>
+        )}
+        <p className="md:text-3xl text-md font-bold ">12</p>
       </div>
 
       {/* Event Details */}
       <div>
-        <p className="text-xl font-semibold">Community indexed data</p>
+        <p className="md:text-xl text-sm font-semibold">
+          Community indexed data
+        </p>
         <p
-          className={` text-gray-800 md:text-xl text-sm leading-relaxed max-w-5xl line-clamp-1  ${
-            type === "primary" ? "" : ""
-          }`}
+          className={` text-gray-800 md:text-xl text-xs leading-relaxed md:max-w-5xl line-clamp-1 }`}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Et obcaecati
           aut accusantium eveniet itaque eum rem dicta totam tenetur quod, nemo

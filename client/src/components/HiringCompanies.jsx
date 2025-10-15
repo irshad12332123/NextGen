@@ -4,26 +4,26 @@ import { marqueeImages_2 } from "../../types/Image";
 import { marqueeImages_3 } from "../../types/Image";
 function HiringCompanies({ noContent = false }) {
   return (
-    <div className=" lg:px-50 px-10 md:px-20">
+    <div className=" lg:px-50 px-5 md:px-20">
       {noContent ? null : (
-        <div className="flex lg:justify-between flex-col lg:flex-row  mt-20 mb-30">
+        <div className="flex lg:justify-between flex-col lg:flex-row  mt-20 md:mb-30">
           <div className="lg:w-2/3 md:w-full">
-            <p className="lg:w-2/3 md:w-full mb-5  md:mb-10  lg:mb-15 text-4xl md:text-6xl">
+            <p className="lg:w-2/3 w-full mb-2  md:mb-10  lg:mb-15 text-2xl md:text-6xl">
               Our Esteemed Hiring Partners – Trusted by top MNCs and startups
               for talent
             </p>
-            <p className="lg:w-2/3 md:w-full text-gray-500">
+            <p className="lg:w-2/3 md:w-full text-gray-500 text-xs md:text-xl">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Similique cumque expedita rem. Suscipit, modi dicta atque quae,
               quia dignissimos molestiae necessitatibus ex fugit delectus error
               quod? Id modi alias molestias.
             </p>
           </div>
-          <div className="lg:w-1/2 md:w-full md:mt-5 bg-blue-300 border-1 lg:h-150 h-70 border-blue-600"></div>
+          <div className="lg:w-1/2 md:w-full mt-5 bg-blue-300 border-1 lg:h-150  h-70 border-blue-600"></div>
         </div>
       )}
 
-      <div className="mt-10">
+      <div className="mt-5 md:mt-10">
         <ImageMarquee where={"right"} speed={100} />
         <ImageMarquee imageList={marqueeImages_3} where={"left"} speed={50} />
         <ImageMarquee imageList={marqueeImages_2} where={"right"} speed={100} />
