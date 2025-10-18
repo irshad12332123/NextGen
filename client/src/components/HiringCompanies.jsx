@@ -3,6 +3,32 @@ import ImageMarquee from "./marquee-slider/ImageMarquee";
 import { marqueeImages_2 } from "../../types/Image";
 import { marqueeImages_3 } from "../../types/Image";
 function HiringCompanies({ noContent = false }) {
+  const marqueeTitles = [
+    {
+      title: "25+",
+      description: "Years of Excellence",
+    },
+    {
+      title: "20,000+",
+      description: "Active Students",
+    },
+    {
+      title: "65+",
+      description: "Countries Represented",
+    },
+    {
+      title: "150+",
+      description: "Academic Programs",
+    },
+    {
+      title: "1,000+",
+      description: "Research Publications",
+    },
+    {
+      title: "A+",
+      description: "NAAC Accreditation",
+    },
+  ];
   return (
     <div className=" lg:px-50 px-5 md:px-20">
       {noContent ? null : (

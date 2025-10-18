@@ -15,6 +15,7 @@ const Gallery = () => {
             Our Campus
           </p>
           <SearchFilterBar />
+          
           <DisplayGallery galleryImages={galleryImages} />
         </div>
       </div>

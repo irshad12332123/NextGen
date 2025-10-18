@@ -13,7 +13,6 @@ const CourseDetails = lazy(() => import("./pages/CourseDetails"));
 const App = () => {
   return (
     <BrowserRouter>
-      {/* Wrapping all the children layouts */}
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route element={<MainLayout />}>

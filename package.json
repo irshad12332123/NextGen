@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "clsx": "^2.1.1",
     "react-fast-marquee": "^1.6.5"
   }
