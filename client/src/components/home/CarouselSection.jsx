@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Carousel from "@/components/Carousel";
-
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 const CarouselSection = () => {
+  const carouselParentRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+      carouselParentRef.current,
+      { opacity: 0, x: -150 },
+      {
+        opacity: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: carouselParentRef.current,
+          start: "top 10%",
+          scrub: 0.5,
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  });
+
   const cardDetails = [
     {
       src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
@@ -35,7 +56,10 @@ const CarouselSection = () => {
     },
   ];
   return (
-    <div className="w-full h-full lg:px-50 md:px-20 px-5 mt-10 md:mt-10 lg:mt-30 ">
+    <div
+      ref={carouselParentRef}
+      className="w-full h-full lg:px-50 md:px-20 px-5 mt-10 md:mt-10 lg:mt-30 "
+    >
       <div className="flex items-center justify-center mb-10 flex-col gap-1">
         <p className="font-bold w-full md:text-3xl text-xl lg:max-w-5xl md:text-center">
           Immerse yourself in a Global Educational Experience with peers from 65

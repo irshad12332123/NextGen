@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ImageMarquee from "./marquee-slider/ImageMarquee";
 import { marqueeImages_2 } from "../../types/Image";
 import { marqueeImages_3 } from "../../types/Image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 function HiringCompanies({ noContent = false }) {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+      ".slide-up",
+      { y: 50, opacity: 0, delay: 0.5 },
+      {
+        y: 0,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: ".slide-up",
+          start: "top -50%",
+          toggleActions: "play none none reverse",
+          markers: true,
+        },
+      }
+    );
+  });
   const marqueeTitles = [
     {
       title: "25+",
@@ -34,7 +53,7 @@ function HiringCompanies({ noContent = false }) {
       {noContent ? null : (
         <div className="flex lg:justify-between flex-col lg:flex-row  mt-20 md:mb-30">
           <div className="lg:w-2/3 md:w-full">
-            <p className="lg:w-2/3 w-full mb-2  md:mb-10  lg:mb-15 text-2xl md:text-6xl">
+            <p className="slide-up lg:w-2/3 w-full mb-2  md:mb-10  lg:mb-15 text-2xl md:text-6xl">
               Our Esteemed Hiring Partners – Trusted by top MNCs and startups
               for talent
             </p>
