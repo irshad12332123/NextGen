@@ -1,66 +1,41 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import RankingCard from "@/components/cards/RankingCard";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion, useInView } from "framer-motion";
 
 const RankingSection = () => {
   const rankingSectionRef = useRef(null);
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo(
-      ".slide-up",
-      { y: 50, opacity: 0, delay: 0.5 },
-      {
-        y: 0,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: ".slide-up",
-          start: "top 30%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-    gsap.fromTo(
-      rankingSectionRef.current.children,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        ease: "power2.out",
-        duration: 0.5,
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: rankingSectionRef.current,
-          start: "top 30%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-  }, []);
-
+  const textSlideRef = useRef(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const textIsInView = useInView(textSlideRef);
   return (
-    <div className="w-full h-full lg:px-50 px-2 md:mt-20 bg-[#CAD5E2] py-10">
+    <motion.div
+      className="w-full h-full lg:px-50 px-2 md:mt-20 bg-[#CAD5E2] py-10"
+      ref={ref}
+      initial={{ opacity: 0, y: 150 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 1 }}
+    >
       <div className="flex items-center justify-center mb-10">
-        <p className="slide-up text-center text-xl md:text-3xl font-bold max-w-2xl">
+        <motion.p
+          ref={textSlideRef}
+          initial={{ opacity: 0, x: -150 }}
+          animate={textIsInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1 }}
+          className="text-center text-xl md:text-3xl font-bold max-w-2xl"
+        >
           Proudly Distinguished by Our Prestigious Rankings and Accreditations
-        </p>
+        </motion.p>
       </div>
       <div
         ref={rankingSectionRef}
         className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-center gap-2"
       >
-        <RankingCard />
-        <RankingCard />
-        <RankingCard />
-        <RankingCard />
-        <RankingCard />
-        <RankingCard />
-        <RankingCard />
-        <RankingCard />
-        <RankingCard />
-        <RankingCard />
+        {Array.from({ length: 10 }).map((_, i) => (
+          <RankingCard key={i} />
+        ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ImageCard from "../components/cards/ImageCard";
 import { engineeringCourses } from "../../types/CourseData";
 import BlobAnimation from "../components/animated-components/BlobAnimation";
+import { useGSAP } from "@gsap/react";
 
 function ShowDetailCard({ title, description }) {
   return (
@@ -18,7 +19,7 @@ function CourseDetails() {
   const course = engineeringCourses.find((course) => course.id === courseId);
   console.log("Inside you", course);
   return (
-    <div className="w-full h-full bg-[#F6FAFF]">
+    <div className="test w-full h-full bg-[#F6FAFF]">
       <ImageCard title={course.name} buttonRequired={false} />
       <div className="flex flex-col  justify-center items-center w-full h-full mt-20 relative">
         {/*  Ptogram overview */}
@@ -50,7 +51,7 @@ function CourseDetails() {
             title={course.tuitionFee[0].title}
             description={course.tuitionFee[0].description}
           />
-          </div>
+        </div>
       </div>
     </div>
   );

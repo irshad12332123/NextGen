@@ -2,26 +2,9 @@ import React, { useEffect, useRef } from "react";
 import Carousel from "@/components/Carousel";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 const CarouselSection = () => {
   const carouselParentRef = useRef(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo(
-      carouselParentRef.current,
-      { opacity: 0, x: -150 },
-      {
-        opacity: 1,
-        x: 0,
-        scrollTrigger: {
-          trigger: carouselParentRef.current,
-          start: "top 10%",
-          scrub: 0.5,
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-  });
 
   const cardDetails = [
     {
@@ -31,34 +14,35 @@ const CarouselSection = () => {
       content: "Read and study in a serene mountain library environment.",
     },
     {
-      src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+      src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
       link: "Visit Labs",
       title: "Desert Labs",
       content: "Conduct experiments in fully equipped desert labs.",
     },
     {
-      src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
       link: "Play Sports",
       title: "Beach Sports",
       content: "Enjoy sports activities with scenic ocean views.",
     },
     {
-      src: "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+      src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
       link: "Tour Museums",
       title: "Forest Museums",
       content: "Immerse yourself in history and art amidst lush forests.",
     },
     {
-      src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+      src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
       link: "Join Plantation",
       title: "Ocean Plantation Drive",
       content: "Participate in environmental conservation drives.",
     },
   ];
+
   return (
     <div
       ref={carouselParentRef}
-      className="w-full h-full lg:px-50 md:px-20 px-5 mt-10 md:mt-10 lg:mt-30 "
+      className="w-full h-full lg:px-50 md:px-20 px-5 mt-10 md:mt-10 lg:mt-30"
     >
       <div className="flex items-center justify-center mb-10 flex-col gap-1">
         <p className="font-bold w-full md:text-3xl text-xl lg:max-w-5xl md:text-center">

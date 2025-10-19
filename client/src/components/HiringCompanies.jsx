@@ -1,74 +1,46 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import ImageMarquee from "./marquee-slider/ImageMarquee";
-import { marqueeImages_2 } from "../../types/Image";
-import { marqueeImages_3 } from "../../types/Image";
+import { marqueeImages_2, marqueeImages_3 } from "../../types/Image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 function HiringCompanies({ noContent = false }) {
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo(
-      ".slide-up",
-      { y: 50, opacity: 0, delay: 0.5 },
-      {
-        y: 0,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: ".slide-up",
-          start: "top -50%",
-          toggleActions: "play none none reverse",
-          markers: true,
-        },
-      }
-    );
-  });
-  const marqueeTitles = [
-    {
-      title: "25+",
-      description: "Years of Excellence",
-    },
-    {
-      title: "20,000+",
-      description: "Active Students",
-    },
-    {
-      title: "65+",
-      description: "Countries Represented",
-    },
-    {
-      title: "150+",
-      description: "Academic Programs",
-    },
-    {
-      title: "1,000+",
-      description: "Research Publications",
-    },
-    {
-      title: "A+",
-      description: "NAAC Accreditation",
-    },
-  ];
+  const containerRef = useRef(null);
+  const marqueeRef = useRef(null);
+  const paraRef = useRef(null);
+  const slideRightRef = useRef(null);
+  const textSlideRef = useRef(null);
+
   return (
-    <div className=" lg:px-50 px-5 md:px-20">
-      {noContent ? null : (
-        <div className="flex lg:justify-between flex-col lg:flex-row  mt-20 md:mb-30">
+    <div className="lg:px-50 px-5 md:px-20" ref={containerRef}>
+      {!noContent && (
+        <div className="flex lg:justify-between flex-col lg:flex-row mt-20 md:mb-30">
           <div className="lg:w-2/3 md:w-full">
-            <p className="slide-up lg:w-2/3 w-full mb-2  md:mb-10  lg:mb-15 text-2xl md:text-6xl">
+            <p
+              ref={textSlideRef}
+              className="lg:w-2/3 w-full mb-2 md:mb-10 lg:mb-15 text-2xl md:text-6xl"
+            >
               Our Esteemed Hiring Partners – Trusted by top MNCs and startups
               for talent
             </p>
-            <p className="lg:w-2/3 md:w-full text-gray-500 text-xs md:text-xl">
+            <p
+              ref={paraRef}
+              className="lg:w-2/3 md:w-full text-gray-500 text-xs md:text-xl"
+            >
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Similique cumque expedita rem. Suscipit, modi dicta atque quae,
               quia dignissimos molestiae necessitatibus ex fugit delectus error
               quod? Id modi alias molestias.
             </p>
           </div>
-          <div className="lg:w-1/2 md:w-full mt-5 bg-blue-300 border-1 lg:h-150  h-70 border-blue-600"></div>
+          <div
+            ref={slideRightRef}
+            className="lg:w-1/2 md:w-full mt-5 bg-blue-300 border-1 lg:h-150 h-70 border-blue-600"
+          ></div>
         </div>
       )}
 
-      <div className="mt-5 md:mt-10">
+      <div ref={marqueeRef} className="mt-5 md:mt-10 marquee-open">
         <ImageMarquee where={"right"} speed={100} />
         <ImageMarquee imageList={marqueeImages_3} where={"left"} speed={50} />
         <ImageMarquee imageList={marqueeImages_2} where={"right"} speed={100} />
