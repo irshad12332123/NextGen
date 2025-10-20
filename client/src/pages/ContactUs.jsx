@@ -3,15 +3,7 @@ import ImageCard from "../components/cards/ImageCard";
 import { PiPhoneDisconnectThin } from "react-icons/pi";
 import { CiMail } from "react-icons/ci";
 import { FaLocationArrow } from "react-icons/fa";
-function Input({
-  type,
-  value,
-  setValue,
-  placeholder,
-  primary = true,
-  name,
-  required = true,
-}) {
+function Input({ type, value, setValue, placeholder, name, required = true }) {
   return (
     <input
       type={type}
@@ -22,18 +14,12 @@ function Input({
       placeholder={placeholder}
       className={`focus:outline-0 outline-0  py-3 px-4 rounded-md border border-[#DFE9F4] text-black w-full"
       } 
-       text-md p-2`}
+       md:text-md text-sm p-2`}
     />
   );
 }
 
-function ContactCard({
-  Icon,
-  title,
-  description,
-  backgroud = false,
-  lightBackgroud = false,
-}) {
+function ContactCard({ Icon, title, description }) {
   return (
     <div className={` w-full flex gap-4 items-center`}>
       <div className="p-2 bg-[#DFE9F4] rounded-md">
@@ -41,7 +27,7 @@ function ContactCard({
       </div>
       <div className="">
         <p className={` text-md font-bold`}>{title}</p>
-        <p className={`text-[#868C90] text-sm`}>{description}</p>
+        <p className={`text-[#868C90]  text-sm`}>{description}</p>
       </div>
     </div>
   );
@@ -65,10 +51,12 @@ function ContactUs() {
   return (
     <div className="w-full h-full">
       <ImageCard title="Contact Us" buttonRequired={false} />
-      <div className="flex gap-5 h-full w-full px-50 my-10">
-        <div className="w-[50%] pb-10 ">
-          <p className="text-4xl font-bold">Contact Us</p>
-          <p className="text-[#868C90] mt-3 w-[90%]">
+      <div className="flex md:flex-row flex-col gap-5 h-full w-full lg:px-50 md:px-15 px-5 my-10">
+        <div className="md:w-[50%] w-full pb-10 ">
+          <p className="lg:text-4xl md:text-3xl text-xl font-bold">
+            Contact Us
+          </p>
+          <p className="text-[#868C90] mt-3 w-[90%] text-sm md:text-[1rem]">
             We're are here to help. Reach out with any questions or inquiies,
             and our team will get back to you as soon as possible,
           </p>
@@ -107,11 +95,13 @@ function ContactUs() {
             </div>
           </div>
         </div>
-        <div className="w-[50%] border border-[#DFE9F4] rounded-md p-8 space-y-8">
-          <p className="text-2xl font-bold">Send us a message</p>
+        <div className="md:w-[50%] w-full border border-[#DFE9F4] rounded-md md:p-8  space-y-8">
+          <p className="md:text-2xl text-xl font-bold">Send us a message</p>
           <form action="" className="flex flex-col gap-5">
             <label className="flex flex-col">
-              <span className="mb-1 font-medium">Name</span>
+              <span className="mb-1 md:text-[1rem] text-sm font-medium">
+                Name
+              </span>
               <Input
                 type={"text"}
                 name="name"
@@ -122,7 +112,9 @@ function ContactUs() {
             </label>
 
             <label className="flex flex-col">
-              <span className="mb-1  font-medium">Email</span>
+              <span className="mb-1 md:text-[1rem] text-sm   font-medium">
+                Email
+              </span>
               <Input
                 type={"text"}
                 name={"email"}
@@ -133,7 +125,9 @@ function ContactUs() {
             </label>
 
             <label className="flex flex-col">
-              <span className="mb-1  font-medium">Message</span>
+              <span className="mb-1 md:text-[1rem] text-sm  font-medium">
+                Message
+              </span>
               <textarea
                 name="message"
                 value={formData.message}
