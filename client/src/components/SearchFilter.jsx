@@ -11,7 +11,7 @@ import {
 const SearchFilterBar = () => {
   return (
     <div className="w-full bg-white p-3 md:p-6 rounded-md shadow-sm flex md:flex-row flex-col md:items-center justify-between gap-2 md:gap-3">
-      <div className="flex items-center w-1/2 bg-gray-50 rounded-md px-3 py-2 border border-gray-200 focus-within:ring-2 focus-within:ring-blue-500">
+      <div className="flex items-center md:w-1/2 w-full bg-gray-50 rounded-md px-3 py-2 border border-gray-200 focus-within:ring-2 focus-within:ring-blue-500">
         <Search className="w-4 h-4 text-gray-400 mr-2" />
         <input
           type="text"
@@ -21,7 +21,7 @@ const SearchFilterBar = () => {
       </div>
 
       <Select className="">
-        <SelectTrigger className="w-1/4  text-gray-700 text-sm  px-3 py-2 border border-gray-200 focus:ring-2 focus:ring-blue-500">
+        <SelectTrigger className="md:w-1/4 w-full  text-gray-700 md:text-sm  text-[3dvw]  px-3 py-2 border border-gray-200 focus:ring-2 focus:ring-blue-500">
           <SelectValue placeholder="All Types" />
         </SelectTrigger>
         <SelectContent className={"bg-white"}>
@@ -32,10 +32,10 @@ const SearchFilterBar = () => {
       </Select>
 
       <Select className="">
-        <SelectTrigger className="w-1/4  text-gray-700 text-sm  px-3 py-2 border border-gray-200 focus:ring-2 focus:ring-blue-500">
+        <SelectTrigger className="md:w-1/4 w-full  text-gray-700 md:text-sm  text-[3dvw] px-3 py-2 border border-gray-200 focus:ring-2 focus:ring-blue-500">
           <SelectValue placeholder="All Departments" />
         </SelectTrigger>
-        <SelectContent className={"bg-white"}>
+        <SelectContent className={"bg-white text-[3dvw]"}>
           <SelectItem value="all">All Departments</SelectItem>
           <SelectItem value="engineering">Engineering</SelectItem>
           <SelectItem value="design">Design</SelectItem>

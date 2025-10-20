@@ -8,13 +8,13 @@ import { FaLocationPin } from "react-icons/fa6";
 import EventMetaData from "../EventMetaData";
 function EventCard({ type = "primary" }) {
   return (
-    <div className="flex hover:border-blue-500 items-center gap-4  justify-between group border-1 border-gray-400 rounded-md md:p-5 p-1 group">
+    <div className="flex hover:border-blue-500 md:items-center gap-4 md:flex-row flex-col justify-between group border-1 border-gray-400 rounded-md md:p-5 p-1 group">
       {/* Date Badge */}
       <div
-        className={`bg-blue-200 rounded-md shadow-md  flex flex-col ${
+        className={`bg-blue-200 rounded-md shadow-md md:gap-0 gap-x-2  flex flex-row md:flex-col ${
           type === "primary"
             ? "md:px-4 md:py-2 px-4 py-2"
-            : "flex-col-reverse md:px-7 md:p-3 px-5 p-2 text-white bg-blue-500"
+            : "flex-col-reverse md:px-7 md:p-3 p-2 text-white bg-blue-500"
         } items-center justify-center`}
       >
         {type === "primary" ? (
@@ -52,11 +52,11 @@ function EventCard({ type = "primary" }) {
           <FaChevronRight />
         </Link>
       ) : (
-        <div className="flex gap-2 items-center">
-          <button className="bg-blue-500 text-white p-2 rounded-md cursor-pointer">
+        <div className="flex gap-2 items-center md:bg-transparent bg-blue-500 rounded-md md:p-0 p-1">
+          <button className="md:bg-blue-500 bg-[#DBEAFE] text-blue-500 md:text-[1rem] text-[3dvw] md:text-white p-2 rounded-md cursor-pointer">
             Register
           </button>
-          <IoShareSocial className="text-[#626262] text-2xl cursor-pointer" />
+          <IoShareSocial className="md:text-[#626262] text-white text-2xl cursor-pointer" />
         </div>
       )}
     </div>

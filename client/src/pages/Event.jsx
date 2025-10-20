@@ -12,7 +12,7 @@ function ButtonComponent({ title, isSelected, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`p-2 cursor-pointer font-medium ${
+      className={`p-2 cursor-pointer md:text-[1rem] text-sm font-medium ${
         isSelected
           ? "text-blue-500 border-b-2 border-blue-500"
           : "text-gray-500 border-b-2 border-transparent hover:text-blue-500"
@@ -69,7 +69,7 @@ function Event() {
           </div>
 
           {/* Tab Content */}
-          <div className="mt-10 grid grid-cols-3 gap-10">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-10">
             {selected === "onGoing" && (
               <>
                 <EventDetailCard type="secondary" />
@@ -87,16 +87,16 @@ function Event() {
         </div>
       </div>
 
-      <div className="my-10 px-50">
-        <div className="flex gap-10 items-center">
-          <SlCalender className="text-3xl text-blue-500" />
+      <div className="my-10 md:px-50 px-5">
+        <div className="flex md:gap-10 gap-2 items-center">
+          <SlCalender className="text-xl md:text-3xl text-blue-500" />
           <div className="flex gap-2 items-center">
-            <MdUpcoming className="text-3xl text-blue-500" />
-            <p className="text-3xl font-bold">Upcoming Events</p>
+            <MdUpcoming className="text-xl md:text-3xl text-blue-500" />
+            <p className="text-xl md:text-3xl font-bold">Upcoming Events</p>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-5">
+        <div className="mt-10 flex flex-col gap-2 md:gap-5">
           <EventCard type="secondary" />
           <EventCard type="secondary" />
           <EventCard type="secondary" />
