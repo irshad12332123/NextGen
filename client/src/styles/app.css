@@ -13,8 +13,6 @@
   color: white; 
 }
 
-
-
 @media screen and (max-width: 768px) {
   /* CSS rules here will apply only for screens with max-width 768px */
   .lg-react-element{

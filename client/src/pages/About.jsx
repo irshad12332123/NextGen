@@ -5,9 +5,6 @@ import { useState } from "react";
 
 const About = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [from, setFrom] = useState("0f172a");
-  const [to, setTo] = useState("1e293b");
-  const [via, setVia] = useState("14b8a6");
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -16,6 +13,7 @@ const About = () => {
       y: e.clientY - rect.top,
     });
   };
+
   const benefitsList = [
     "State-of-the-Art Campus",
     "100+ International Collaborations",
@@ -28,65 +26,86 @@ const About = () => {
     "100+ International Collaborations",
     "Industry-Aligned Curriculum",
   ];
+  const aboutCards = [
+    {
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDi99Tm5tPRiJddK9_pmo8l00Qi9KX6nFPwPNjGHPnb9CNElHDxMJE8BXSWlX1kiHnyClYTTnyN_iJoumnLjeB_kVysi6dnLp6647GC2AhsdwT-VzsmzIGZW5UeuaRlGon4QVoJ4cqDStIC2GLowI9VGDAofNlE-5SAgl4wKzVl3bh_gxtCFEIoLTMqmGn9r34uiNUEottDqSVGvxqyRGGoe7RXm8SYaLpAEDgM7bG6lWt8XYJK5uhyv8LAnZFJOVpWrHxKxmShnd0",
+      title: "Our History",
+      content:
+        "Founded in 1950, NextGen University has a storied past of innovation and academic leadership. From our humble beginnings, we've grown into a world-renowned institution.",
+    },
+    {
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAVqJm9rCnjeFHZDuiBH62dkp-thMxOY8UFmRn_PrXTIDMCs-clbUFSLJ6IFRZGzSIvkNW76Yc02dgCzD4US54UForfXBrIcQ3TX2zJ-D8It5IKIjMQAJMA2a2jScXRhvWnRXiI58k568j_b3q0RaR7Cd2U6P8KgItrUJLpYI-5AihB4-ieeOqpzm93_LOf_9rPi-3q3XbfUMkqBoi_QZi69RE-8rARC9jh303hjzWIZNbfEc2TSh7zuXpnUj1KlBiv4Qo8g-16XMM",
+      title: "Our Mission",
+      content:
+        "To provide a transformative educational experience that fosters intellectual curiosity, critical thinking, and a commitment to lifelong learning for global leadership.",
+    },
+    {
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDW7YwU3yppS8ecOjBhrn6t7JcRBI7xkUz3ZZ51cB9Mx_ijmReUbO29NQxfMZanSTWVyzdWyVfBtVnv06D7_xmQJQWASR9LdQc0kQuG-3_412lsdtkNOHc4o9zMM8DHm9WWo1kQX79gqsVn_d0OWn0TiLW-mJXnoCBH2kVQz8js6pcNR9cXnGshQGt9ZlzRqmxCGKZHjmy6jKtjJ9hE4fcHChJvruSItVOn3Zitax_r7I-3iDPcIaJujIi9UJrGXRJ8Q46L50PoN6w",
+      title: "Our Values",
+      content:
+        "Integrity, excellence, diversity, and community are our core values. We foster an inclusive environment where every student can thrive and contribute.",
+    },
+    {
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAeYMFt_a5_W5AN76hJ0TKkpLfovF5JXWOihL4GXrECPashtlG3vLL5OfltANU9FtW-SFQiyF0rRdzqBr9xktjnT1GvBHJ_9NO7Jeep9mZ1nS0nAu4tBm4ngRQmPBfmPwKv_dnEwN8SEu8HFXEI44YGxc22QhNbvLXYLCBySDgjvIoxvy5tm9MQ8-5BGDRyUXrjPHVnceaosX813onp5DpN61h-xz2TrgEPh0dtqdCiIYEQYuU_VNtY6gFteynpDdQS77V6JZaoTL8",
+      title: "Academic Excellence",
+      content:
+        "Consistently ranked among the top universities globally for our rigorous academic programs, distinguished faculty, and cutting-edge research.",
+    },
+    {
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCOCKGeJNQ0akV44Jri-U-_JuuBM_fedkplCRlYjkDacei3LmmGo1VXMIMZPWoAP42Egy5bVj3w5eg6DClHKhFeWmM0Z9I-Ivr-cWDthe0s8IpWDrd8Ka6z7kjAvorrv3Io4vSdmjM01qziE9axBju3YG6_Rehp8FvQua9An5bWDvI7fLOXrA60mA3ZpRD2T00g9aanfv5iBnHvzf4PYf9jSzJDNsM3F3puaDyz1VGcB_53amKi40RzWiWR0P0YGniTYOXrI1XBShA",
+      title: "Campus Life",
+      content:
+        "Experience a vibrant campus with a wide range of extracurricular activities, clubs, and organizations in a supportive and engaging environment.",
+    },
+    {
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCBcgWoZkqs_NIgZB1QQUmlxRB_1u1E9FMnHLhXWZDPgGIdF1fdnemFvnGA0lazx8M1hwvsLhceqOpxAMUCUbhMLJFrUd5P_5xbmr_d_oCx_N92YDsPLE2qiXz46Dy3L1RD8-83EWyQCJTt-mKqMrcoc2ZCiEvKLTKTxyeNO7Do7VTk1sG0GLYtJJTW7sJy7wvNXJnl2rJZRfNG0tBm19yaUWzpVeNS0kD0jEv4KoeNQZrP2D3n6QqXlbvhZWkMypaOW1mcpH6sRq8",
+      title: "Our Faculty",
+      content:
+        "Our faculty comprises leading experts and scholars dedicated to mentoring students and fostering a culture of intellectual curiosity.",
+    },
+  ];
 
   return (
     <div>
       <ImageCard buttonRequired={false} title="About" />
-      <div className="flex flex-col my-20  ">
-        <div className=" px-50">
-          <p className="text-3xl font-bold py-5 ">
-            About{" "}
-            <span className=" text-blue-600 underline underline-offset-15 ">
-              Next Gen
-            </span>
-          </p>
-          <p className="text-xl">
-            Bahra University, established in 2011 under the Himachal Pradesh
-            State Legislature, is a renowned private university located at
-            Waknaghat in the Solan district, surrounded by the scenic Shimla
-            Hills. Founded by the Rayat-Bahra Group, the university is committed
-            to delivering quality higher education, fostering innovation, and
-            shaping leaders of tomorrow. Guided by its motto “Learn. Lead.
-            Accomplish.”, Bahra University combines academic excellence with
-            holistic student development, empowering learners with the
-            knowledge, skills, and values needed to succeed in a dynamic global
-            environment. The university offers a wide range of programs through
-            its specialized schools, including Engineering and Technology,
-            Management Studies, Law, Pharmaceutical Sciences, Physiotherapy,
-            Hospitality and Tourism, and Basic & Applied Sciences. All courses
-            are designed to meet industry demands and are approved by statutory
-            bodies such as the University Grants Commission (UGC), the Bar
-            Council of India (BCI), and the Pharmacy Council of India (PCI).
-            Bahra University is also a proud member of the Association of Indian
-            Universities (AIU). Research and innovation are at the core of the
-            university’s philosophy. With modern laboratories, advanced
-            facilities, and collaborations with leading institutions worldwide,
-            students and faculty actively engage in research projects, patents,
-            and publications across diverse fields such as technology,
-            healthcare, management, law, and applied sciences. The focus is on
-            creating solutions that address real-world challenges and contribute
-            to social and economic progress.
+
+      <div className="lg:px-50 md:px-15 px-10">
+        <div className="md:my-15 my-5">
+          <p className="md:text-[1rem] text-center text-sm font-bold">
+            Discover our rich, history, mission, and values that shape our
+            comitment to acaddemic excelence and student success.
           </p>
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:my-10 mb-5">
+          {aboutCards.map((card, i) => (
+            <AboutCard
+              key={i + 1}
+              img={card.img}
+              title={card.title}
+              content={card.content}
+            />
+          ))}
+        </div>
       </div>
-      <AboutCard rowReverse={true} />
+
       <div className=" bg-[#2B363A]  text-white w-full py-10 flex flex-col gap-5 justify-center items-center">
         <p className="bg-[#4d5051] rounded-md px-5 py-2 ">Why choose Us?</p>
-        <p className="text-4xl font-bold">
+        <p className="lg:text-4xl md:text-3xl text-xl text-center font-bold">
           A perfect blend of academics, innovation, and career success
         </p>
         <div className="flex justify-center flex-wrap items-center gap-x-7 text-sm max-w-6xl gap-y-4 ">
           {benefitsList.map((text) => (
-            <p className="text-xl">✅ {text}</p>
+            <p className="text-sm lg:text-xl">✅ {text}</p>
           ))}
         </div>
       </div>
-      <div className="md:my-15 px-50  ">
-        <p className="text-4xl font-bold ">Our Partners</p>
-        <p className="text-xl mt-5">
+      <div className="md:my-15 my-5 lg:px-50 md:px-15 px-5">
+        <p className="lg:text-4xl md:text-3xl text-xl font-bold ">
+          Our Partners
+        </p>
+        <p className="md:text-xl text-sm md:mt-5">
           We are proud to collaborate with leading global brands
         </p>
-
         <div
           className="relative cursor-crosshair"
           onMouseMove={handleMouseMove}
@@ -121,18 +140,16 @@ const About = () => {
         `}
             </style>
           </div>
-          <div className=" grid grid-cols-4 gap-5 bg-gradient-to-r from-[#0f172a] via-[#1e293b] via-[#38bdf8] to-[#14b8a6]   w-full h-full p-15 rounded-2xl mt-15">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 bg-gradient-to-r from-[#0f172a] via-[#1e293b] via-[#38bdf8] to-[#14b8a6] w-full h-full p-5 md:p-10 rounded-2xl mt-5 md:mt-15">
             {partners.map((img, i) => (
               <div
-                className="py-5 px-6 rounded-2xl bg-white border-1 hover:border-blue-800
-  text-gray-200 shadow-lg 
-  transition-all duration-300 ease-in-out  "
+                key={i}
+                className="flex items-center justify-center bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 ease-in-out p-3 md:p-5"
               >
                 <img
                   src={img}
-                  alt={`${img} ${i}`}
-                  key={i}
-                  className="md:h-15 object-contain mx-auto"
+                  alt={`Partner ${i}`}
+                  className="h-10 md:h-16 object-contain"
                 />
               </div>
             ))}

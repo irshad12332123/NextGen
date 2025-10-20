@@ -11,7 +11,7 @@ import lgZoom from "lightgallery/plugins/zoom";
 
 function DisplayGallery({ galleryImages }) {
   const onInit = () => {
-    console.log("lightGallery has been initialized");
+    // console.log("lightGallery has been initialized");
   };
   return (
     <div className="mt-10">
