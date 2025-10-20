@@ -10,13 +10,13 @@ import {
 
 const SearchFilterBar = () => {
   return (
-    <div className="w-full bg-white p-6 rounded-md shadow-sm flex items-center justify-between gap-3">
+    <div className="w-full bg-white p-3 md:p-6 rounded-md shadow-sm flex md:flex-row flex-col md:items-center justify-between gap-2 md:gap-3">
       <div className="flex items-center w-1/2 bg-gray-50 rounded-md px-3 py-2 border border-gray-200 focus-within:ring-2 focus-within:ring-blue-500">
         <Search className="w-4 h-4 text-gray-400 mr-2" />
         <input
           type="text"
           placeholder="Search events..."
-          className="w-full bg-transparent outline-none text-gray-700 placeholder-gray-400 text-sm"
+          className="w-full bg-transparent outline-none text-gray-700 placeholder-gray-400 md:text-sm text-[3dvw]"
         />
       </div>
 

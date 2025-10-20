@@ -12,7 +12,7 @@ function EventDetailCard({ type = "primary" }) {
         <img
           src={eventBanner}
           alt="event_banner"
-          className="object-cover w-full h-80 rounded-t-xl"
+          className="object-cover w-full h-50 md:h-80 rounded-t-xl"
         />
       ) : (
         <div className="px-5 pt-5">
@@ -27,8 +27,10 @@ function EventDetailCard({ type = "primary" }) {
           type === "primary" ? "p-5" : "px-5 pt-1 pb-5"
         } flex flex-col gap-5`}
       >
-        <h5 className="text-2xl font-bold">Innovate & Inspire Global Summit</h5>
-        <p className="text-[#434343] line-clamp-2">
+        <h5 className="text-xl md:text-2xl font-bold">
+          Innovate & Inspire Global Summit
+        </h5>
+        <p className="text-[#434343] md:text-sm text-[3dvw] line-clamp-2">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
           molestiae minima, dolor sequi cum, quos blanditiis nemo non ratione,
           consequuntur quia! Autem inventore voluptatibus aliquid provident enim
@@ -43,11 +45,11 @@ function EventDetailCard({ type = "primary" }) {
 
         <div className="flex justify-between items-center">
           {type === "primary" ? (
-            <button className="bg-blue-500 text-white p-2 rounded-md">
+            <button className="bg-blue-500 text-white md:text-xl text-[3dvw] p-2 rounded-md">
               Register Now
             </button>
           ) : (
-            <button className="bg-blue-100 text-blue-500 p-2 rounded-md">
+            <button className="bg-blue-100 text-blue-500 md:text-xl text-[3dvw] p-2 rounded-md">
               Register Now
             </button>
           )}

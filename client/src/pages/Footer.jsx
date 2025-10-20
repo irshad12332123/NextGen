@@ -29,10 +29,10 @@ const Footer = () => {
   return (
     <div className=" bg-gradient-to-br from-[#0f172a] to-[#383f4b] md:gap-12 gap-5 text-white w-full h-full pt-5 md:pt-20 flex justify-between flex-col mb-15">
       <p className="md:text-3xl text-xl font-bold md:px-20 px-10 ">JOIN NOW</p>
-      <div className="flex md:flex-row flex-col gap-15 md:px-20 px-10">
+      <div className="flex md:flex-row flex-col gap-6 md:px-20 px-10">
         <div className="md:w-1/3 w-full">
           <p className="text-xl md:text-2xl font-bold">About</p>
-          <p className="max-w-3xl text-sm md:text-xl text-[#cbd5e1]">
+          <p className="max-w-3xl text-[2.9dvw] md:text-xl text-[#cbd5e1]">
             Next gen academy powers bla bla bla, Next gen academy powers bla bla
             bla, Next gen academy powers bla bla bla, Next gen academy powers
             bla bla bla....
@@ -42,7 +42,7 @@ const Footer = () => {
           <div className="mb-5">
             <p className="md:text-2xl text-xl  font-bold">Quick Links</p>
             {navLinks.map((link, i) => (
-              <p className=" text-sm md:text-xl text-[#cbd5e1] " key={i}>
+              <p className=" text-[2.9dvw] md:text-xl text-[#cbd5e1] " key={i}>
                 {link.linkName}
               </p>
             ))}
@@ -50,7 +50,7 @@ const Footer = () => {
           <div>
             <p className="text-xl md:text-2xl  font-bold">Support</p>
             {support.map((link, i) => (
-              <p className="text-sm md:text-xl text-[#cbd5e1]" key={i}>
+              <p className="text-[2.9dvw] md:text-xl text-[#cbd5e1]" key={i}>
                 {link.linkName}
               </p>
             ))}
@@ -58,7 +58,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col md:gap-5 gap-2">
           <p className="font-bold text-xl md:text-2xl">Join Our Community</p>
-          <p className="text-[#cbd5e1] text-sm md:text-xl">
+          <p className="text-[#cbd5e1] text-[2.9dvw] md:text-xl">
             Subscribe to our news letter and stay updated with our latest
             courses and offers.
           </p>
@@ -81,7 +81,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex items-center justify-center  bg-gradient-to-r from-[#383f4b] to-[#0f172a] py-2">
-        <p className="text-xs md:text-xl">
+        <p className="text-[2.5dvw] md:text-xl">
           © {new Date().getFullYear()} NextGen Academy. All rights reserved.
         </p>
       </div>

@@ -40,13 +40,13 @@ function Event() {
       />
 
       {/* Featured Events */}
-      <div className="w-full h-full px-50 my-20">
-        <div className="text-2xl flex gap-2 items-center">
+      <div className="w-full h-full md:px-50 px-5 my-20">
+        <div className="md:text-2xl text-xl flex  gap-2 items-center">
           <GoStarFill className="text-blue-500" />
           <p className="font-bold">Featured Events</p>
         </div>
 
-        <div className="grid grid-cols-2 mt-10 gap-10">
+        <div className="grid md:grid-cols-2 grid-cols-1  mt-10 gap-10">
           <EventDetailCard />
           <EventDetailCard />
         </div>

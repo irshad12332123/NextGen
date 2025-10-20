@@ -1,11 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import Carousel from "@/components/Carousel";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { motion, useInView } from "framer-motion";
 const CarouselSection = () => {
   const carouselParentRef = useRef(null);
-
+  const isInView = useInView(carouselParentRef);
   const cardDetails = [
     {
       src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
@@ -40,8 +38,11 @@ const CarouselSection = () => {
   ];
 
   return (
-    <div
+    <motion.div
       ref={carouselParentRef}
+      initial={{ opacity: 0, y: 150 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 1 }}
       className="w-full h-full lg:px-50 md:px-20 px-5 mt-10 md:mt-10 lg:mt-30"
     >
       <div className="flex items-center justify-center mb-10 flex-col gap-1">
@@ -57,7 +58,7 @@ const CarouselSection = () => {
       <div className="rounded-3xl">
         <Carousel carouselImages={cardDetails} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

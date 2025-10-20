@@ -11,12 +11,12 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      {/* <Route path="/about" element={<About />} />
+      <Route path="/about" element={<About />} />
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/courses" element={<Courses />} />
       <Route path="/courses/:courseId" element={<CourseDetails />} />
       <Route path="/contact-us" element={<ContactUs />} />
-      <Route path="/events" element={<Event />} /> */}
+      <Route path="/events" element={<Event />} />
     </Routes>
   );
 };

@@ -6,7 +6,7 @@ function EventMetaData({ Icon, data }) {
       <span>
         <Icon />
       </span>{" "}
-      <p>{data}</p>
+      <p className="text-[3dvw] md:text-[1rem]">{data}</p>
     </div>
   );
 }

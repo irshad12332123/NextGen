@@ -9,10 +9,12 @@ const NavBar = () => {
   const handleMouseOn = (i) => {
     setActiveDropDowm(i);
   };
+
   const handleMouseOver = (i) => {
     console.log("hovered", i);
     setActiveDropDowm(null);
   };
+
   const navLinks = [
     { linkName: "Home", route: "/" },
     { linkName: "About", route: "/about" },
@@ -90,8 +92,8 @@ const NavBar = () => {
             </NavLink>
           ))}
         </ul>
-        <div className="bg-blue-500 rounded-xl py-3 px-2 flex text-white gap-1">
-          <PiPhoneDisconnectThin size={35} className=" self-center" />
+        <div className="bg-blue-500 rounded-xl md:py-3 py-2 px-2 flex text-white gap-1">
+          <PiPhoneDisconnectThin size={35} className="self-center" />
           <div className="lg:block hidden">
             <h5 className="lg:text-sm text-xs">Admission Helpline</h5>
             <p className="lg:text-sm text-xs">+91 98XXXXXXX</p>
