@@ -26,11 +26,11 @@ const Home = () => {
       {/* Events */}
       <EventsSection />
       {/* Facilities */}
-      <FacilitiesSection />
+      {/* <FacilitiesSection /> */}
       {/* Review Section */}
       <ReviewsSection />
       {/* Call to action */}
-      <div className=" h-full p-5 flex flex-col items-center justify-center mb-20">
+      <div className=" h-full  flex flex-col items-center justify-center mb-20">
         <ImageCard />
       </div>
       {/* Announcements */}

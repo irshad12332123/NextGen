@@ -8,7 +8,7 @@ function CourseCard({ courseCard }) {
       <p className="text-[#38bdf8] group-hover:text-black ">
         {courseCard.title}
       </p>
-      <p className="max-w-[60%] text-gray-100">{courseCard.content}</p>
+      <p className="max-w-[90%] text-sm  text-gray-100">{courseCard.content}</p>
     </div>
   );
 }

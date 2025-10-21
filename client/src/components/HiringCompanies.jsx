@@ -10,13 +10,15 @@ function HiringCompanies({ noContent = false }) {
   const paraRef = useRef(null);
   const slideRightRef = useRef(null);
   const textSlideRef = useRef(null);
+  const img =
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuAVqJm9rCnjeFHZDuiBH62dkp-thMxOY8UFmRn_PrXTIDMCs-clbUFSLJ6IFRZGzSIvkNW76Yc02dgCzD4US54UForfXBrIcQ3TX2zJ-D8It5IKIjMQAJMA2a2jScXRhvWnRXiI58k568j_b3q0RaR7Cd2U6P8KgItrUJLpYI-5AihB4-ieeOqpzm93_LOf_9rPi-3q3XbfUMkqBoi_QZi69RE-8rARC9jh303hjzWIZNbfEc2TSh7zuXpnUj1KlBiv4Qo8g-16XMM";
 
   const paraIsInView = useInView(paraRef);
   const slideRightIsInView = useInView(slideRightRef);
   const textSlideIsInView = useInView(textSlideRef);
 
   return (
-    <div className="lg:px-50 px-5 md:px-20" ref={containerRef}>
+    <div className="px-5 md:px-20 " ref={containerRef}>
       {!noContent && (
         <div className="flex lg:justify-between flex-col lg:flex-row mt-20 md:mb-30">
           <div className="lg:w-2/3 md:w-full">
@@ -25,7 +27,7 @@ function HiringCompanies({ noContent = false }) {
               initial={{ opacity: 0, x: -150 }}
               animate={textSlideIsInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 1 }}
-              className="lg:w-2/3 w-full mb-2 md:mb-10 lg:mb-15 text-2xl md:text-6xl"
+              className="lg:w-2/3 w-full mb-2 md:mb-10 lg:mb-15 text-2xl md:text-5xl"
             >
               Our Esteemed Hiring Partners – Trusted by top MNCs and startups
               for talent
@@ -48,7 +50,11 @@ function HiringCompanies({ noContent = false }) {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={slideRightIsInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1 }}
-            className="lg:w-1/2 md:w-full mt-5 bg-blue-300 border-1 lg:h-150 h-70 border-blue-600"
+            style={{
+              backgroundImage: `url(${img})`,
+              backgroundPosition: "center center",
+            }}
+            className="lg:w-1/2 md:w-full mt-5  lg:h-150 h-70 shadow-md"
           ></motion.div>
         </div>
       )}

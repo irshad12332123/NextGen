@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useRef } from "react";
 import ScrollerContainer from "@/components/ScrollerContainer";
 import ReviewCard from "@/components/cards/ReviewCard";
-
+import { motion, useInView } from "framer-motion";
 const ReviewsSection = () => {
+  const reviewRef = useRef(null);
+  const reviewIsInView = useInView(reviewRef);
   return (
-    <div className="w-full h-full md:mt-10 mt-5  md:mb-10  flex flex-col px-5 md:px-20 lg:px-50">
+    <motion.div
+      ref={reviewRef}
+      initial={{ opacity: 0 }}
+      animate={reviewIsInView ? { opacity: 1 } : {}}
+      transition={{ duration: 0.5, delay: 0.25 }}
+      className="w-full h-full md:mt-10 mt-5  md:mb-10  flex flex-col px-5 md:px-20 xl:px-50"
+    >
       <div className="items-center justify-center">
         <p className="md:text-4xl text-xl text-blue-600">
           Real voices. Real stories. Real impact.
@@ -17,7 +25,7 @@ const ReviewsSection = () => {
           <ScrollerContainer Card={ReviewCard} length={10} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -60,9 +60,9 @@ const Courses = () => {
   return (
     <div>
       <ImageCard buttonRequired={false} title="Courses" />
-      <div className="px-50 my-20">
-        <p className="text-3xl font-bold">Why choose Next Gen?</p>
-        <p className="max-w-2xl mt-5 ">
+      <div className=" md:px-15 lg:px-50 px-5 md:my-20 my-10 ">
+        <p className="md:text-3xl text-xl font-bold">Why choose Next Gen?</p>
+        <p className="max-w-2xl md:text-[1rem] text-sm mt-5 ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
           iure voluptatibus saepe quia! Alias unde voluptatum ad laboriosam quo,
           beatae velit iste officia tempora, praesentium laborum esse quam
@@ -70,7 +70,7 @@ const Courses = () => {
         </p>
 
         {/*  cards */}
-        <div className="relative mt-15 bg-gray-200 p-8 flex gap-5 rounded-md">
+        <div className="relative mt-15 bg-gray-200 xl:p-8 p-3 md:px-5  lg:grid-cols-4 grid grid-cols-1 md:grid-cols-2  gap-5 rounded-md">
           {cards.map((card, i) => (
             <FeatureCard key={i} courseCard={card} />
           ))}
@@ -79,7 +79,7 @@ const Courses = () => {
             x={[0, 30, -20, 0]}
             y={[0, -20, 20, 0]}
             scale={[1, 1.6, 0.9, 1]}
-            positionStyles={" -bottom-8 bg-blue-500 -left-15"}
+            positionStyles={" -bottom-8 bg-blue-500 md:-left-15 "}
             duration={10}
           />
 
@@ -87,7 +87,7 @@ const Courses = () => {
             x={[0, 30, 10, 0]}
             y={[0, -10, 20, 0]}
             scale={[1, 1.6, 0.5, 1]}
-            positionStyles={" -bottom-8 bg-green-500 -left-25"}
+            positionStyles={" -bottom-8 bg-green-500 md:-left-25 "}
             duration={10}
           />
 
@@ -95,7 +95,7 @@ const Courses = () => {
             x={[0, 30, -20, 0]}
             y={[0, -20, 20, 0]}
             scale={[1, 1.6, 0.9, 1]}
-            positionStyles={" -top-8 bg-blue-500 -right-10"}
+            positionStyles={" -top-8 bg-blue-500 md:-right-10 "}
             duration={10}
           />
 
@@ -103,31 +103,31 @@ const Courses = () => {
             x={[0, 30, -20, 0]}
             y={[0, -20, 20, 0]}
             scale={[1, 1.6, 0.9, 1]}
-            positionStyles={" top-8 bg-amber-500 -right-15"}
+            positionStyles={" top-8 bg-amber-500 -md:right-15"}
             duration={10}
           />
         </div>
       </div>
-      <div className="px-50 w-full">
-        <div className="mt-5 bg-blue-200 w-1/2 flex p-2 rounded-full shadow-md justify-between border-1  border-blue-400 ">
+      <div className="md:px-15 lg:px-50 px-5 w-full">
+        <div className="mt-5 bg-blue-200 md:w-1/2 w-full flex p-2 rounded-full shadow-md items-center justify-between border-1  border-blue-400 ">
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Which course are you looking for?"
-            className="focus:outline-0 flex-1  outline-0 rounded-xl  text-md p-3"
+            className="focus:outline-0 flex-1  outline-0 rounded-xl  text-md md:p-3 p-2"
           />
           <RiSearchLine
             onClick={() => {
               handleSearch(search);
             }}
-            className=" hover:opacity-80 cursor-pointer  md:text-5xl bg-blue-500 rounded-full p-2"
+            className=" hover:opacity-80 cursor-pointer text-4xl bg-blue-500 rounded-full p-2 "
           />
         </div>
         <div className=" flex gap-5 mt-5">
           {courseFilterOp.map((filter, i) => (
             <p
-              className="px-5 py-2 rounded-full bg-blue-100  cursor-pointer transition-all duration-100 shadow-xl hover:bg-blue-500 hover:text-white"
+              className="px-5 py-2 md:text-[1rem] text-sm rounded-full bg-blue-100  cursor-pointer transition-all duration-100 shadow-xl hover:bg-blue-500 hover:text-white"
               key={i}
               onClick={(e) => {
                 handleSearch(e.target.innerText);
@@ -139,7 +139,7 @@ const Courses = () => {
         </div>
       </div>
 
-      <div className=" mt-10 grid grid-cols-4  py-15 px-50 gap-5  ">
+      <div className=" mt-10 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 py-5 lg:px-50 md:py-10 md:px-15 px-5 gap-5  ">
         {filteredCourses.map((course, i) => (
           <CustomCard
             cardDetails={course}

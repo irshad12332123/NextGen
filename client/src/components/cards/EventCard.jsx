@@ -52,7 +52,7 @@ function EventCard({ type = "primary" }) {
           <FaChevronRight />
         </Link>
       ) : (
-        <div className="flex gap-2 items-center md:bg-transparent bg-blue-500 rounded-md md:p-0 p-1">
+        <div className="flex gap-2 items-center  md:bg-transparent bg-blue-500 rounded-md md:p-0 p-1">
           <button className="md:bg-blue-500 bg-[#DBEAFE] text-blue-500 md:text-[1rem] text-[3dvw] md:text-white p-2 rounded-md cursor-pointer">
             Register
           </button>

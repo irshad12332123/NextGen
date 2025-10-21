@@ -14,7 +14,7 @@ const LazyCarousel = ({ carouselImages, isCard = false, type = "primary" }) => {
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}
         slidesPerView={isCard ? 5 : 1}
-        autoplay={{ delay: 2000 }}
+        // autoplay={{ delay: 2000 }}
         loop={true}
         className="w-full h-full"
       >

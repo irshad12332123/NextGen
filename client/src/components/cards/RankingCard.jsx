@@ -11,7 +11,7 @@ function RankingCard() {
         </p>
         <p className="text-xs group-hover:text-white opacity-75">Rank title</p>
       </div>
-      <div className="flex text-[2.5dvw] text-white py-5  bg-gray-900 opacity-70 flex-col items-center justify-center text-center">
+      <div className="flex text-[2.5dvw] md:text-sm text-white py-5  bg-gray-900 opacity-70 flex-col items-center justify-center text-center">
         <p> Universities in QS World University</p>
         <p>Rankings by Subject 2025</p>
         <p>Engineering & Technology</p>

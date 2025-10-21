@@ -6,7 +6,7 @@ const CarouselSection = () => {
   const isInView = useInView(carouselParentRef);
   const cardDetails = [
     {
-      src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed",
+      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDi99Tm5tPRiJddK9_pmo8l00Qi9KX6nFPwPNjGHPnb9CNElHDxMJE8BXSWlX1kiHnyClYTTnyN_iJoumnLjeB_kVysi6dnLp6647GC2AhsdwT-VzsmzIGZW5UeuaRlGon4QVoJ4cqDStIC2GLowI9VGDAofNlE-5SAgl4wKzVl3bh_gxtCFEIoLTMqmGn9r34uiNUEottDqSVGvxqyRGGoe7RXm8SYaLpAEDgM7bG6lWt8XYJK5uhyv8LAnZFJOVpWrHxKxmShnd0",
       link: "Explore Library",
       title: "Mountains Library",
       content: "Read and study in a serene mountain library environment.",
@@ -43,7 +43,7 @@ const CarouselSection = () => {
       initial={{ opacity: 0, y: 150 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1 }}
-      className="w-full h-full lg:px-50 md:px-20 px-5 mt-10 md:mt-10 lg:mt-30"
+      className="w-full h-full  md:px-20 px-5 mt-10 md:mt-10 lg:mt-30"
     >
       <div className="flex items-center justify-center mb-10 flex-col gap-1">
         <p className="font-bold w-full md:text-3xl text-xl lg:max-w-5xl md:text-center">

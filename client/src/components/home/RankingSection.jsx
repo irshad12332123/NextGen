@@ -10,7 +10,7 @@ const RankingSection = () => {
   const textIsInView = useInView(textSlideRef);
   return (
     <motion.div
-      className="w-full h-full lg:px-50 px-2 md:mt-20 bg-[#CAD5E2] py-10"
+      className="w-full h-full lg:px-20 px-2 md:mt-20 bg-[#CAD5E2] py-10"
       ref={ref}
       initial={{ opacity: 0, y: 150 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}

@@ -11,13 +11,13 @@ function CustomCard({ cardDetails, link }) {
           alt="Btech"
           className="h-full w-full  object-cover group-hover:scale-110 transition-all duration-300"
         />
-        <p className=" left-[4%] transition-all duration-300 line-clamp-1 text-center font-bold group-hover:-translate-y-6 text-white absolute z-2 bottom-3 text-xs md:text-xl w-full  md:w-[90%]">
+        <p className=" left-[4%] transition-all duration-300 line-clamp-1 text-center font-bold group-hover:-translate-y-6 text-white absolute z-2 bottom-3 text-xs md:text-sm w-full  md:w-[90%]">
           {cardDetails.title || cardDetails.name}
         </p>
         <div className="h-full w-full absolute bg-[#181818a9] z-1 top-0 left-0 group-hover:bg-[#181818b8] "></div>
       </div>
       <div className="p-5 flex flex-col  ">
-        <p className="mb-5 line-clamp-1 text-xs md:text-xl ">
+        <p className="mb-5 line-clamp-1 text-xs md:text-sm ">
           {cardDetails.content || cardDetails.description}
         </p>
         {/* Explore button section */}

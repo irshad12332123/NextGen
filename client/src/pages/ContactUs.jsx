@@ -95,7 +95,7 @@ function ContactUs() {
             </div>
           </div>
         </div>
-        <div className="md:w-[50%] w-full border border-[#DFE9F4] rounded-md md:p-8  space-y-8">
+        <div className="md:w-[50%] w-full border border-[#DFE9F4] rounded-md md:p-8 p-2  space-y-8">
           <p className="md:text-2xl text-xl font-bold">Send us a message</p>
           <form action="" className="flex flex-col gap-5">
             <label className="flex flex-col">
