@@ -15,10 +15,10 @@ function DisplayGallery({ galleryImages }) {
   };
   return (
     <div className="mt-10">
-      <LightGallery
-        onInit={onInit}
-        speed={300}
-        plugins={[lgThumbnail, lgZoom]}
+      <div
+        // onInit={onInit}
+        // speed={300}
+        // plugins={[lgThumbnail, lgZoom]}
         className="
         grid grid-cols-3
         "
@@ -33,7 +33,7 @@ function DisplayGallery({ galleryImages }) {
             />
           </a>
         ))}
-      </LightGallery>
+      </div>
     </div>
   );
 }

@@ -1,49 +1,47 @@
-import React, { useRef } from "react";
-import EventCard from "@/components/cards/EventCard";
-import { motion, useInView } from "framer-motion";
-export const EventsSection = () => {
-  const titleRef = useRef(null);
-  const subTitleRef = useRef(null);
-  const eventCardsRef = useRef(null);
-  const titleIsInView = useInView(titleRef);
-  const subTitleIsInView = useInView(subTitleRef);
-  const eventCardIsInView = useInView(eventCardsRef);
-  return (
-    <div className="flex my-20 md:my-30">
-      <div className="flex-1 flex justify-center md:items-center flex-col">
-        <motion.p
-          initial={{ opacity: 0, x: -50 }}
-          animate={titleIsInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 1 }}
-          ref={titleRef}
-          className="md:text-3xl md:text-center text-xl px-5 font-semibold"
-        >
-          Upcoming Events
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          animate={subTitleIsInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          ref={subTitleRef}
-          className="md:text-center 3xl mt-3 mb-10 text-xs px-5  md:text-xl max-w-lg  text-[#616161]"
-        >
-          Stay informed and get involved! Here are out latest community events
-        </motion.p>
-        {/* Displaying Events */}
-        <motion.div
-          ref={eventCardsRef}
-          initial={{ opacity: 0, y: 50 }}
-          animate={eventCardIsInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="flex  flex-col xl:px-50 2xl:px-80 px-5 md:px-20 w-full sm:self-end h-full gap-5 md:mt-5"
-        >
-          {/* EventCard */}
+import React from "react";
+import EventCard from "./eventCard";
 
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-        </motion.div>
+export const EventsSection = () => {
+  const eventsArray = [
+    {
+      date: "25 OCT",
+      title: "Innovate & Create Hackathon",
+      location: "Online & On-Campus",
+      description:
+        "A 24-hour event for students to build groundbreaking projects and compete for exciting prizes.",
+      action: "Register Now",
+    },
+    {
+      date: "12 NOV",
+      title: "AI & Machine Learning Seminar",
+      location: "Main Auditorium",
+      description:
+        "Guest lecture from a leading AI researcher on the future of intelligent systems.",
+      action: "Learn More",
+    },
+    {
+      date: "05 DEC",
+      title: "Annual Tech Fest 'Innovision'",
+      location: "Entire Campus",
+      description:
+        "Our flagship technical festival with competitions, workshops, and exhibitions.",
+      action: "Explore Fest",
+    },
+  ];
+  return (
+    <div className="md:mt-20 xl:mt-30 2xl:mt-40 flex flex-col items-center ">
+      <p className="md:text-3xl  text-seasalt">Upcoming events</p>
+      <div className="grid grid-cols-1 md:gap-6 md:mb-30 md:mt-10 my-5 md:grid-cols-2 xl:grid-cols-3">
+        {eventsArray.map((event, i) => (
+          <EventCard
+            key={i}
+            date={event.date}
+            title={event.title}
+            description={event.description}
+            action={event.action}
+            location={event.location}
+          />
+        ))}
       </div>
     </div>
   );
