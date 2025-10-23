@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import { PiPhoneDisconnectThin } from "react-icons/pi";
 import CustomBtn from "../CustomBtn";
+import MobileNav from "./MobileNav";
 const Nav = () => {
   const navLinks = [
     { linkName: "Home", route: "/" },
@@ -12,17 +13,17 @@ const Nav = () => {
     { linkName: "Contact Us", route: "/contact-us" },
   ];
   return (
-    <nav className="xl:px-35  2xl:px-70  md:px-5 px-2    ">
+    <nav className="xl:px-35  2xl:px-70  md:px-5 px-4    ">
       {/* Next Gen logo compartment */}
       <div className="flex justify-between items-center bg-raisin-black h-full shadow-md rounded-sm  w-full p-4">
         <div className="flex flex-col leading-tight">
           <p className="text-seasalt font-bold md:text-2xl text-xl justify-self-end m-0 p-0">
             Next <span className="text-celestial-blue">Gen</span>
           </p>
-          {/* Rayat bahra University Logo Section */}
         </div>
 
         <ul className="">
+          {/* For llarge scerens */}
           <div className="gap-5 items-center justify-center p-3  lg:flex hidden">
             {/* Rendering all the links for diffnrtnt routes */}
             {navLinks.map((linkObj, index) => (
@@ -43,6 +44,8 @@ const Nav = () => {
             ))}
             <CustomBtn title={"Apply Now"} />
           </div>
+
+          <MobileNav />
         </ul>
       </div>
     </nav>

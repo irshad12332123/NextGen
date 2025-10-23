@@ -43,7 +43,7 @@ function AboutCard({ img, title, content, glowColor = "rgba(45,55,155,0.4)" }) {
     <div className="h-full" style={{ perspective: "1000px" }}>
       <div
         ref={cardRef}
-        className="relative flex bg-white flex-col h-full rounded-xl shadow-md overflow-hidden transition-transform hover:shadow-xl"
+        className="relative flex bg-raisin-dark flex-col h-full rounded-xl shadow-raisin overflow-hidden transition-transform hover:shadow-xl"
         style={{
           transform: "rotateY(0deg) scaleZ(1)",
           transition: "transform 0.4s ease",
@@ -72,8 +72,8 @@ function AboutCard({ img, title, content, glowColor = "rgba(45,55,155,0.4)" }) {
           style={{ backgroundImage: `url(${img})` }}
         ></div>
         <div className="p-6 flex flex-col flex-grow">
-          <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-          <p className="text-gray-600 text-sm leading-relaxed flex-grow">
+          <h3 className="text-xl font-bold text-seasalt mb-2">{title}</h3>
+          <p className="text-muted text-sm leading-relaxed flex-grow">
             {content}
           </p>
         </div>

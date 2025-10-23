@@ -6,12 +6,14 @@ import "../index.css";
 import NavBar from "./pages/NavBar.jsx";
 import Footer from "./pages/Footer.jsx";
 import { BrowserRouter } from "react-router-dom";
+import Announcements from "./components/Announcements.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <NavBar />
       <App />
       <Footer />
+      <Announcements />
     </BrowserRouter>
   </StrictMode>
 );

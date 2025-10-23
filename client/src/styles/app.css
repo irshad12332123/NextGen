@@ -29,6 +29,28 @@
   .shadow-raisin {
     box-shadow: 0 0 15px rgb(19, 19, 24);
   }
+.gallery-text {
+  position: relative; /* parent must be relative */
+  display: inline-block; /* needed for proper width */
+}
+
+.gallery-text::after {
+  content: '';
+  position: absolute;
+  top: 40px; 
+  height: 2px;
+  width: 0;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  background-color: white;
+  animation: draw 1s ease-out forwards;
+}
+
+@keyframes draw {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
   /* Background colors */
   .bg-wheat { background-color: var(--wheat); }
   .bg-raw-umber { background-color: var(--raw-umber); }

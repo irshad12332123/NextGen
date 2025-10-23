@@ -50,7 +50,7 @@ const NavBar = () => {
   ];
 
   return (
-    <header className="fixed top-5 left-0  right-0 z-10 flex justify-center flex-col ">
+    <header className=" fixed md:top-5 md:left-0 w-full top-2 z-20  md:right-0 md:z-10 flex justify-center flex-col ">
       <Nav />
       {/* <div className="md:h-12  md:relative h-10 w-full bg-[#2B363A] flex justify-center gap-40 items-center text-white">
         {headerNavLinks.map((item, i) => (
