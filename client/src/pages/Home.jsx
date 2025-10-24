@@ -5,6 +5,7 @@ import { EventsSection } from "@/components/home/EventsSection";
 import ReviewsSection from "@/components/home/ReviewsSection";
 import CourseSection from "@/components/home/CourseSection";
 import { LightGlow } from "@/components/animated-components/LightGlow";
+import { GallerySection } from "@/components/home/GallerySection";
 const Home = () => {
   const lightRef = useRef(null);
   const containerRef = useRef(null);
@@ -35,6 +36,7 @@ const Home = () => {
       {/* Cards course */}
       <CourseSection />
       <EventsSection />
+      <GallerySection />
       <ReviewsSection />
     </div>
   );

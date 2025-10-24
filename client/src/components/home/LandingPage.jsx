@@ -25,13 +25,11 @@ const LandingPage = () => {
         <div className="flex flex-col gap-4 justify-center items-center">
           <p className="text-seasalt text-center text-4xl md:text-7xl">
             Shape the Future{" "}
-            <span
-              style={{ fontFamily: "Iceberg" }}
-              className="italic font-light "
-            >
+            <span style={{ fontFamily: "Hurricane" }} className=" font-light ">
               with
-            </span>{" "}
-            <span className="text-wheat font-bold">Next Gen</span>
+            </span>
+            &nbsp;
+            <span className="text-wheat font-bold"> Next Gen</span>
           </p>
           <p className="text-celestial-blue">
             Where innovation meets Education

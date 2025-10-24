@@ -23,7 +23,7 @@ const MobileNav = () => {
   const handleMenuClick = () => setMenuClicked((prev) => !prev);
 
   return (
-    <div className="md:hidden relative z-999 w-full flex items-center px-3 py-2">
+    <div className="lg:hidden relative z-999 w-full flex items-center px-3 py-2">
       <CiMenuBurger
         size={28}
         className="text-white cursor-pointer"

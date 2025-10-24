@@ -75,7 +75,11 @@ const About = () => {
         style={{ fontFamily: "IceBerg" }}
       >
         <p className="lg:text-9xl md:text-6xl text-4xl text-seasalt ">
-          Who We <span className="italic text-wheat">Are</span>
+          Who{" "}
+          <span className=" text-wheat" style={{ fontFamily: "Hurricane" }}>
+            We{" "}
+          </span>
+          Are
           <span className="text-5xl italic">?</span>
         </p>
         <DrawingOval strokeWidth={1} color="#80BFE4ff" />
@@ -107,11 +111,11 @@ const About = () => {
           ))}
         </div>
       </div>
-      <div className="md:my-15 my-5 lg:px-50 md:px-15 px-5">
-        <p className="lg:text-4xl md:text-3xl text-xl font-bold ">
+      <div className="md:py-15 py-5 lg:px-50 md:px-15 px-5">
+        <p className="lg:text-4xl md:text-3xl text-xl font-bold text-seasalt ">
           Our Partners
         </p>
-        <p className="md:text-xl text-sm md:mt-5">
+        <p className="md:text-xl text-sm md:mt-5 text-muted">
           We are proud to collaborate with leading global brands
         </p>
         <div

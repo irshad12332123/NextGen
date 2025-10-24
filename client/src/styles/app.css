@@ -1,14 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Hurricane&family=Iceberg&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url('https://fonts.googleapis.com/css2?family=Hurricane&family=Iceberg&display=swap');
 @custom-variant dark (&:is(.dark *));
 
 
 ::selection{
-  background: rgb(25, 38, 51); /* highlight color */
+  background: rgb(25, 38, 51);
   color: white; 
 }
-
 
 @layer base{
     @font-face {
@@ -21,6 +20,92 @@
 }
 
 @layer utilities {
+  /* Collage styling */
+  .collage{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    max-width: 1000px;
+    margin-inline: auto;
+    gap: 0.5rem;
+
+    grid-template-areas:
+  "..  two two two  three four .. .."
+  "one two two two  five five six .."
+  "..  two two two  five five seven eight"
+  "nine ten eleven eleven twelve .. .. .."
+  "..  ..  eleven eleven .. .. .. ..";
+
+  }
+
+  .collage > div{
+    overflow: hidden;
+    border-radius: 0.5rem;
+  }
+
+  .collage  img{
+    aspect-ratio: 1;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .collage :nth-child(1){
+    grid-area: one;
+  }
+    .collage :nth-child(2){
+    grid-area: two;
+  }
+    .collage :nth-child(3){
+    grid-area: three;
+  }
+    .collage :nth-child(4){
+    grid-area: four;
+    background-color: #ffeec3;
+    border-bottom-right-radius: 100%;
+  }
+    .collage :nth-child(5){
+    grid-area: five;
+  }
+    .collage :nth-child(6){
+    grid-area: six;
+    background-color: teal;
+    border-top-right-radius: 100%;
+  }
+    .collage :nth-child(7){
+    grid-area: seven;
+  }
+    .collage :nth-child(8){
+    grid-area: eight;
+        background-color: rgb(161, 94, 161);
+    border-radius: 100%;
+  }
+    .collage :nth-child(9){
+    grid-area: nine;
+        background-color: pink;
+    border-top-left-radius: 100%;
+  }
+    .collage :nth-child(10){
+    grid-area: ten;
+  }
+    .collage :nth-child(11){
+    grid-area: eleven;
+  }
+    .collage :nth-child(12){
+    grid-area: twelve;
+  }
+    .collage :nth-child(13){
+    grid-area: thirteen;
+  }
+    .collage :nth-child(14){
+    grid-area: fourteen;
+  }
+    .collage :nth-child(15){
+    grid-area: fifteen;
+  }
+    .collage :nth-child(16){
+    grid-area: sixteen;
+  }
 
   .shadow-celestial {
     box-shadow: 0 0 10px rgba(79, 161, 209, 0.85);
@@ -30,8 +115,8 @@
     box-shadow: 0 0 15px rgb(19, 19, 24);
   }
 .gallery-text {
-  position: relative; /* parent must be relative */
-  display: inline-block; /* needed for proper width */
+  position: relative;
+  display: inline-block; 
 }
 
 .gallery-text::after {

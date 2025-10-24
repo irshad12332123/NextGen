@@ -66,14 +66,14 @@ const Gallery = () => {
       ? galleryData
       : galleryData.filter((item) => item.category === filter);
   return (
-    <div className="min-h-screen px-5  md:px-60 w-full bg-raisin-black">
+    <div className="min-h-screen px-5  md:px-30 lg:px-60 w-full bg-raisin-black">
       <div className="md:pt-50 pt-20">
         <div className="flex my-30 flex-col justify-center items-center gap-3">
           <p className="text-2xl text-seasalt ">
             Campus{" "}
             <span
-              className="lg:text-9xl gallery-text  italic text-wheat after:content-[''] after:absolute after:left-0 after:top-0 after:h-1 after:bg-white after:line"
-              style={{ fontFamily: "IceBerg" }}
+              className="lg:text-9xl md:text-8xl text-5xl gallery-text  italic text-wheat after:content-[''] after:absolute after:left-0 after:top-0 after:h-1 after:bg-white after:line"
+              style={{ fontFamily: "Hurricane" }}
             >
               Gallery
               <sup>"</sup>

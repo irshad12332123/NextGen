@@ -7,7 +7,10 @@ function ReviewCard({ profile = null, name, review, course }) {
           <LuUserRound className="text-white w-full h-full" />
         </div>
       )}
-      <p className="flex-1 text-center text-sm md:text-[1rem] text-muted italic max-w-xl">
+      <p
+        className="flex-1 text-center text-sm md:text-[2rem] text-muted lg:w-[70%] max-w-xl"
+        style={{ fontFamily: "Hurricane" }}
+      >
         "{review}"
       </p>
       <div className="flex flex-col gap-1 items-center">

@@ -8,7 +8,7 @@ const EventCard = ({
   description,
   action,
   title,
-  link = "#",
+  link = "/events",
 }) => {
   return (
     <div className="shadow-raisin p-3 rounded-2xl space-y-5 border-[0.01rem] border-[#4fa1d11d] hover:border-[#4fa1d1b1]">
