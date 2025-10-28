@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
-import { motion } from "motion/react";
 import "../index.css";
 import NavBar from "./pages/NavBar.jsx";
 import Footer from "./pages/Footer.jsx";

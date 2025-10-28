@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
+import React, { useCallback, useRef } from "react";
 
 function AboutCard({ img, title, content, glowColor = "rgba(45,55,155,0.4)" }) {
   const cardRef = useRef(null);
   const lightRef = useRef(null);
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = useCallback((e) => {
     const card = cardRef.current;
     const light = lightRef.current;
     const rect = card.getBoundingClientRect();
@@ -29,7 +29,7 @@ function AboutCard({ img, title, content, glowColor = "rgba(45,55,155,0.4)" }) {
       rotateY(${rotateY}deg)
       scale(1.05)
     `;
-  };
+  }, []);
 
   const handleMouseLeave = () => {
     const card = cardRef.current;

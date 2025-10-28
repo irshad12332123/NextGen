@@ -1,4 +1,4 @@
-import React, { useRef, lazy, Suspense } from "react";
+import React, { useRef, lazy, Suspense, useCallback } from "react";
 import { LightGlow } from "@/components/animated-components/LightGlow";
 import Loader from "@/components/Loader";
 import LazySection from "@/components/common/LazySection";
@@ -10,58 +10,51 @@ const CourseSection = lazy(() => import("@/components/home/CourseSection"));
 const GallerySection = lazy(() => import("@/components/home/GallerySection"));
 
 const Home = () => {
-  const lightRef = useRef(null);
   const containerRef = useRef(null);
+  // const lightRef = useRef(null);
+  // const handleMouseMove = useCallback((e) => {
+  //   const { clientX, clientY } = e;
 
-  const handleMouseMove = (e) => {
-    const light = lightRef.current;
-    const container = containerRef.current;
-    const rect = container.getBoundingClientRect();
+  //   requestAnimationFrame(() => {
+  //     const light = lightRef.current;
+  //     const container = containerRef.current;
 
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+  //     if (!light || !container) return;
 
-    light.style.left = `${x}px`;
-    light.style.top = `${y}px`;
-    light.style.opacity = 1;
-  };
+  //     const rect = container.getBoundingClientRect();
+  //     const x = clientX - rect.left;
+  //     const y = clientY - rect.top;
 
+  //     light.style.transform = `translate(${x}px, ${y}px)`;
+  //     light.style.opacity = 1;
+  //   });
+  // }, []);
   return (
     <div
       ref={containerRef}
-      onMouseMove={handleMouseMove}
+      // onMouseMove={handleMouseMove}
       className="relative px-5 2xl:px-70 bg-raisin-black min-h-screen w-full"
     >
-      <LightGlow lightRef={lightRef} />
+      {/* <LightGlow lightRef={lightRef} /> */}
 
       <Suspense fallback={<Loader />}>
-        <LazySection>
-          <LandingPage />
-        </LazySection>
+        <LandingPage />
       </Suspense>
 
       <Suspense fallback={<Loader />}>
-        <LazySection>
-          <CourseSection />
-        </LazySection>
+        <CourseSection />
       </Suspense>
 
       <Suspense fallback={<Loader />}>
-        <LazySection>
-          <EventsSection />
-        </LazySection>
+        <EventsSection />
       </Suspense>
 
       <Suspense fallback={<Loader />}>
-        <LazySection>
-          <GallerySection />
-        </LazySection>
+        <GallerySection />
       </Suspense>
 
       <Suspense fallback={<Loader />}>
-        <LazySection>
-          <ReviewsSection />
-        </LazySection>
+        <ReviewsSection />
       </Suspense>
     </div>
   );

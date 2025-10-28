@@ -7,12 +7,13 @@ import img_5 from "/images/img_5.jpg";
 import img_6 from "/images/img_6.jpg";
 import img_7 from "/images/img_7.jpg";
 import { motion, useInView } from "framer-motion";
+import BlurImage from "../common/BlurImage";
 const GallerySection = () => {
   const galleryRef = useRef(null);
   const isInView = useInView(galleryRef);
   return (
     <div className="w-full hidden md:flex justify-center items-center">
-      <motion.section
+      <div
         className="collage"
         ref={galleryRef}
         initial={{
@@ -24,37 +25,34 @@ const GallerySection = () => {
         }}
       >
         <div>
-          <img src={img_1} alt="" loading="lazy" />
+          <BlurImage src={img_1} alt={"image-1"} />
         </div>
         <div>
-          <img src={img_2} alt="" loading="lazy" />
+          <BlurImage src={img_2} alt={"image_2"} />
         </div>
         <div>
-          <img src={img_3} alt="" loading="lazy" />
+          <BlurImage src={img_3} alt={"image_3"} />
         </div>
         <div></div>
         <div>
-          <img src={img_4} alt="" loading="lazy" />
+          <BlurImage src={img_4} alt={"image_4"} />
         </div>
         <div></div>
         <div>
-          <img src={img_5} alt="" loading="lazy" />
+          <BlurImage src={img_5} alt={"image_5"} />
         </div>
         <div></div>
         <div></div>
         <div>
-          <img src={img_6} alt="" loading="lazy" />
+          <BlurImage src={img_6} alt={"image_6"} />
         </div>
         <div>
-          <img src={img_7} alt="" loading="lazy" />
+          <BlurImage src={img_7} alt={"image_7"} />
         </div>
         <div>
-          <img src={img_7} alt="" loading="lazy" />
+          <BlurImage src={img_2} alt={"image_2"} />
         </div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </motion.section>
+      </div>
     </div>
   );
 };

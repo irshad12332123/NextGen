@@ -1,4 +1,4 @@
-import React, { use, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const LazySection = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -6,27 +6,29 @@ const LazySection = ({ children }) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          console.log("TRUE", entry);
           setIsVisible(true);
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      {
+        rootMargin: "200px 0px",
+        threshold: 0,
+      }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
+    if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
+
   return (
-    <div ref={ref} style={{ minHeight: "30vh" }}>
+    <div ref={ref} className="">
       {isVisible ? (
-        children
+        <div className="animate-fadeIn">{children}</div>
       ) : (
-        <div className="w-full h-[30vh] bg-zinc-800 animate-pulse rounded-xl" />
+        <div className="w-full h-full bg-zinc-800 animate-pulse rounded-xl" />
       )}
     </div>
   );
