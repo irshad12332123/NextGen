@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
-import { PiPhoneDisconnectThin } from "react-icons/pi";
 import CustomBtn from "../CustomBtn";
 import MobileNav from "./MobileNav";
 const Nav = () => {

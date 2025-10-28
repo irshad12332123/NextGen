@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ImageCard from "../components/cards/ImageCard";
 import { PiPhoneDisconnectThin } from "react-icons/pi";
 import { CiMail } from "react-icons/ci";
 import { FaLocationArrow } from "react-icons/fa";

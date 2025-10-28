@@ -1,7 +1,7 @@
 import React from "react";
 import EventCard from "./eventCard";
 
-export const EventsSection = () => {
+const EventsSection = () => {
   const eventsArray = [
     {
       date: "25 OCT",
@@ -46,3 +46,5 @@ export const EventsSection = () => {
     </div>
   );
 };
+
+export default EventsSection;

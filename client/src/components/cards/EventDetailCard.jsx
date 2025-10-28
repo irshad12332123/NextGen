@@ -10,6 +10,7 @@ function EventDetailCard({ type = "primary" }) {
     <div className="flex flex-col gap-3 bg-white rounded-xl shadow-md">
       {type === "primary" ? (
         <img
+          loading="lazy"
           src={eventBanner}
           alt="event_banner"
           className="object-cover w-full h-50 md:h-80 rounded-t-xl"

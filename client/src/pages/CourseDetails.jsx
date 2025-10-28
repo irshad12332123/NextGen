@@ -2,8 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import ImageCard from "../components/cards/ImageCard";
 import { engineeringCourses } from "../../types/CourseData";
-import BlobAnimation from "../components/animated-components/BlobAnimation";
-import { useGSAP } from "@gsap/react";
 
 function ShowDetailCard({ title, description }) {
   return (

@@ -19,7 +19,7 @@ const LandingPage = () => {
           ref={LandingPageRef}
           initial={{ opacity: 0, width: 0, height: 0 }}
           animate={{ opacity: 1, width: "100%", height: "60%" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
           className=" absolute md:top-0 top-20 bg-gradient-to-br mix-blend-screen blur-2xl from-[rgba(61,91,138,1)] to-[rgba(29,29,40,1)]  h-1/2 w-full rounded-br-[100%] z-10"
         ></motion.div>
         <div className="flex flex-col gap-4 justify-center items-center">

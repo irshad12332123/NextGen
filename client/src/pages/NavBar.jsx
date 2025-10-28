@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { RiArrowDownWideFill } from "react-icons/ri";
 import Nav from "@/components/nav/Nav";
-import MobileNav from "@/components/nav/MobileNav";
 
 const NavBar = () => {
   const [activeDropDowm, setActiveDropDowm] = useState(null);

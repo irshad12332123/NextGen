@@ -9,6 +9,7 @@ function CustomCard({ cardDetails, link }) {
         <img
           src={cardDetails.src}
           alt="Btech"
+          loading="lazy"
           className="h-full w-full  object-cover group-hover:scale-110 transition-all duration-300"
         />
         <p className=" left-[4%] transition-all duration-300 line-clamp-1 text-center font-bold group-hover:-translate-y-6 text-mute absolute z-2 bottom-3 text-xs md:text-sm w-full  md:w-[90%]">
@@ -22,6 +23,7 @@ function CustomCard({ cardDetails, link }) {
         {/* Explore button section */}
         <Link to={link || "#"} className="cursor-pointer -bottom-1 ">
           <img
+            loading="lazy"
             src={rightCircleArrow}
             alt="Right-arrow"
             className="md:w-10 w-7"

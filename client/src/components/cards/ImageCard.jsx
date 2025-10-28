@@ -14,6 +14,7 @@ function ImageCard({
         <img
           src={imageUrl}
           alt="image-card"
+          loading="lazy"
           className="w-full h-full object-cover object-center"
         />
       ) : (
