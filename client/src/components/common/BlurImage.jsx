@@ -11,7 +11,7 @@ export default function BlurImage({ src, placeholder, alt }) {
       onLoad={() => setLoaded(true)}
       placeholder={placeholder}
       style={{
-        transition: "filter 0.3s ease, opacity 0.3s ease",
+        transition: "filter 0.4s ease opacity 0.4s ease",
         filter: loaded ? "blur(0px)" : "blur(10px)",
         opacity: loaded ? 1 : 0.6,
       }}
