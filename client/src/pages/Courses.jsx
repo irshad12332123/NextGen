@@ -1,25 +1,35 @@
-import ImageCard from "../components/cards/ImageCard";
 import FeatureCard from "../components/cards/FeatureCard";
 import { GiFlatPlatform } from "react-icons/gi";
 import { GrUserExpert } from "react-icons/gr";
 import { SiGooglemarketingplatform } from "react-icons/si";
 import { BsCircleSquare } from "react-icons/bs";
-import BlobAnimation from "../components/animated-components/BlobAnimation";
-import { RiSearchLine } from "react-icons/ri";
 import CustomCard from "../components/cards/CustomCard";
 import { engineeringCourses } from "../../types/CourseData";
 import { useState } from "react";
 
 const Courses = () => {
-  const [search, setSearch] = useState("");
+  function cleanText(str) {
+    return str
+      .replace(/[^\w\s]/g, "")
+      .replace(/\s+/g, "-")
+      .trim();
+  }
+
   const [filteredCourses, setFilteredCourses] = useState(
     engineeringCourses.slice(0, 6)
   );
-  const [activeFilter, setActiveFilter] = useState("B.Tech");
+
+  const [activeFilter, setActiveFilter] = useState("All");
+
   const filterCourses = (search) => {
-    const searchTerm = search.toLowerCase();
+    if (search === "All") return engineeringCourses.slice(0, 6);
+
+    const searchTerm = cleanText(search.toLowerCase());
+
     return engineeringCourses
-      .filter((course) => course.name.toLowerCase().includes(searchTerm))
+      .filter((course) =>
+        cleanText(course.name.toLowerCase()).includes(searchTerm)
+      )
       .slice(0, 6);
   };
 
@@ -55,7 +65,7 @@ const Courses = () => {
     },
   ];
 
-  const courseFilterOp = ["B.Tech", "B.C.A"];
+  const courseFilterOp = ["All", "B.Tech", "B.C.A"];
 
   return (
     <div className="min-h-screen w-full bg-raisin-black">
