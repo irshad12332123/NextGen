@@ -6,7 +6,6 @@ const PORT = process.env.PORT || 3000;
 const startServer = async () => {
   try {
     await sequelize.authenticate();
-    await sequelize.sync(); // Creates the Db If desnt exist
     console.log(`DB connected succesfully`);
 
     app.listen(PORT, () => {
