@@ -1,2 +1,18 @@
-/node_modules
+
+# Node modules (all)
+node_modules/
+
+# Environment files (all)
 .env
+**/.env
+
+# Logs
+*.log
+
+# Build outputs
+dist/
+build/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
