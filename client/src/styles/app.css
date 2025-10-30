@@ -57,7 +57,6 @@
   .collage > div{
     overflow: hidden;
     border-radius: 0.5rem;
-    border: 1px solid #d2d3d5;
   }
 
   .collage  img{
