@@ -4,9 +4,22 @@
   scrollbar-width: none;
 }
 
+:root {
+  --wheat: #F8DFB3ff;
+  --raw-umber: #A26A39ff;
+  --seasalt: #F6F8F9ff;
+  --raisin-black: rgb(30, 30, 41);
+  --light-sky-blue: #80BFE4ff;
+  --linen: #F9EFE4ff;
+  --celestial-blue: rgb(79, 161, 209);
+  --yinmn-blue: #3D5B8Aff;
+  --muted-white: #747985;
+}
+
 html{
    scroll-behavior: smooth;
 }
+
 
 /* Pagination bullets */
 .custom-swiper .swiper-pagination-bullet {

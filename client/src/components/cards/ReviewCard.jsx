@@ -1,28 +1,21 @@
-import profile from "../../assets/profile.png";
-function ReviewCard() {
+import { LuUserRound } from "react-icons/lu";
+function ReviewCard({ profile = null, name, review, course }) {
   return (
-    <div className="rounded-xl md:border-gray-300 md:border-1 md:p-5 hover:border-blue-600 hover:shadow-[0_0_10px_rgb(120,120,255)] transition-all duration-100 ">
-      <div className="flex md:p-5 p-1 md:gap-5 gap-2 items-center border-b-1 mb-5 border-gray-400">
-        <img
-          src={profile}
-          alt="profile-"
-          className="md:w-10 w-8 rounded-full p-1 bg-gray-300"
-        />
-        <div>
-          <h5 className="md:text-xl text-sm text-blue-600">Md Irshad</h5>
-          <p className="text-gray-600 text-xs md:text-md ">
-            software Engineer, Delhi
-          </p>
+    <div className="flex flex-col gap-3 md:gap-6 justify-center items-center p-2 md:p-4 shadow-raisin rounded-2xl">
+      {!profile && (
+        <div className="md:w-15 md:h-15 bg-celestial-blue  p-3 rounded-full">
+          <LuUserRound className="text-white w-full h-full" />
         </div>
-      </div>
-      {/* Review detals */}
-      <div className="flex flex-col  md:gap-5 gap-2 py-1 px-5 rounded-4xl">
-        <p className="italic text-gray-700 md:text-[18px] text-xs line-clamp-3 md:line-clamp-4 ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio natus
-          consectetur nesciunt, neque sequi, dignissimos sapiente dicta ab
-          cupiditate placeat porro ratione eum, et repudiandae laudantium facere
-          magni. Dignissimos, illum.
-        </p>
+      )}
+      <p
+        className="flex-1 text-center text-sm md:text-[2rem] text-muted lg:w-[70%] max-w-xl"
+        style={{ fontFamily: "Hurricane" }}
+      >
+        "{review}"
+      </p>
+      <div className="flex flex-col gap-1 items-center">
+        <p className="text-seasalt font-bold text-sm md:text-xl">{name}</p>
+        <p className=" text-center text-wheat text-sm">{course}</p>
       </div>
     </div>
   );

@@ -1,40 +1,61 @@
-import React from "react";
+import React, { useRef, lazy, Suspense, useCallback } from "react";
+import { LightGlow } from "@/components/animated-components/LightGlow";
+import Loader from "@/components/Loader";
+import LazySection from "@/components/common/LazySection";
 
-import Announcements from "../components/Announcements";
-import CustomBtn from "../components/CustomBtn";
-import ImageCard from "../components/cards/ImageCard";
-import HiringCompanies from "../components/HiringCompanies";
-import LandingPage from "@/components/home/LandingPage";
-import RankingSection from "@/components/home/RankingSection";
-import CarouselSection from "@/components/home/CarouselSection";
-import { EventsSection } from "@/components/home/EventsSection";
-import FacilitiesSection from "@/components/home/FacilitiesSection";
-import ReviewsSection from "@/components/home/ReviewsSection";
+const LandingPage = lazy(() => import("@/components/home/LandingPage"));
+const EventsSection = lazy(() => import("@/components/home/EventsSection"));
+const ReviewsSection = lazy(() => import("@/components/home/ReviewsSection"));
+const CourseSection = lazy(() => import("@/components/home/CourseSection"));
+const GallerySection = lazy(() => import("@/components/home/GallerySection"));
+
 const Home = () => {
+  const containerRef = useRef(null);
+  // const lightRef = useRef(null);
+  // const handleMouseMove = useCallback((e) => {
+  //   const { clientX, clientY } = e;
+
+  //   requestAnimationFrame(() => {
+  //     const light = lightRef.current;
+  //     const container = containerRef.current;
+
+  //     if (!light || !container) return;
+
+  //     const rect = container.getBoundingClientRect();
+  //     const x = clientX - rect.left;
+  //     const y = clientY - rect.top;
+
+  //     light.style.transform = `translate(${x}px, ${y}px)`;
+  //     light.style.opacity = 1;
+  //   });
+  // }, []);
   return (
-    <div className="mt-30">
-      {/* Landing Page */}
-      <LandingPage />
-      <div className="h-full w-full flex flex-col">
-        {/* Ranking Cards */}
-        <RankingSection />
-        {/* Carousel */}
-        <CarouselSection />
-        {/* Hiring componenet */}
-        <HiringCompanies />
-      </div>
-      {/* Events */}
-      <EventsSection />
-      {/* Facilities */}
-      {/* <FacilitiesSection /> */}
-      {/* Review Section */}
-      <ReviewsSection />
-      {/* Call to action */}
-      <div className=" h-full  flex flex-col items-center justify-center mb-20">
-        <ImageCard />
-      </div>
-      {/* Announcements */}
-      <Announcements />
+    <div
+      ref={containerRef}
+      // onMouseMove={handleMouseMove}
+      className="relative px-5 2xl:px-70 bg-raisin-black min-h-screen w-full"
+    >
+      {/* <LightGlow lightRef={lightRef} /> */}
+
+      <Suspense fallback={<Loader />}>
+        <LandingPage />
+      </Suspense>
+
+      <Suspense fallback={<Loader />}>
+        <CourseSection />
+      </Suspense>
+
+      <Suspense fallback={<Loader />}>
+        <EventsSection />
+      </Suspense>
+
+      <Suspense fallback={<Loader />}>
+        <GallerySection />
+      </Suspense>
+
+      <Suspense fallback={<Loader />}>
+        <ReviewsSection />
+      </Suspense>
     </div>
   );
 };

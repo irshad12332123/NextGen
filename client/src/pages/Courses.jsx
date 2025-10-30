@@ -1,30 +1,40 @@
-import ImageCard from "../components/cards/ImageCard";
 import FeatureCard from "../components/cards/FeatureCard";
 import { GiFlatPlatform } from "react-icons/gi";
 import { GrUserExpert } from "react-icons/gr";
 import { SiGooglemarketingplatform } from "react-icons/si";
 import { BsCircleSquare } from "react-icons/bs";
-import BlobAnimation from "../components/animated-components/BlobAnimation";
-import { RiSearchLine } from "react-icons/ri";
 import CustomCard from "../components/cards/CustomCard";
 import { engineeringCourses } from "../../types/CourseData";
 import { useState } from "react";
 
 const Courses = () => {
-  const [search, setSearch] = useState("");
+  function cleanText(str) {
+    return str
+      .replace(/[^\w\s]/g, "")
+      .replace(/\s+/g, "-")
+      .trim();
+  }
+
   const [filteredCourses, setFilteredCourses] = useState(
     engineeringCourses.slice(0, 6)
   );
 
+  const [activeFilter, setActiveFilter] = useState("All");
+
   const filterCourses = (search) => {
-    console.log(search);
+    if (search === "All") return engineeringCourses.slice(0, 6);
+
+    const searchTerm = cleanText(search.toLowerCase());
+
     return engineeringCourses
-      .filter((course) => course.name.toLowerCase().includes(search))
+      .filter((course) =>
+        cleanText(course.name.toLowerCase()).includes(searchTerm)
+      )
       .slice(0, 6);
   };
 
   const handleSearch = (courseName) => {
-    console.log("Seardched Course", courseName);
+    setActiveFilter(courseName);
     setFilteredCourses(filterCourses(courseName));
   };
 
@@ -55,83 +65,53 @@ const Courses = () => {
     },
   ];
 
-  const courseFilterOp = ["B.Tech", "B.C.A"];
+  const courseFilterOp = ["All", "B.Tech", "B.C.A"];
 
   return (
-    <div>
-      <ImageCard buttonRequired={false} title="Courses" />
-      <div className=" md:px-15 lg:px-50 px-5 md:my-20 my-10 ">
-        <p className="md:text-3xl text-xl font-bold">Why choose Next Gen?</p>
-        <p className="max-w-2xl md:text-[1rem] text-sm mt-5 ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-          iure voluptatibus saepe quia! Alias unde voluptatum ad laboriosam quo,
-          beatae velit iste officia tempora, praesentium laborum esse quam
-          tempore laudantium!
-        </p>
+    <div className="min-h-screen w-full bg-raisin-black">
+      <div className="md:px-15 xl:px-25 2xl:px-40 px-5 md:py-20 py-10">
+        <div className="mt-50 text-center flex flex-col justify-center items-center">
+          <p className="md:text-3xl text-xl  text-seasalt ">
+            Why choose{" "}
+            <span
+              className="lg:text-5xl  text-5xl md:text-8xl text-wheat"
+              style={{ fontFamily: "Hurricane" }}
+            >
+              Next Gen{" "}
+            </span>
+            ?
+          </p>
+          <p className="max-w-2xl md:text-[1rem] text-muted text-sm mt-5 ">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
+            iure voluptatibus saepe quia! Alias unde voluptatum ad laboriosam
+            quo, beatae velit iste officia tempora, praesentium laborum esse
+            quam tempore laudantium!
+          </p>
+        </div>
 
-        {/*  cards */}
-        <div className="relative mt-15 bg-gray-200 xl:p-8 p-3 md:px-5  lg:grid-cols-4 grid grid-cols-1 md:grid-cols-2  gap-5 rounded-md">
+        {/* Feature Cards */}
+        <div className="relative mt-15 xl:p-8 p-3 md:px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 rounded-md">
           {cards.map((card, i) => (
-            <FeatureCard key={i} courseCard={card} />
+            <FeatureCard
+              key={i}
+              Icon={card.icon}
+              title={card.title}
+              content={card.content}
+            />
           ))}
-
-          <BlobAnimation
-            x={[0, 30, -20, 0]}
-            y={[0, -20, 20, 0]}
-            scale={[1, 1.6, 0.9, 1]}
-            positionStyles={" -bottom-8 bg-blue-500 md:-left-15 "}
-            duration={10}
-          />
-
-          <BlobAnimation
-            x={[0, 30, 10, 0]}
-            y={[0, -10, 20, 0]}
-            scale={[1, 1.6, 0.5, 1]}
-            positionStyles={" -bottom-8 bg-green-500 md:-left-25 "}
-            duration={10}
-          />
-
-          <BlobAnimation
-            x={[0, 30, -20, 0]}
-            y={[0, -20, 20, 0]}
-            scale={[1, 1.6, 0.9, 1]}
-            positionStyles={" -top-8 bg-blue-500 md:-right-10 "}
-            duration={10}
-          />
-
-          <BlobAnimation
-            x={[0, 30, -20, 0]}
-            y={[0, -20, 20, 0]}
-            scale={[1, 1.6, 0.9, 1]}
-            positionStyles={" top-8 bg-amber-500 -md:right-15"}
-            duration={10}
-          />
         </div>
       </div>
-      <div className="md:px-15 lg:px-50 px-5 w-full">
-        <div className="mt-5 bg-blue-200 md:w-1/2 w-full flex p-2 rounded-full shadow-md items-center justify-between border-1  border-blue-400 ">
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Which course are you looking for?"
-            className="focus:outline-0 flex-1  outline-0 rounded-xl  text-md md:p-3 p-2"
-          />
-          <RiSearchLine
-            onClick={() => {
-              handleSearch(search);
-            }}
-            className=" hover:opacity-80 cursor-pointer text-4xl bg-blue-500 rounded-full p-2 "
-          />
-        </div>
-        <div className=" flex gap-5 mt-5">
+
+      {/* Filter Options */}
+      <div className="md:px-15 2xl:px-50 px-5 w-full">
+        <div className="flex gap-5 mt-5">
           {courseFilterOp.map((filter, i) => (
             <p
-              className="px-5 py-2 md:text-[1rem] text-sm rounded-full bg-blue-100  cursor-pointer transition-all duration-100 shadow-xl hover:bg-blue-500 hover:text-white"
               key={i}
-              onClick={(e) => {
-                handleSearch(e.target.innerText);
-              }}
+              onClick={() => handleSearch(filter)}
+              className={`md:px-4 md:py-2 px-3 py-2 text-sm md:text-[1rem] font-bold text-seasalt rounded-full cursor-pointer transition-all duration-300 ${
+                activeFilter === filter ? "bg-celestial-blue" : ""
+              }`}
             >
               {filter}
             </p>
@@ -139,7 +119,8 @@ const Courses = () => {
         </div>
       </div>
 
-      <div className=" mt-10 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 py-5 lg:px-50 md:py-10 md:px-15 px-5 gap-5  ">
+      {/* Filtered Courses */}
+      <div className="mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 py-5 2xl:px-50 md:py-10 md:px-15 px-5 gap-5">
         {filteredCourses.map((course, i) => (
           <CustomCard
             cardDetails={course}

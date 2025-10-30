@@ -1,15 +1,17 @@
 import React from "react";
-import rightArrow from "../assets/angle-circle-right.png";
 
-function CustomBtn({ customStyle = "" }) {
+const CustomBtn = ({ title, type = "primary" }) => {
   return (
     <button
-      className={`bg-[#67676744] text-xl hover:shadow-[0_0_50px_rgb(120,120,255)_inset,0_0_30px_rgb(120,120,255)] flex items-center justify-center gap-3  text-black hover:text-white md:px-7 md:py-6 px-5 py-3 hover:bg-blue-500  hover:cursor-pointer transition-all duration-300 rounded-full ${customStyle} group `}
+      className={`${
+        type === "primary"
+          ? "bg-celestial-blue shadow-celestial hover:bg-[#33333d7b]"
+          : "bg-[#33333D] border-[0.01rem] border-[#ffffff14] hover:bg-[#FBEBD0] hover:text-gray-600"
+      } px-3 py-2 text-seasalt text-sm transition-all duration-100 rounded-md  hover:cursor-pointer`}
     >
-      <p className=" text-sm">Something action</p>
-      <img src={rightArrow} alt="right-arrow" className="w-10" />
+      {title}
     </button>
   );
-}
+};
 
 export default CustomBtn;

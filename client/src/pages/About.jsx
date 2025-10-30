@@ -1,11 +1,13 @@
 import ImageCard from "../components/cards/ImageCard";
 import AboutCard from "../components/cards/AboutCard";
 import { partners } from "../../types/Image";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import DrawingOval from "@/components/animated-components/OvalDraw";
 
 const About = () => {
+  const circularMotionRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setPosition({
@@ -66,16 +68,27 @@ const About = () => {
   ];
 
   return (
-    <div>
-      <ImageCard buttonRequired={false} title="About" />
-
+    <div className="bg-raisin-black min-h-screen w-full">
+      {/* <ImageCard buttonRequired={false} title="About" /> */}
+      <div
+        className=" relative flex py-50 flex-col justify-center items-center gap-3"
+        style={{ fontFamily: "IceBerg" }}
+      >
+        <p className="lg:text-9xl md:text-6xl text-4xl text-seasalt ">
+          Who{" "}
+          <span className=" text-wheat" style={{ fontFamily: "Hurricane" }}>
+            We{" "}
+          </span>
+          Are
+          <span className="text-5xl italic">?</span>
+        </p>
+        <DrawingOval strokeWidth={1} color="#80BFE4ff" />
+        <p className="text-sm text-muted w-[80%] md:w-[70%]  text-center">
+          Discover our rich, history, mission, and values that shape our
+          comitment to acaddemic excelence and student success.
+        </p>
+      </div>
       <div className="lg:px-50 md:px-15 px-10">
-        <div className="md:my-15 my-5">
-          <p className="md:text-[1rem] text-center text-sm font-bold">
-            Discover our rich, history, mission, and values that shape our
-            comitment to acaddemic excelence and student success.
-          </p>
-        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:my-10 mb-5">
           {aboutCards.map((card, i) => (
             <AboutCard
@@ -87,7 +100,6 @@ const About = () => {
           ))}
         </div>
       </div>
-
       <div className=" bg-[#2B363A]  text-white w-full py-10 flex flex-col gap-5 justify-center items-center">
         <p className="bg-[#4d5051] rounded-md px-5 py-2 ">Why choose Us?</p>
         <p className="lg:text-4xl md:text-3xl text-xl text-center font-bold">
@@ -99,11 +111,11 @@ const About = () => {
           ))}
         </div>
       </div>
-      <div className="md:my-15 my-5 lg:px-50 md:px-15 px-5">
-        <p className="lg:text-4xl md:text-3xl text-xl font-bold ">
+      <div className="md:py-15 py-5 lg:px-50 md:px-15 px-5">
+        <p className="lg:text-4xl md:text-3xl text-xl font-bold text-seasalt ">
           Our Partners
         </p>
-        <p className="md:text-xl text-sm md:mt-5">
+        <p className="md:text-xl text-sm md:mt-5 text-muted">
           We are proud to collaborate with leading global brands
         </p>
         <div
