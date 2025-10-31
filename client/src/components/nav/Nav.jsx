@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import clsx from "clsx";
 import CustomBtn from "../CustomBtn";
 import MobileNav from "./MobileNav";
@@ -41,7 +41,9 @@ const Nav = () => {
                 {linkObj.linkName}
               </NavLink>
             ))}
-            <CustomBtn title={"Apply Now"} />
+            <Link to="/apply">
+              <CustomBtn title={"Apply Now"} />
+            </Link>
           </div>
 
           <MobileNav />

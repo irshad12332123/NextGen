@@ -120,7 +120,7 @@ const Courses = () => {
       </div>
 
       {/* Filtered Courses */}
-      <div className="mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 py-5 2xl:px-50 md:py-10 md:px-15 px-5 gap-5">
+      <div className="mt-10 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 py-5 2xl:px-50 md:py-10 md:px-15 px-5 gap-5">
         {filteredCourses.map((course, i) => (
           <CustomCard
             cardDetails={course}
