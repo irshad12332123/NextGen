@@ -7,6 +7,9 @@ const Event = sequelize.define("Event", {
   description: { type: DataTypes.STRING, allowNull: false },
   date: { type: DataTypes.DATE, allowNull: false },
   location: { type: DataTypes.STRING, allowNull: false },
+  thumbnail: { type: DataTypes.STRING, allowNull: false },
+  start: { type: DataTypes.DATE, allowNull: false },
+  end: { type: DataTypes.DATE, allowNull: false },
 });
 
 module.exports = Event;

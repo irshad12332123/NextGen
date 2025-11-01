@@ -87,7 +87,7 @@ function Event() {
         </div>
       </div>
 
-      <div className="my-10 md:px-50 px-5">
+      {/* <div className="my-10 md:px-50 px-5">
         <div className="flex md:gap-10 gap-2 items-center">
           <SlCalender className="text-xl md:text-3xl text-blue-500" />
           <div className="flex gap-2 items-center">
@@ -104,7 +104,7 @@ function Event() {
           <EventCard type="secondary" />
           <EventCard type="secondary" />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
