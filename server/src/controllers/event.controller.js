@@ -1,6 +1,5 @@
-import Event from "../models/event.model";
-
-export const getAllEvents = async (req, res) => {
+const Event = require("../models/event.model");
+const getAllEvents = async (req, res) => {
   try {
     const events = await Event.findAll({
       attributes: [
@@ -12,8 +11,9 @@ export const getAllEvents = async (req, res) => {
         "start",
         "end",
       ],
-      order: [["startTime", "ASC"]],
+      order: [["start", "ASC"]],
     });
+
     res
       .status(200)
       .json({ success: true, message: "Fetched all events", data: events });
@@ -22,10 +22,42 @@ export const getAllEvents = async (req, res) => {
   }
 };
 
-export const deleteEvent = async (req, res) => {
+const createEvent = async (req, res) => {
+  try {
+    const { title, description, location, thumbnail, start, end } = req.body;
+    if (!title || !description || !location || !thumbnail || !start || !end)
+      return res.status(400).json({
+        success: false,
+        message: `Fill every field`,
+      });
+
+    const newEvent = Event.create({
+      title: title,
+      description: description,
+      location: location,
+      thumbnail: thumbnail,
+      start: start,
+      end: end,
+    });
+    if (!newEvent)
+      return res
+        .status(400)
+        .json({ success: false, message: "Failed to create event" });
+
+    return res
+      .status(200)
+      .json({ success: true, message: `Event created successfully` });
+  } catch (error) {
+    res
+      .status(400)
+      .json({ success: false, message: `Some error ocurred ${error.message}` });
+  }
+};
+
+const deleteEvent = async (req, res) => {
   const id = req.params.id;
   try {
-    const event = await Event.findByPK(id);
+    const event = await Event.findByPk(id);
     if (!event) return res.status(404).json({ message: "Event not found" });
 
     await event.destroy();
@@ -35,16 +67,23 @@ export const deleteEvent = async (req, res) => {
   }
 };
 
-export const updateEvent = async (req, res) => {
+const updateEvent = async (req, res) => {
   const id = req.params.id;
   const updatedData = req.body;
   try {
-    const event = await Event.findByPK(id);
+    const event = await Event.findByPk(id);
     if (!event) return res.status(404).json({ message: "Event not found" });
 
     await event.update(updatedData);
     res.json({ message: "Event updated successfully" });
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
   }
+};
+
+module.exports = {
+  getAllEvents,
+  createEvent,
+  updateEvent,
+  deleteEvent,
 };
