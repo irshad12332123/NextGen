@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
-
-export function useApi(baseURL) {
+import { BASE_URL } from "@/api/api";
+export function useApi() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
@@ -10,8 +10,8 @@ export function useApi(baseURL) {
       setLoading(true);
       setError(null);
       try {
-        // fetching the eventss
-        const response = await fetch(`${baseURL}${endpoint}`, {
+        // fetching the events
+        const response = await fetch(`${BASE_URL}${endpoint}`, {
           method: method,
           headers: {
             "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export function useApi(baseURL) {
         setLoading(false);
       }
     },
-    [baseURL]
+    [BASE_URL]
   );
 
   const refetch = useCallback(() => fetchData(), [fetchData]);
