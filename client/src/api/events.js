@@ -1,54 +1,34 @@
-export const getEvents = async (
-  endpoint = "",
-  body = null,
-  fetchData,
-  refetch
-) => {
+export const getAllEvents = async (endpoint = "", fetchData) => {
   try {
-    await fetchData(endpoint, "GET", body);
-    refetch();
+    const result = await fetchData(endpoint, "GET");
+    return result;
   } catch (error) {
     return { success: false, message: error.message };
   }
 };
 
-export const createEvent = async (
-  endpoint = "",
-  body = null,
-  fetchData,
-  refetch
-) => {
+export const createEvent = async (endpoint = "", fetchData, body = null) => {
   try {
-    await fetchData(endpoint, "POST", body);
-    refetch();
+    const result = await fetchData(endpoint, "POST", body);
+    return result;
   } catch (error) {
     return { success: false, message: error.message };
   }
 };
 
-export const deleteEvent = async (
-  endpoint = "",
-  body = null,
-  fetchData,
-  refetch
-) => {
+export const updateEvent = async (endpoint = "", fetchData, body = null) => {
   try {
-    await fetchData(endpoint, "DELETE", body);
-    refetch();
+    const result = await fetchData(endpoint, "PUT", body);
+    return result;
   } catch (error) {
     return { success: false, message: error.message };
   }
 };
 
-export const updateEvent = async (
-  endpoint = "",
-  body = null,
-  fetchData,
-  refetch
-) => {
+export const deleteEvent = async (endpoint = "", fetchData) => {
   try {
-    await fetchData(endpoint, "PUT", body);
-    refetch();
+    const result = await fetchData(endpoint, "DELETE");
+    return result;
   } catch (error) {
     return { success: false, message: error.message };
   }

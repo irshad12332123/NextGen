@@ -1,4 +1,5 @@
 const Event = require("../models/event.model");
+
 const getAllEvents = async (req, res) => {
   try {
     const events = await Event.findAll({
@@ -56,12 +57,14 @@ const createEvent = async (req, res) => {
 
 const deleteEvent = async (req, res) => {
   const id = req.params.id;
+  console.log(id);
   try {
     const event = await Event.findByPk(id);
+    console.log(event);
     if (!event) return res.status(404).json({ message: "Event not found" });
 
     await event.destroy();
-    res.json({ message: "Event deleted successfully" });
+    res.json({ success: true, message: "Event deleted successfully" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

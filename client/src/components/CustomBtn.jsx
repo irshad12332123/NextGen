@@ -1,8 +1,9 @@
 import React from "react";
 
-const CustomBtn = ({ title, type = "primary" }) => {
+const CustomBtn = ({ title, type = "primary", onClick }) => {
   return (
     <button
+      onClick={onClick ? onClick : undefined}
       className={`${
         type === "primary"
           ? "bg-celestial-blue shadow-celestial hover:bg-[#33333d7b]"

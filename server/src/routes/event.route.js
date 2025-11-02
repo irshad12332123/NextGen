@@ -5,11 +5,12 @@ const {
   updateEvent,
   deleteEvent,
 } = require("../controllers/event.controller");
+const authMiddleware = require("../middlewares/auth.middleware");
 const router = express.Router();
 
-router.get("/get-events", getAllEvents);
-router.post("/create-event", createEvent);
-router.put("/update-event/:id", updateEvent);
-router.delete("/delete-event/:id", deleteEvent);
+router.get("/", getAllEvents);
+router.post("/", createEvent);
+router.put("/:id", updateEvent);
+router.delete("/:id", deleteEvent);
 
 module.exports = router;

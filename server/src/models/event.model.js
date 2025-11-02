@@ -9,8 +9,8 @@ const Event = sequelize.define(
     description: { type: DataTypes.TEXT, allowNull: false },
     location: { type: DataTypes.STRING, allowNull: false },
     thumbnail: { type: DataTypes.STRING, allowNull: false },
-    start: { type: DataTypes.DATE, allowNull: false },
-    end: { type: DataTypes.DATE, allowNull: false },
+    start: { type: DataTypes.DATEONLY, allowNull: false },
+    end: { type: DataTypes.DATEONLY, allowNull: false },
   },
   {
     tableName: "events",

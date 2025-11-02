@@ -11,6 +11,7 @@ const CustomForm = ({
   handleSubmit,
   error,
   setErrors,
+  submitBtnTitle = "Submit Application",
 }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,7 +47,7 @@ const CustomForm = ({
         </div>
       ))}
       <div className="mx-auto ">
-        <CustomBtn title={"Submit Application"} />
+        <CustomBtn title={submitBtnTitle} />
       </div>
     </form>
   );

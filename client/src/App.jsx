@@ -3,6 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import ContactUs from "./pages/ContactUs";
 import Loader from "./components/Loader";
 import { ApplyNow } from "./pages/ApplyNow";
+import ProtectedRoute from "./routes/protectedRoute";
+import EventAdmin from "./pages/EventAdmin";
+import CreateEvent from "./components/admin-events/CreateEvent";
 const Event = lazy(() => import("./pages/Event"));
 const About = lazy(() => import("./pages/About"));
 const Gallery = lazy(() => import("./pages/Gallery"));
@@ -15,6 +18,22 @@ const App = () => {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route
+          path="/admin-event"
+          element={
+            <ProtectedRoute>
+              <EventAdmin />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin-create-event"
+          element={
+            <ProtectedRoute>
+              <CreateEvent />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/apply" element={<ApplyNow />} />
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
