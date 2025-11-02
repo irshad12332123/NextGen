@@ -5,6 +5,7 @@ const JWT_SECRET = process.env.JWT_SECRET_KEY;
 
 const adminLogin = async (req, res) => {
   const { name, email } = req.body;
+  console.log(req.body);
   try {
     if (!name || !email)
       return res
@@ -13,7 +14,7 @@ const adminLogin = async (req, res) => {
 
     // Check if admin exists or not
     const admin = await Admin.findOne({
-      where: email,
+      where: { email },
     });
 
     if (!admin)
@@ -24,7 +25,7 @@ const adminLogin = async (req, res) => {
     // ADmin approved issuing an JWT token
     // Create token
     const token = jwt.sign(
-      { id: admin.id, email: admin.email, role: admin.role },
+      { id: admin.id, email: admin.email, name: admin.name },
       JWT_SECRET,
       {
         expiresIn: "1h",
@@ -36,7 +37,7 @@ const adminLogin = async (req, res) => {
         .status(400)
         .json({ success: false, message: "Failed to issue a token" });
 
-    res.json({ message: "Login successful", token });
+    res.json({ success: true, message: "Login successful", token });
   } catch (error) {
     res.status(400).json({
       success: false,

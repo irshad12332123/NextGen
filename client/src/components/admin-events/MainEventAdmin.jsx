@@ -9,15 +9,9 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 import withReactContent from "sweetalert2-react-content";
+import { handleAdminLogOut } from "@/api/auth";
 
 const MainEventAdmin = () => {
-  const [updateId, setUpdateId] = useState(null);
-
-  function handleUpdate(id) {
-    setUpdateId(id);
-    navigate("/admin-update-event");
-  }
-
   const MySwal = withReactContent(Swal);
   const navigate = useNavigate();
   const [events, setEvents] = useState(null);
@@ -72,6 +66,11 @@ const MainEventAdmin = () => {
     });
   };
 
+  const handleLogOut = () => {
+    handleAdminLogOut();
+    navigate("/admin-login");
+  };
+
   const [filter, setFilter] = useState("All");
   return (
     <main className="overflow-y-auto bg-[#111518]">
@@ -80,6 +79,7 @@ const MainEventAdmin = () => {
         <div className="flex-grow"></div>
         <div>
           <IoIosLogOut
+            onClick={handleLogOut}
             size={50}
             className="p-2 rounded-md bg-[#1C2227] text-center"
           />
@@ -115,8 +115,6 @@ const MainEventAdmin = () => {
             fetchData={fetchData}
             filter={filter}
             onDelete={handleDeleteEvent}
-            updateId={updateId}
-            onUpdate={handleUpdate}
           />
         )}
       </div>

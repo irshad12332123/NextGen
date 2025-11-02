@@ -3,10 +3,13 @@ import { GoStarFill } from "react-icons/go";
 import eventBanner from "../assets/event_page_banner.png";
 import EventDetailCard from "../components/cards/EventDetailCard";
 import SearchFilterBar from "../components/SearchFilter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdUpcoming } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
 import EventCard from "../components/cards/EventCard";
+import { getAllEvents } from "@/api/events";
+import { useApiContext } from "@/providers/ApiContext";
+import { getEventStatus } from "@/utils/getCurrentEventStatus";
 
 function ButtonComponent({ title, isSelected, onClick }) {
   return (
@@ -24,10 +27,27 @@ function ButtonComponent({ title, isSelected, onClick }) {
 }
 
 function Event() {
-  const [selected, setSelected] = useState("onGoing");
+  const [selected, setSelected] = useState("ongoing");
+
+  const [events, setEvents] = useState([]);
+  const { fetchData } = useApiContext();
+
+  async function fetchEvents() {
+    const response = await getAllEvents("/event/", fetchData);
+    setEvents(response.data);
+  }
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
+  const enhancedEvents = events?.map((e) => ({
+    ...e,
+    status: getEventStatus(e.start, e.end),
+  }));
 
   const tabs = [
-    { id: "onGoing", label: "On-Going" },
+    { id: "ongoing", label: "On-Going" },
     { id: "upcoming", label: "Upcoming" },
   ];
 
@@ -47,44 +67,51 @@ function Event() {
         </div>
 
         <div className="grid md:grid-cols-2 grid-cols-1  mt-10 gap-10">
-          <EventDetailCard />
-          <EventDetailCard />
+          {enhancedEvents?.map((events) => (
+            <EventDetailCard
+              title={events.title}
+              date={events.start}
+              location={events.location}
+              thumbnail={events.thumbnail}
+              description={events.description}
+            />
+          ))}
         </div>
 
-        <div className="mt-10">
+        {/* <div className="mt-10">
           <SearchFilterBar />
-        </div>
+        </div> */}
 
-        <div className="mt-10">
+        {/* <div className="mt-10">
           {/* Tab Buttons */}
-          <div className="flex gap-4 border-b border-gray-200">
-            {tabs.map((tab) => (
-              <ButtonComponent
-                key={tab.id}
-                title={tab.label}
-                isSelected={selected === tab.id}
-                onClick={() => setSelected(tab.id)}
-              />
-            ))}
-          </div>
+        {/* <div className="flex gap-4 border-b border-gray-200">
+          {tabs.map((tab) => (
+            <ButtonComponent
+              key={tab.id}
+              title={tab.label}
+              isSelected={selected === tab.id}
+              onClick={() => setSelected(tab.id)}
+            />
+          ))}
+        </div> */}
 
-          {/* Tab Content */}
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-10">
-            {selected === "onGoing" && (
-              <>
-                <EventDetailCard type="secondary" />
-                <EventDetailCard type="secondary" />
-                <EventDetailCard type="secondary" />
-              </>
-            )}
-            {selected === "upcoming" && (
-              <>
-                <EventDetailCard type="secondary" />
-                <EventDetailCard type="secondary" />
-              </>
-            )}
-          </div>
-        </div>
+        {/* Tab Content */}
+        {/* <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+          {selected === "onGoing" && (
+            <>
+              <EventDetailCard type="secondary" />
+              <EventDetailCard type="secondary" />
+              <EventDetailCard type="secondary" />
+            </>
+          )}
+          {selected === "upcoming" && (
+            <>
+              <EventDetailCard type="secondary" />
+              <EventDetailCard type="secondary" />
+            </>
+          )}
+        </div> */}
+        {/* </div> */}
       </div>
 
       {/* <div className="my-10 md:px-50 px-5">

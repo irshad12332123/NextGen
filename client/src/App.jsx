@@ -3,11 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import ContactUs from "./pages/ContactUs";
 import Loader from "./components/Loader";
 import { ApplyNow } from "./pages/ApplyNow";
-import ProtectedRoute from "./routes/protectedRoute";
+import ProtectedRoute from "./routes/ProtectedRoute";
 import EventAdmin from "./pages/EventAdmin";
 import CreateEvent from "./components/admin-events/CreateEvent";
 import UpdateEvent from "./components/admin-events/UpdateEvent";
 import { ApiProvider } from "./providers/ApiContext";
+import { AdminLogin } from "./pages/AdminLogin";
+
 const Event = lazy(() => import("./pages/Event"));
 const About = lazy(() => import("./pages/About"));
 const Gallery = lazy(() => import("./pages/Gallery"));
@@ -20,7 +22,25 @@ const App = () => {
     <Suspense fallback={<Loader />}>
       <ApiProvider>
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<Home />} />
+          <Route path="/apply" element={<ApplyNow />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/courses/:courseId" element={<CourseDetails />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/events" element={<Event />} />
+
+          <Route
+            path="/admin-login"
+            element={
+              <ProtectedRoute>
+                <AdminLogin />
+              </ProtectedRoute>
+            }
+          />
+
           <Route
             path="/admin-event"
             element={
@@ -45,13 +65,6 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-          <Route path="/apply" element={<ApplyNow />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/courses/:courseId" element={<CourseDetails />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/events" element={<Event />} />
         </Routes>
       </ApiProvider>
     </Suspense>

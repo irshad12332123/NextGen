@@ -4,8 +4,13 @@ import { useApi } from "@/hooks/useApi";
 const ApiContext = createContext();
 
 export const ApiProvider = ({ children }) => {
+  const token = localStorage.getItem("token");
   const api = useApi();
-  return <ApiContext.Provider value={api}>{children}</ApiContext.Provider>;
+  return (
+    <ApiContext.Provider value={{ ...api, token }}>
+      {children}
+    </ApiContext.Provider>
+  );
 };
 
 export const useApiContext = () => useContext(ApiContext);

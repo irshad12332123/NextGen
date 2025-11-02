@@ -1,19 +1,19 @@
 import React from "react";
-import { getUserFromToken } from "../utils/auth";
-import Error from "@/components/error/Error";
+import { useApiContext } from "@/providers/ApiContext";
+import { Navigate, useLocation } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
-  const admin = getUserFromToken();
+  const { token } = useApiContext();
+  const location = useLocation();
 
-  if (admin) {
-    // Not logged in
-    return (
-      <Error>
-        <p className="text-wheat">
-          Not Authorized <span className="text-red-400">401</span>
-        </p>
-      </Error>
-    );
+  // If user tries to access login page but is already logged in → redirect to admin panel
+  if (location.pathname === "/admin-login" && token) {
+    return <Navigate to="/admin-event" replace />;
+  }
+
+  // If user tries to access protected route without token → redirect to login
+  if (!token && location.pathname.startsWith("/admin")) {
+    return <Navigate to="/admin-login" replace />;
   }
 
   return children;

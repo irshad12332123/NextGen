@@ -1,4 +1,5 @@
 import { deleteEvent } from "@/api/events";
+import { formatDate } from "@/utils/formatDate";
 import React from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -14,14 +15,7 @@ const EventRow = ({ event, onDelete }) => {
   return (
     <tr className="border-b border-[#2B333A] hover:bg-[#22282e] transition-colors">
       <td className="py-6 px-2 font-medium text-sesalt">{event.title}</td>
-      <td className="px-2 text-muted">
-        {new Date(event.start).toLocaleDateString("en-US", {
-          weekday: "short",
-          month: "long",
-          day: "numeric",
-          year: "numeric",
-        })}
-      </td>
+      <td className="px-2 text-muted">{formatDate(event.start)}</td>
       <td className="px-2 text-muted">{event.location}</td>
       <td className="px-2">
         <div

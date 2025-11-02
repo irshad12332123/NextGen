@@ -1,10 +1,9 @@
 import { BASE_URL } from "./api";
 
-export const handleAdminLogin = async ({ name, email }) => {
+export const handleAdminLogin = async (formData) => {
   try {
-    if (!name || !email)
-      return { success: false, message: "Fields are required" };
-    const response = await fetch(`${BASE_URL}/admin/login`, {
+    if (!formData) return { success: false, message: "Fields are required" };
+    const response = await fetch(`${BASE_URL}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -13,12 +12,14 @@ export const handleAdminLogin = async ({ name, email }) => {
     });
 
     const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message);
-    }
-    localStorage.setItem("token", data.token);
+    console.log(data);
 
     return data;
-  } catch (error) {}
+  } catch (error) {
+    throw new Error("Could not verify");
+  }
+};
+
+export const handleAdminLogOut = async () => {
+  localStorage.removeItem("token");
 };

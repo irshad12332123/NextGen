@@ -3,8 +3,10 @@ import { LuUserRound } from "react-icons/lu";
 import { BsCalendar2Event } from "react-icons/bs";
 
 import MainEventAdmin from "@/components/admin-events/MainEventAdmin";
+import { decodeToken } from "@/utils/decodeToken";
 
 const EventAdmin = () => {
+  const { name, email } = decodeToken();
   return (
     <div className="min-h-screen w-full bg-[#0e1418] text-gray-100">
       <div className="grid grid-cols-[auto_1fr] h-screen">
@@ -34,8 +36,8 @@ const EventAdmin = () => {
                 size={40}
               />
               <div className="">
-                <p className="text-wheat">Admin</p>
-                <p className="text-muted text-sm">you@admin.com</p>
+                <p className="text-wheat">{name}</p>
+                <p className="text-muted text-sm">{email}</p>
               </div>
             </div>
           </nav>

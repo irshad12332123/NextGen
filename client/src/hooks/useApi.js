@@ -12,9 +12,14 @@ export function useApi() {
       setError(null);
       console.log(method);
       try {
+        const token = localStorage.getItem("token");
+
         const response = await fetch(`${BASE_URL}${endpoint}`, {
           method,
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            ...(token && { Authorization: `Bearer ${token}` }),
+          },
           body: body ? JSON.stringify(body) : null,
         });
 
