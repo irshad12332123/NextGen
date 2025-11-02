@@ -11,6 +11,13 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 const MainEventAdmin = () => {
+  const [updateId, setUpdateId] = useState(null);
+
+  function handleUpdate(id) {
+    setUpdateId(id);
+    navigate("/admin-update-event");
+  }
+
   const MySwal = withReactContent(Swal);
   const navigate = useNavigate();
   const [events, setEvents] = useState(null);
@@ -64,6 +71,7 @@ const MainEventAdmin = () => {
       }
     });
   };
+
   const [filter, setFilter] = useState("All");
   return (
     <main className="overflow-y-auto bg-[#111518]">
@@ -107,6 +115,8 @@ const MainEventAdmin = () => {
             fetchData={fetchData}
             filter={filter}
             onDelete={handleDeleteEvent}
+            updateId={updateId}
+            onUpdate={handleUpdate}
           />
         )}
       </div>

@@ -10,6 +10,7 @@ export function useApi() {
     async (endpoint = "", method = "GET", body = null) => {
       setLoading(true);
       setError(null);
+      console.log(method);
       try {
         const response = await fetch(`${BASE_URL}${endpoint}`, {
           method,

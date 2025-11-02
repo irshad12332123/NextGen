@@ -1,6 +1,7 @@
 import { deleteEvent } from "@/api/events";
 import React from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const statusStyles = {
   Upcoming: "text-blue-400",
@@ -8,8 +9,8 @@ const statusStyles = {
   past: "text-gray-500",
 };
 
-const EventRow = ({ event, fetchData, refetch, onDelete }) => {
-  console.log(event);
+const EventRow = ({ event, onDelete }) => {
+  const navigate = useNavigate();
   return (
     <tr className="border-b border-[#2B333A] hover:bg-[#22282e] transition-colors">
       <td className="py-6 px-2 font-medium text-sesalt">{event.title}</td>
@@ -33,7 +34,12 @@ const EventRow = ({ event, fetchData, refetch, onDelete }) => {
       <td className="px-2">
         <div className="flex items-center gap-5  ">
           <button className="hover:text-blue-400">
-            <FaEdit size={14} />
+            <FaEdit
+              size={14}
+              onClick={() => {
+                navigate(`/admin-update-event/${event.id}`);
+              }}
+            />
           </button>
           <button className="hover:text-red-400">
             <FaTrash

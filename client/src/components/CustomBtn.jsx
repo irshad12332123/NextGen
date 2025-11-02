@@ -8,7 +8,10 @@ const CustomBtn = ({ title, type = "primary", onClick }) => {
         type === "primary"
           ? "bg-celestial-blue shadow-celestial hover:bg-[#33333d7b]"
           : "bg-[#33333D] border-[0.01rem] border-[#ffffff14] hover:bg-[#FBEBD0] hover:text-gray-600"
-      } px-3 py-2 text-seasalt text-sm transition-all duration-100 rounded-md  hover:cursor-pointer`}
+      } px-3 py-2 text-seasalt text-sm transition-all duration-100 rounded-md  hover:cursor-pointer
+      
+      ${type === "danger" ? "bg-red-500 opacity-70" : null}
+      `}
     >
       {title}
     </button>

@@ -1,3 +1,12 @@
+export const getEventById = async (endpoint = "", fetchData) => {
+  try {
+    const result = await fetchData(endpoint, "GET");
+    return result;
+  } catch (error) {
+    return { success: false, message: error.message };
+  }
+};
+
 export const getAllEvents = async (endpoint = "", fetchData) => {
   try {
     const result = await fetchData(endpoint, "GET");

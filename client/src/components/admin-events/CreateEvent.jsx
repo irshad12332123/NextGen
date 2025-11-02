@@ -88,12 +88,7 @@ const CreateEvent = ({}) => {
         return;
       }
 
-      const response = await createEvent(
-        "/event/",
-        fetchData,
-        refetch,
-        formData
-      );
+      const response = await createEvent("/event/", fetchData, formData);
 
       if (!response.success) {
         newErrors.submitError = response.message;
