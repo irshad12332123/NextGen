@@ -26,7 +26,7 @@ const EventCard = ({
       <p className="flex-1 md:text-md text-sm text-muted"> {description}</p>
       <div className="flex gap-5 items-center">
         <p className="text-celestial-blue text-sm md:-text[1rem] font-semibold">
-          {action}
+          Explore events
         </p>
         <Link to={link}>
           <FaArrowRight className="text-seasalt" />

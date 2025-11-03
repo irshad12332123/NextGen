@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EventCard from "./eventCard";
+import { formatDate } from "@/utils/formatDate";
+import { getAllEvents } from "@/api/events";
+import { useApiContext } from "@/providers/ApiContext";
 
 const EventsSection = () => {
   const [events, setEvents] = useState([]);
+
+  const { fetchData } = useApiContext();
 
   async function fetchEvents() {
     const response = await getAllEvents("/event/", fetchData);
@@ -20,10 +25,9 @@ const EventsSection = () => {
         {events?.slice(0, 3).map((event, i) => (
           <EventCard
             key={i}
-            date={event.date}
+            date={formatDate(event.start)}
             title={event.title}
             description={event.description}
-            action={event.action}
             location={event.location}
           />
         ))}

@@ -1,6 +1,5 @@
 import { handleAdminLogin } from "@/api/auth";
 import CustomForm from "@/components/form-components/CustomForm";
-import { useApiContext } from "@/providers/ApiContext";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
