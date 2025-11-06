@@ -4,9 +4,9 @@ import { Navigate, useLocation } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
   const { token } = useApiContext();
+  console.log(token);
   const location = useLocation();
   if (location.pathname.includes("admin-login") && token) {
-    console.log("REturning", location.pathname);
     return <Navigate to="/admin-event" replace />;
   }
 

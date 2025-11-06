@@ -15,7 +15,6 @@ const Home = () => {
   // const handleMouseMove = useCallback((e) => {
   //   const { clientX, clientY } = e;
 
-  //   requestAnimationFrame(() => {
   //     const light = lightRef.current;
   //     const container = containerRef.current;
 
@@ -27,7 +26,6 @@ const Home = () => {
 
   //     light.style.transform = `translate(${x}px, ${y}px)`;
   //     light.style.opacity = 1;
-  //   });
   // }, []);
   return (
     <div

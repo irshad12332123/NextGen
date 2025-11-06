@@ -49,6 +49,7 @@ function AboutCard({ img, title, content, glowColor = "rgba(45,55,155,0.4)" }) {
           transition: "transform 0.4s ease",
           transformStyle: "preserve-3d",
         }}
+        
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >

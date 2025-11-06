@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import CustomBtn from "../CustomBtn";
+import { Link } from "react-router-dom";
 const LandingPage = () => {
   const LandingPageRef = useRef(null);
   const marqueeTitles = [
@@ -35,8 +36,12 @@ const LandingPage = () => {
             Where innovation meets Education
           </p>
           <div className=" h-full  flex gap-5 justify-center items-center">
-            <CustomBtn type="primary" title={"Explore Courses"} />
-            <CustomBtn type="secondary" title={"Apply Now"} />
+            <Link to={"/courses"}>
+              <CustomBtn type="primary" title={"Explore Courses"} />
+            </Link>
+            <Link to="/apply">
+              <CustomBtn type="secondary" title={"Apply Now"} />
+            </Link>
           </div>
         </div>
       </div>

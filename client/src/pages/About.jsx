@@ -1,4 +1,3 @@
-import ImageCard from "../components/cards/ImageCard";
 import AboutCard from "../components/cards/AboutCard";
 import { partners } from "../../types/Image";
 import { useRef, useState } from "react";
