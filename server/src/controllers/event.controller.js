@@ -42,7 +42,6 @@ const getAllEvents = async (req, res) => {
 const createEvent = async (req, res) => {
   try {
     const { title, description, location, thumbnail, start, end } = req.body;
-    console.log(req.body);
     if (!title || !description || !location || !thumbnail || !start || !end)
       return res.status(400).json({
         success: false,

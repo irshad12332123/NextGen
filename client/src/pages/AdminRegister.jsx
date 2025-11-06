@@ -1,53 +1,67 @@
+import { handleAdminRegister } from "@/api/auth";
 import CustomForm from "@/components/form-components/CustomForm";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import adminPoster from "/images/admin_poster_img.png";
 import { getCurrentYear } from "@/utils/getCurrrentYear";
-import { handleAdminLogin } from "@/api/auth";
 import { useApiContext } from "@/providers/ApiContext";
 import Loader from "@/components/Loader";
 
-export const AdminLogin = () => {
-  const { loading, seLoading } = useApiContext();
+export const AdminRegister = () => {
+  const { loading, setLoading } = useApiContext();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     id: "",
     password: "",
   });
-  const [error, setError] = useState({});
+  const [error, setError] = useState({
+    password:
+      "Must contain atleast 8 chars, one number, uppercase letter, and a special character",
+  });
 
   const formFields = [
     {
       label: "User ID",
-      placeholder: "Enter your user ID",
+      placeholder: "🪪 enter your user ID",
       id: "id",
       name: "id",
       type: "text",
     },
     {
       label: "Password",
-      placeholder: "🔒 Enter your password",
+      placeholder: "🔒enter your password",
       id: "password",
       name: "password",
+      type: "password",
+    },
+    {
+      label: "Confirm password",
+      placeholder: "☑️ confirm your password",
+      id: "confirm-pass",
+      name: "confirm-pass",
       type: "password",
     },
   ];
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     let newErrors = {};
     try {
       e.preventDefault();
-
       // Validation
       if (!formData.id.trim()) newErrors.id = "Enter a valid id";
-      if (!formData.password.trim()) newErrors.password = "Enter password";
+      if (!formData.password.trim()) newErrors.password = "Enter the password";
+      if (formData.password.length < 9)
+        newErrors.password = "Atleast 8 characters required";
+      if (formData.password !== formData["confirm-pass"])
+        newErrors["confirm-pass"] = "❌ password does not match";
       if (Object.keys(newErrors).length > 0) {
         setError(newErrors);
         return;
       }
 
-      const response = await handleAdminLogin(formData);
+      const response = await handleAdminRegister(formData);
       if (!response.success) {
         newErrors.submitError = response.message;
         setError(newErrors);
@@ -55,12 +69,13 @@ export const AdminLogin = () => {
       }
 
       // Succesfuly registered
-      alert("SUCCESSFULLY LOGGED IN");
-      localStorage.setItem("token", response.token);
-      navigate("/admin-event");
+      alert("Succesfully Registered Admin");
+      navigate("/admin-login");
     } catch (error) {
       newErrors.submitError = `Some error occured, ${error.message}`;
       setError(newErrors);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -78,9 +93,9 @@ export const AdminLogin = () => {
           <div className="flex flex-col gap-2 md:w-1/2 rounded-r-2xl mx-auto bg-[#1C2227]  shadow-raisin p-15">
             <div>
               <h5 className="font-bold text-white text-2xl mb-1">
-                Admin Login
+                Create an admin 👤
               </h5>
-              <p className="text-muted font-bold">Secure access</p>
+              <p className="text-muted font-bold">Secure registration 🔑</p>
             </div>
             <CustomForm
               formData={formData}
@@ -88,15 +103,15 @@ export const AdminLogin = () => {
               setFormData={setFormData}
               formFields={formFields}
               method="POST"
-              submitBtnTitle="Log In"
+              submitBtnTitle="Register"
               handleSubmit={handleSubmit}
               error={error}
               buttonType="tertiary"
               customLabelStyles={"bg-[#111518] border border-[#3b444b]"}
             >
               <div className="flex justify-between items-center">
-                <Link to={"/admin-register"}>
-                  <p className="text-blue-500">Create an admin?</p>
+                <Link to={"/admin-login"}>
+                  <p className="text-blue-500">Already registered?</p>
                 </Link>
               </div>
             </CustomForm>

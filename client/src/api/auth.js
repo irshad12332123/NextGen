@@ -20,6 +20,26 @@ export const handleAdminLogin = async (formData) => {
   }
 };
 
+export const handleAdminRegister = async (formData) => {
+  try {
+    if (!formData) return { success: false, message: "Fields are required" };
+    const { id, password } = formData;
+    const response = await fetch(`${BASE_URL}/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id, password }),
+    });
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    throw new Error("Could not Register", error?.message);
+  }
+};
+
 export const handleAdminLogOut = async () => {
   localStorage.removeItem("token");
 };

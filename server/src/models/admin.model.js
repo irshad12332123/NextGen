@@ -3,7 +3,7 @@ const sequelize = require("../config/db");
 
 const Admin = sequelize.define("Admin", {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-  username_id: { type: DataTypes.INTEGER, allowNull: false, allowUnique: true },
+  username_id: { type: DataTypes.BIGINT, allowNull: false, allowUnique: true },
   password: { type: DataTypes.STRING, allowNull: false },
 });
 

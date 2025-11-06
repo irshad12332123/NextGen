@@ -9,6 +9,7 @@ import CreateEvent from "./components/admin-events/CreateEvent";
 import UpdateEvent from "./components/admin-events/UpdateEvent";
 import { ApiProvider } from "./providers/ApiContext";
 import { AdminLogin } from "./pages/AdminLogin";
+import { AdminRegister } from "./pages/AdminRegister";
 
 const Event = lazy(() => import("./pages/Event"));
 const About = lazy(() => import("./pages/About"));
@@ -31,6 +32,15 @@ const App = () => {
           <Route path="/courses/:courseId" element={<CourseDetails />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/events" element={<Event />} />
+
+          <Route
+            path="/admin-register"
+            element={
+              // <ProtectedRoute>
+              <AdminRegister />
+              // </ProtectedRoute>
+            }
+          />
 
           <Route
             path="/admin-login"

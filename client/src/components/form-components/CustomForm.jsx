@@ -11,9 +11,12 @@ const CustomForm = ({
   handleSubmit,
   error,
   setErrors,
+  buttonType = "",
   submitBtnTitle = "Submit Application",
   cancelBtnTitle = null,
   handleCancel,
+  children,
+  customLabelStyles,
 }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,15 +47,19 @@ const CustomForm = ({
             id={form.id}
             title={form.label}
             name={form.name}
+            customStyles={customLabelStyles}
           />
           {error[form.id] && <p className="text-red-500">{error[form.id]}</p>}
         </div>
       ))}
-      <div className="mx-auto space-x-2.5 ">
-        <CustomBtn title={submitBtnTitle} />
+
+      {children ? children : null}
+
+      <div className="flex space-x-2.5 ">
+        <CustomBtn title={submitBtnTitle} styleType={buttonType} />
         {cancelBtnTitle ? (
           <CustomBtn
-            type="danger"
+            type={buttonType}
             onClick={handleCancel}
             title={cancelBtnTitle}
           />

@@ -1,16 +1,17 @@
 import React from "react";
 
-const CustomBtn = ({ title, type = "primary", onClick }) => {
+const CustomBtn = ({ title, styleType = "primary", onClick }) => {
   return (
     <button
       onClick={onClick ? onClick : undefined}
       className={`${
-        type === "primary"
+        styleType === "primary"
           ? "bg-celestial-blue shadow-celestial hover:bg-[#33333d7b]"
-          : "bg-[#33333D] border-[0.01rem] border-[#ffffff14] hover:bg-[#FBEBD0] hover:text-gray-600"
-      } px-3 py-2 text-seasalt text-sm transition-all duration-100 rounded-md  hover:cursor-pointer
+          : null
+      } p-3 text-seasalt text-sm transition-all duration-100 w-full rounded-md  hover:cursor-pointer
       
-      ${type === "danger" ? "bg-red-500 opacity-70" : null}
+      ${styleType === "danger" ? "bg-red-500 opacity-70" : null}
+      ${styleType === "tertiary" ? "bg-[#1E7ABB]" : null}
       `}
     >
       {title}

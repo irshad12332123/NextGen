@@ -87,9 +87,11 @@ const MainEventAdmin = () => {
       </div>
 
       <div className="p-15 bg--800 h-full w-full">
-        <div className="w-full flex justify-between items-center">
-          <p className="font-bold text-4xl">Events</p>
-          <CustomBtn title={"Add new event"} onClick={handleCreateNewEvent} />
+        <div className="w-full flex items-center">
+          <p className="font-bold text-4xl flex-1">Events</p>
+          <div className="">
+            <CustomBtn title={"Add new event"} onClick={handleCreateNewEvent} />
+          </div>
         </div>
         <div className="flex gap-2 my-8 md:flex-nowrap flex-wrap">
           {["All", "Upcoming", "Ongoing"].map((cat) => (

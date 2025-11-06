@@ -43,5 +43,5 @@ export function useApi() {
     [fetchData]
   );
 
-  return { data, loading, error, fetchData, refetch };
+  return { data, loading, setLoading, error, fetchData, refetch };
 }

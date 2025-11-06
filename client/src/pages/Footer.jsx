@@ -4,6 +4,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import { getCurrentYear } from "@/utils/getCurrrentYear";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const navLinks = [
@@ -82,7 +83,7 @@ const Footer = () => {
       </div>
       <div className="flex items-center justify-center  bg-gradient-to-r from-[#383f4b] to-[#0f172a] py-2">
         <p className="text-[2.5dvw] md:text-xl">
-          © {new Date().getFullYear()} NextGen Academy. All rights reserved.
+          © {getCurrentYear()} NextGen Academy. All rights reserved.
         </p>
       </div>
     </div>

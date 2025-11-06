@@ -6,7 +6,8 @@ import MainEventAdmin from "@/components/admin-events/MainEventAdmin";
 import { decodeToken } from "@/utils/decodeToken";
 
 const EventAdmin = () => {
-  const { name, email } = decodeToken();
+  const { username_id } = decodeToken();
+
   return (
     <div className="min-h-screen w-full bg-[#0e1418] text-gray-100">
       <div className="grid grid-cols-[auto_1fr] h-screen">
@@ -36,8 +37,8 @@ const EventAdmin = () => {
                 size={40}
               />
               <div className="">
-                <p className="text-wheat">{name}</p>
-                <p className="text-muted text-sm">{email}</p>
+                <p className="text-wheat">{username_id}</p>
+                <p className="text-muted text-sm">logged in</p>
               </div>
             </div>
           </nav>

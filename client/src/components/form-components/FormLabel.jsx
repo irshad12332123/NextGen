@@ -9,6 +9,7 @@ const FormLabel = ({
   name,
   value,
   id,
+  customStyles,
 }) => {
   return (
     <div className="flex flex-col gap-1">
@@ -28,7 +29,9 @@ const FormLabel = ({
         id={id}
         name={name}
         onChange={handleChange}
-        className="text-seasalt p-3 border border-[#3B4754] bg-[#1C2127] focus:border-white focus:outline-0 rounded-md "
+        className={`text-seasalt p-3 ${
+          customStyles ? customStyles : "border border-[#3B4754] bg-[#1C2127]"
+        }  focus:border-white focus:outline-0 rounded-md`}
       />
     </div>
   );

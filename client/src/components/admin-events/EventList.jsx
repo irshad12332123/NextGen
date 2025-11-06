@@ -1,6 +1,7 @@
 import React from "react";
 import EventRow from "./EventRow";
 import { getEventStatus } from "@/utils/getCurrentEventStatus";
+import { Link } from "react-router-dom";
 
 const EventList = ({ fetchData, refetch, events, onDelete, filter }) => {
   const enhancedEvents = events?.map((e) => ({
@@ -16,7 +17,12 @@ const EventList = ({ fetchData, refetch, events, onDelete, filter }) => {
   return (
     <div className="bg-[#1C2227] border border-[#2B333A] rounded-xl pt-4 px-4  w-full">
       {!visibleEvents || visibleEvents.length === 0 ? (
-        <p className="text-center text-green-400 pb-4">Events soon....</p>
+        <p className="text-center text-muted pb-4">
+          No events.{" "}
+          <Link className="text-blue-400" to={"/admin-create-event"}>
+            Create an event?
+          </Link>
+        </p>
       ) : (
         <table className="w-full text-left">
           <thead>
