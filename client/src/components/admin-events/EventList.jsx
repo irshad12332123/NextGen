@@ -29,7 +29,7 @@ const EventList = ({ fetchData, refetch, events, onDelete, filter }) => {
             </tr>
           </thead>
           <tbody>
-            {!visibleEvents &&
+            {visibleEvents &&
               visibleEvents.map((event) => (
                 <EventRow
                   key={event.id}

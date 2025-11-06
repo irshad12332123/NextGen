@@ -6,7 +6,7 @@
     "image": "/mnt/data/main-campus-building.png"
   },
   {
-    "id": 2,
+        "id": 2,
     "title": "Robotics Lab Session",
     "category": "Labs",
     "image": "/mnt/data/robotics-lab-session.png"

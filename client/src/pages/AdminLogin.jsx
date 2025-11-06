@@ -7,8 +7,8 @@ export const AdminLogin = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    id: "",
+    password: "",
   });
   const [error, setError] = useState({});
 
@@ -61,21 +61,16 @@ export const AdminLogin = () => {
   };
 
   return (
-    <main className="min-h-screen w-full bg-raisin-black  py-30 md:py-40">
-      <div className="flex justify-center items-center flex-col relative mb-10">
-        <h5 className="text-seasalt lg:text-2xl text-center">
-          Are you an{" "}
-          <span
-            className="2xl:text-8xl md:text-6xl text-3xl text-wheat "
-            style={{ fontFamily: "Hurricane" }}
-          >
-            {" "}
-            Admin?
-          </span>
-        </h5>
+    <main className="min-h-screen w-full bg-raisin-black flex py-30 md:py-40">
+      <div className="flex justify-center  bg-amber-100 w-1/2 items-center flex-col relative">
+        {/* <img src="" alt="ADMIN BANNER" /> */}
       </div>
 
-      <div className="flex flex-col gap-2 w-full md:w-[50%] mx-auto border border-[#3B4754] p-8 rounded-md">
+      <div className="flex flex-col gap-2 md:w-1/2 mx-auto border border-[#3B4754] p-8 rounded-md">
+        <div>
+          <h5 className="font-bold text-white text-2xl">Admin Login</h5>
+          <p className="text-muted font-bold">Secure access</p>
+        </div>
         <CustomForm
           formData={formData}
           setErrors={setError}
