@@ -8,7 +8,7 @@ const LazySection = ({ children }) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !isVisible) {
-          console.log("TRUE", entry);
+
           setIsVisible(true);
           observer.disconnect();
         }

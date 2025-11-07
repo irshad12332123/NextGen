@@ -15,7 +15,6 @@ function ShowDetailCard({ title, description }) {
 function CourseDetails() {
   const { courseId } = useParams();
   const course = engineeringCourses.find((course) => course.id === courseId);
-  console.log("Inside you", course);
   return (
     <div className=" w-full h-full bg-[#F6FAFF]">
       <ImageCard title={course.name} buttonRequired={false} />

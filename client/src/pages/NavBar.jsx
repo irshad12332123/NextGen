@@ -8,7 +8,6 @@ const NavBar = () => {
   };
 
   const handleMouseOver = (i) => {
-    console.log("hovered", i);
     setActiveDropDowm(null);
   };
 

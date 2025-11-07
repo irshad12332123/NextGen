@@ -7,7 +7,7 @@ function ImageCard({
   imageRequired = true,
   imageUrl = "https://lh3.googleusercontent.com/aida-public/AB6AXuCOCKGeJNQ0akV44Jri-U-_JuuBM_fedkplCRlYjkDacei3LmmGo1VXMIMZPWoAP42Egy5bVj3w5eg6DClHKhFeWmM0Z9I-Ivr-cWDthe0s8IpWDrd8Ka6z7kjAvorrv3Io4vSdmjM01qziE9axBju3YG6_Rehp8FvQua9An5bWDvI7fLOXrA60mA3ZpRD2T00g9aanfv5iBnHvzf4PYf9jSzJDNsM3F3puaDyz1VGcB_53amKi40RzWiWR0P0YGniTYOXrI1XBShA",
 }) {
-  console.log(imageUrl);
+
   return (
     <div className="relative w-full h-70 md:h-120 flex items-center justify-center overflow-hidden">
       {imageRequired ? (

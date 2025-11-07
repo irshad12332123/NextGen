@@ -47,13 +47,13 @@ function ContactUs() {
 
   const handleChange = (e) => {
     const value = e.target.name;
-    console.log(value);
+
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
   };
 
   return (

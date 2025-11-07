@@ -14,9 +14,7 @@ function EventDetailCard({
   date,
   location,
 }) {
-  console.log("====================================");
-  console.log(date);
-  console.log("====================================");
+
   return (
     <div className="flex flex-col gap-3 bg-white rounded-xl shadow-md">
       {type === "primary" ? (
