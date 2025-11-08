@@ -60,7 +60,11 @@ const adminLogin = async (req, res) => {
 };
 
 const adminRegister = async (req, res) => {
+  console.log("HIT");
+
   const { id: username_id, password } = req.body;
+  console.log(req.body);
+
   try {
     if (!username_id || !password)
       return res
@@ -70,8 +74,12 @@ const adminRegister = async (req, res) => {
     // check password policiys
     const { isValid, errors } = validateAdminRegister(req.body);
 
-    if (!isValid)
-      return res.status(400).json({ success: false, message: errors.password });
+    if (!isValid) {
+      console.log(isValid);
+      console.log(errors);
+
+      return res.status(400).json({ success: false, message: errors.message });
+    }
 
     // Check if admin exists or not
     const existingAdmin = await Admin.findOne({

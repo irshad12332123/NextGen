@@ -1,19 +1,20 @@
-import React from "react";
 import { useApiContext } from "@/providers/ApiContext";
-import { Navigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
   const { token } = useApiContext();
-  console.log(token);
+  const navigate = useNavigate();
   const location = useLocation();
-  if (location.pathname.includes("admin-login") && token) {
-    return <Navigate to="/admin-event" replace />;
-  }
 
-  if (!token && location.pathname.startsWith("/admin")) {
-    return <Navigate to="/admin-login" replace />;
-  }
+  // redirect unauthenticated users to login
+  useEffect(() => {
+    if (!token) {
+      navigate("/admin-login", { replace: true });
+    }
+  }, [token, navigate]);
 
+  if (!token) return null;
   return children;
 };
 

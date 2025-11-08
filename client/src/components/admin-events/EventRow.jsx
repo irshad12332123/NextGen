@@ -31,7 +31,7 @@ const EventRow = ({ event, onDelete }) => {
             <FaEdit
               size={14}
               onClick={() => {
-                navigate(`/admin-update-event/${event.id}`);
+                navigate(`admin-event/update/${event.id}`);
               }}
             />
           </button>

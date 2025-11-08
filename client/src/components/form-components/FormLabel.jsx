@@ -9,6 +9,7 @@ const FormLabel = ({
   name,
   value,
   id,
+  autocomplete,
   customStyles,
 }) => {
   return (
@@ -26,6 +27,7 @@ const FormLabel = ({
         placeholder={placeholder}
         type={inputType}
         value={value}
+        autoComplete={autocomplete ? autocomplete : ""}
         id={id}
         name={name}
         onChange={handleChange}

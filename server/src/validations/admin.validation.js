@@ -2,8 +2,8 @@ const validateAdminRegister = (data) => {
   const { username_id, password } = data;
   const errors = {};
 
-  if (!username_id || username_id.trim() === "") {
-    errors.username_id = "Username is required";
+  if (!username_id === "") {
+    errors.message = "User ID is required";
   }
 
   const passwordRegex =

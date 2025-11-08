@@ -26,7 +26,7 @@ const MainEventAdmin = () => {
   }, []);
 
   const handleCreateNewEvent = async () => {
-    navigate("/admin-create-event");
+    navigate("/admin-event/create");
   };
 
   const handleDeleteEvent = async (id) => {

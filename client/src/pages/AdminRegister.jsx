@@ -14,6 +14,7 @@ export const AdminRegister = () => {
   const [formData, setFormData] = useState({
     id: "",
     password: "",
+    "confirm-pass": "",
   });
   const [error, setError] = useState({
     password:

@@ -32,6 +32,7 @@ export const handleAdminRegister = async (formData) => {
     });
 
     const data = await response.json();
+    console.log(data);
 
     return data;
   } catch (error) {
