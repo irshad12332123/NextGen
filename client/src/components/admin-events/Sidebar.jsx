@@ -1,11 +1,13 @@
+import { decodeToken } from "@/utils/decodeToken";
 import React from "react";
 import { BsCalendar2Event } from "react-icons/bs";
 import { LuUserRound } from "react-icons/lu";
 
-const Sidebar = ({ username_id }) => {
+const Sidebar = () => {
+  const { username_id } = decodeToken();
   return (
     <aside
-      className={`bg-[#1C2227] border-r border-[#3B4954] p-4 transition-all duration-300 flex flex-col
+      className={`bg-[#111518] fixed w-64 h-full border-r border-[#3B4954] p-4 transition-all duration-300 flex flex-col
           `}
     >
       <div className="flex items-center justify-between mb-8">
@@ -22,7 +24,6 @@ const Sidebar = ({ username_id }) => {
         </div>
 
         <div className="flex-grow"></div>
-
         <div className="flex gap-2 items-center">
           <LuUserRound
             className="rounded-full p-2 bg-[#AFC0A9] text-raisin-black"

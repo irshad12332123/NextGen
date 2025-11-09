@@ -8,7 +8,7 @@ import { useApiContext } from "@/providers/ApiContext";
 import Loader from "@/components/Loader";
 
 export const AdminLogin = () => {
-  const { loading, seLoading } = useApiContext();
+  const { loading, setLoading, handleLogIn } = useApiContext();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -35,6 +35,7 @@ export const AdminLogin = () => {
   ];
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     let newErrors = {};
     try {
       e.preventDefault();
@@ -54,13 +55,15 @@ export const AdminLogin = () => {
         return;
       }
 
-      // Succesfuly registered
+      // Navigate to events Admin page
       alert("SUCCESSFULLY LOGGED IN");
-      localStorage.setItem("token", response.token);
-      navigate("/admin-event");
+      const token = handleLogIn(response.token);
+      if (token) navigate("/admin-event", { replace: true });
     } catch (error) {
       newErrors.submitError = `Some error occured, ${error.message}`;
       setError(newErrors);
+    } finally {
+      setLoading(false);
     }
   };
 

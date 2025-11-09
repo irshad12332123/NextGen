@@ -24,6 +24,8 @@ const CreateEvent = ({}) => {
   });
   const [error, setError] = useState({});
 
+  const customFormStyles = {};
+
   const formFields = [
     {
       label: "Title",
@@ -40,8 +42,8 @@ const CreateEvent = ({}) => {
       type: "text",
     },
     {
-      label: "location",
-      placeholder: "where is it gonna happen?",
+      label: "Location",
+      placeholder: "e.g., Auditorium, Virtual",
       id: "location",
       name: "location",
       type: "text",
@@ -51,7 +53,7 @@ const CreateEvent = ({}) => {
       placeholder: "Enter the url of the image",
       id: "thumbnail",
       name: "thumbnail",
-      type: "text",
+      type: "file",
     },
     {
       label: "Starting On",
@@ -105,8 +107,9 @@ const CreateEvent = ({}) => {
     }
   };
   return (
-    <div className="min-h-screen bg-raisin-black w-full p-15 flex justify-center items-center">
-      <div className="flex flex-col gap-2 w-full md:w-[50%] mx-auto border border-[#3B4754] p-8 rounded-md">
+    <div className="min-h-screen bg-[#111518] w-full p-10 justify-center items-center">
+      <p className="font-bold text-seasalt text-xl mb-10">Create New Event</p>
+      <div className="flex flex-col gap-2 w-full mx-auto bg-[#111925] border border-[#3B4754] p-8 rounded-md">
         <CustomForm
           formData={formData}
           setErrors={setError}
@@ -116,6 +119,12 @@ const CreateEvent = ({}) => {
           handleSubmit={handleSubmit}
           error={error}
           submitBtnTitle="Create Event"
+          customObjStyles={""}
+          customLabelStyles={"bg-[#18212E] border-[#374151] border-2"}
+          cancelBtnTitle={"Cancel"}
+          handleCancel={() => {
+            navigate("/admin-event");
+          }}
         />
         {error.submitError && (
           <p className="text-red-500">{error.submitError}</p>

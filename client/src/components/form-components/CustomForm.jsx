@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormLabel from "./FormLabel";
 import CustomBtn from "../CustomBtn";
+import FormError from "./FormError";
 
 const CustomForm = ({
   formData,
@@ -11,12 +12,13 @@ const CustomForm = ({
   handleSubmit,
   error,
   setErrors,
-  buttonType = "",
+  buttonType = "primary",
   submitBtnTitle = "Submit Application",
   cancelBtnTitle = null,
   handleCancel,
   children,
   customLabelStyles,
+  customObjStyles = {},
 }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,8 +38,8 @@ const CustomForm = ({
       noValidate
       className="w-full space-y-5 flex flex-col"
     >
-      {formFields.map((form) => (
-        <div>
+      {formFields.map((form, i) => (
+        <div key={i}>
           <FormLabel
             htmlFor={form.id}
             value={formData[form.id]}
@@ -49,17 +51,17 @@ const CustomForm = ({
             name={form.name}
             customStyles={customLabelStyles}
           />
-          {error[form.id] && <p className="text-red-500">{error[form.id]}</p>}
+          {error[form.id] && <FormError title={error[form.id]} />}
         </div>
       ))}
 
       {children ? children : null}
 
-      <div className="flex space-x-2.5 ">
-        <CustomBtn title={submitBtnTitle} styleType={buttonType} />
+      <div className="flex md:w-[60%] 2xl:w-[20%] space-x-2.5 ">
+        <CustomBtn title={submitBtnTitle} styleType={"tertiary"} />
         {cancelBtnTitle ? (
           <CustomBtn
-            type={buttonType}
+            styleType={"danger"}
             onClick={handleCancel}
             title={cancelBtnTitle}
           />

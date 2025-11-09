@@ -5,11 +5,12 @@ import Sidebar from "@/components/admin-events/Sidebar";
 
 const AdminLayout = () => {
   return (
-    <div>
-      <Sidebar />
-      <main>
+    <div className="min-h-screen w-full bg-[#0e1418] text-gray-100">
+      <div className="grid grid-cols-[16rem_1fr] min-h-screen">
+        <Sidebar />
+        <div className="ml-64"></div>
         <Outlet />
-      </main>
+      </div>
     </div>
   );
 };

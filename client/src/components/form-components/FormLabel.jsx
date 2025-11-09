@@ -14,26 +14,23 @@ const FormLabel = ({
 }) => {
   return (
     <div className="flex flex-col gap-1">
-      <label
-        htmlFor={htmlFor}
-        name={name}
-        id={id}
-        className="text-seasalt mt-5"
-      >
+      <label htmlFor={htmlFor} className="text-seasalt mt-5">
         {title}
       </label>
       <input
         required
+        accept={inputType === "file" ? "image/*" : undefined}
         placeholder={placeholder}
         type={inputType}
-        value={value}
-        autoComplete={autocomplete ? autocomplete : ""}
+        value={inputType === "file" ? undefined : value}
+        autoComplete={autocomplete || "off"}
         id={id}
         name={name}
         onChange={handleChange}
         className={`text-seasalt p-3 ${
           customStyles ? customStyles : "border border-[#3B4754] bg-[#1C2127]"
-        }  focus:border-white focus:outline-0 rounded-md`}
+        } ${inputType === "file" ? "border-dashed h-50 cursor-pointer" : ""}
+        focus:border-white focus:outline-0 rounded-md`}
       />
     </div>
   );

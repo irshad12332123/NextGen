@@ -19,7 +19,7 @@ const EventList = ({ fetchData, refetch, events, onDelete, filter }) => {
       {!visibleEvents || visibleEvents.length === 0 ? (
         <p className="text-center text-muted pb-4">
           No events.{" "}
-          <Link className="text-blue-400" to={"/admin-create-event"}>
+          <Link className="text-blue-400" to={"/admin-event/create"}>
             Create an event?
           </Link>
         </p>

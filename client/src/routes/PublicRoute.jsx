@@ -8,6 +8,8 @@ const PublicRoute = ({ children }) => {
   const location = useLocation();
 
   useEffect(() => {
+    console.log("PUBLIC ROUTE", location.pathname);
+
     if (
       token &&
       (location.pathname === "/admin-login" ||

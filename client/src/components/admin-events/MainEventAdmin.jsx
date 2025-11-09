@@ -9,13 +9,15 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 import withReactContent from "sweetalert2-react-content";
-import { handleAdminLogOut } from "@/api/auth";
+import { useApiContext } from "@/providers/ApiContext";
 
 const MainEventAdmin = () => {
+  const { handleLogOut } = useApiContext();
+
   const MySwal = withReactContent(Swal);
   const navigate = useNavigate();
   const [events, setEvents] = useState(null);
-  const { loading, error, refetch, fetchData, data: result } = useApi();
+  const { loading, refetch, fetchData, data: result } = useApi();
   const fetchEvents = async () => {
     const res = await getAllEvents("/event/", fetchData);
     if (res?.data) setEvents(res.data);
@@ -66,31 +68,35 @@ const MainEventAdmin = () => {
     });
   };
 
-  const handleLogOut = () => {
-    handleAdminLogOut();
-    navigate("/admin-login");
+  const handleLogout = () => {
+    const hasLoggedOut = handleLogOut();
+    if (hasLoggedOut) navigate("/admin-login");
   };
 
   const [filter, setFilter] = useState("All");
   return (
-    <main className="overflow-y-auto bg-[#111518]">
-      <div className="flex  px-15   py-2 border-b items-center border-[#3B4954] ">
+    <main className="overflow-y-auto bg-[#111518] h-full p-5">
+      <div className="flex  py-2 border-b items-center border-[#3B4954] ">
         <p className="text-xl text-center">Events Management</p>
         <div className="flex-grow"></div>
         <div>
           <IoIosLogOut
-            onClick={handleLogOut}
+            onClick={handleLogout}
             size={50}
             className="p-2 rounded-md bg-[#1C2227] text-center"
           />
         </div>
       </div>
 
-      <div className="p-15 bg--800 h-full w-full">
+      <div className="p-15  h-full w-full">
         <div className="w-full flex items-center">
           <p className="font-bold text-4xl flex-1">Events</p>
           <div className="">
-            <CustomBtn title={"Add new event"} onClick={handleCreateNewEvent} />
+            <CustomBtn
+              title={"Add new event"}
+              styleType="tertiary"
+              onClick={handleCreateNewEvent}
+            />
           </div>
         </div>
         <div className="flex gap-2 my-8 md:flex-nowrap flex-wrap">
