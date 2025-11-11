@@ -3,6 +3,7 @@ const cors = require("cors");
 const studentRoutes = require("./routes/student.route");
 const eventRoutes = require("./routes/event.route");
 const authRoutes = require("./routes/auth.route");
+const feedbackRoutes = require("./routes/feedback.route");
 const app = express();
 app.use(cors());
 
@@ -10,5 +11,6 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/submit", studentRoutes);
 app.use("/api/event", eventRoutes);
+app.use("/api/feedback", feedbackRoutes);
 
 module.exports = app;

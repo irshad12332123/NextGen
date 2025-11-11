@@ -24,7 +24,19 @@ export const handleApply = async (formData) => {
 
 export const handleFeedback = async (feedbackData) => {
   try {
-    const response = 
+    const response = await fetch(`${BASE_URL}/feedback`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(feedbackData),
+    });
+
+    const data = await response.json();
+
+    if (!data) return { message: "Failed to send request" };
+
+    return data;
   } catch (error) {
     return { message: `Some error occured: ${error.message}` };
   }
