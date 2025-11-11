@@ -43,6 +43,8 @@ export const ApplyNow = () => {
   ];
 
   const handleSubmit = async (e) => {
+    console.log("CLICKED SUBMIT BTN IN APPLY NOW PAGE");
+
     let newErrors = {};
     try {
       e.preventDefault();
@@ -50,7 +52,9 @@ export const ApplyNow = () => {
       if (!formData.name.trim()) newErrors.name = "Enter a valid name";
       if (!formData["phone"]) newErrors["phone"] = "Enter a number";
       if (formData["phone"].length < 10 || formData["phone"].length > 10)
-        newErrors["number"] = "Number is not valid";
+        newErrors["phone"] = "Number is not valid";
+      if (formData["phone"].startsWith("0"))
+        newErrors["phone"] = "Leading zeros are not allowed";
       if (!formData.email.includes("@"))
         newErrors.email = "Enter a valid email";
 
@@ -79,12 +83,8 @@ export const ApplyNow = () => {
       <div className="flex justify-center items-center flex-col relative mb-10">
         <h5 className="text-seasalt lg:text-2xl text-center">
           Begin your journey at{" "}
-          <span
-            className="2xl:text-8xl md:text-6xl text-3xl text-wheat "
-            style={{ fontFamily: "Hurricane" }}
-          >
-            {" "}
-            Next Gen
+          <span className="2xl:text-8xl md:text-6xl text-3xl text-seasalt ">
+            Next<span className="text-celestial-blue">Gen</span>
           </span>
         </h5>
         <p className="text-muted md:text-xl text-sm italic w-[70%] lg:w-[30%] text-center">

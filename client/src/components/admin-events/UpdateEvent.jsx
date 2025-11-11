@@ -8,7 +8,7 @@ const UpdateEvent = () => {
   const { fetchData } = useApiContext();
   const { id } = useParams();
   const navigate = useNavigate();
-  const [event, setEvent] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -21,17 +21,25 @@ const UpdateEvent = () => {
   const [error, setError] = useState({});
 
   const fetchEventById = async () => {
-    const response = await getEventById(`/event/${id}`, fetchData);
-    if (response?.data) {
-      setEvent(response.data);
-      setFormData({
-        title: response.data.title,
-        description: response.data.description,
-        location: response.data.location,
-        thumbnail: response.data.thumbnail,
-        start: response.data.start.split("T")[0],
-        end: response.data.end.split("T")[0],
-      });
+    try {
+      setLoading(true);
+      const response = await getEventById(`/event/${id}`, fetchData);
+      if (response?.data) {
+        setFormData({
+          title: response.data.title,
+          description: response.data.description,
+          location: response.data.location,
+          thumbnail: response.data.thumbnail,
+          start: response.data.start.split("T")[0],
+          end: response.data.end.split("T")[0],
+        });
+      } else {
+        setError("Failed to fetch the details");
+      }
+    } catch (error) {
+      setError("Failed to fetch the details: ", error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -102,10 +110,18 @@ const UpdateEvent = () => {
     }
   };
 
-  if (!event) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-raisin-black w-full flex flex-col justify-center items-center">
         <p className="text-center text-gray-400">Loading event details...</p>
+      </div>
+    );
+  }
+
+  if (typeof error === "string") {
+    return (
+      <div className="min-h-screen bg-raisin-black w-full flex flex-col justify-center items-center">
+        <p className="text-red-400">{error}</p>
       </div>
     );
   }

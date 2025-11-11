@@ -3,8 +3,6 @@ const Student = require("../models/student.model");
 
 const createStudent = async (req, res) => {
   try {
-    console.log("Endpoint Hit");
-
     const { name, email, phone, course } = req.body;
 
     // check if student already registered
