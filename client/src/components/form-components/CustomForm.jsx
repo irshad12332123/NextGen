@@ -58,7 +58,11 @@ const CustomForm = ({
       {children ? children : null}
 
       <div className="flex md:w-[60%] 2xl:w-[20%] space-x-2.5 ">
-        <CustomBtn title={submitBtnTitle} styleType={"tertiary"} />
+        <CustomBtn
+          title={submitBtnTitle}
+          styleType={"tertiary"}
+          btnType="submit"
+        />
         {cancelBtnTitle ? (
           <CustomBtn
             styleType={"danger"}

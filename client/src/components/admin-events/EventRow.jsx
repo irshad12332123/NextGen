@@ -11,6 +11,8 @@ const statusStyles = {
 };
 
 const EventRow = ({ event, onDelete }) => {
+  console.log(event);
+
   const navigate = useNavigate();
   return (
     <tr className="border-b border-[#2B333A] hover:bg-[#22282e] transition-colors">
@@ -31,7 +33,7 @@ const EventRow = ({ event, onDelete }) => {
             <FaEdit
               size={14}
               onClick={() => {
-                navigate(`admin-event/update/${event.id}`);
+                navigate(`/admin-event/update/${event.id}`);
               }}
             />
           </button>

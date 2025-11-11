@@ -1,8 +1,14 @@
 import React from "react";
 
-const CustomBtn = ({ title, styleType = "primary", onClick }) => {
+const CustomBtn = ({
+  title,
+  styleType = "primary",
+  onClick,
+  btnType = "button",
+}) => {
   return (
     <button
+      type={btnType}
       onClick={onClick ? onClick : undefined}
       className={`${
         styleType === "primary"

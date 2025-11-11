@@ -90,7 +90,6 @@ const updateEvent = async (req, res) => {
   try {
     const event = await Event.findByPk(id);
     if (!event) return res.status(404).json({ message: "Event not found" });
-
     await event.update(updatedData);
     res.json({ success: true, message: "Event updated successfully" });
   } catch (error) {

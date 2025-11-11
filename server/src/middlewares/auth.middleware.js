@@ -15,6 +15,8 @@ module.exports = (req, res, next) => {
     req.admin = decoded;
     next();
   } catch (err) {
-    res.status(403).json({ message: "Invalid or expired token" });
+    res
+      .status(403)
+      .json({ success: false, message: "Invalid or expired token" });
   }
 };

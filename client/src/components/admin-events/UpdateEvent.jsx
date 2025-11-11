@@ -93,9 +93,10 @@ const UpdateEvent = () => {
         return;
       }
 
-      alert("Event updated successfully!");
-      navigate("/admin-event");
-      setHasClickedUpdate(false);
+      if (response.success === true) {
+        alert("Event updated successfully!");
+        navigate("/admin-event");
+      }
     } catch (error) {
       setError({ submitError: `Some error occurred: ${error.message}` });
     }
@@ -110,27 +111,29 @@ const UpdateEvent = () => {
   }
 
   return (
-    <div className="min-h-screen bg-raisin-black w-full flex flex-col justify-center items-center">
-      <div className="text-3xl mb-5 text-wheat">
-        What changes you would like to make?
-      </div>
-      <div className="flex flex-col gap-2 w-full md:w-[50%] mx-auto border border-[#3B4754] p-8 rounded-md">
+    <div className="min-h-screen bg-[#111518] w-full p-10 justify-center items-center">
+      <p className="font-bold text-seasalt text-xl mb-10">
+        Update Event:{" "}
+        <span className="text-teal-300 italic"> {formData.title}</span>
+      </p>
+      <div className="flex flex-col gap-2 w-full mx-auto bg-[#111925] border border-[#3B4754] p-8 rounded-md">
         <CustomForm
           formData={formData}
           setErrors={setError}
           setFormData={setFormData}
           formFields={formFields}
+          method="POST"
           handleSubmit={handleSubmit}
-          method="PUT"
           error={error}
           submitBtnTitle="Update Event"
-          cancelBtnTitle="Cancel"
+          customLabelStyles={"bg-[#18212E] border-[#374151] border-2"}
+          cancelBtnTitle={"Cancel"}
           handleCancel={() => {
-            setHasClickedUpdate(false);
+            navigate("/admin-event");
           }}
         />
         {error.submitError && (
-          <p className="text-red-500 text-center mt-2">{error.submitError}</p>
+          <p className="text-red-500">{error.submitError}</p>
         )}
       </div>
     </div>
