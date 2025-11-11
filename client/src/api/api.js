@@ -21,3 +21,11 @@ export const handleApply = async (formData) => {
     return { success: false, message: err.message };
   }
 };
+
+export const handleFeedback = async (feedbackData) => {
+  try {
+    const response = 
+  } catch (error) {
+    return { message: `Some error occured: ${error.message}` };
+  }
+};
