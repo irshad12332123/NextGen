@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { PiPhoneDisconnectThin } from "react-icons/pi";
 import { CiMail } from "react-icons/ci";
 import { FaLocationArrow } from "react-icons/fa";
+import { handleFeedback } from "@/api/api";
+import FormError from "@/components/form-components/FormError";
 function Input({
   type,
   value,
@@ -45,15 +47,51 @@ function ContactUs() {
     message: "",
   });
 
-  const handleChange = (e) => {
-    const value = e.target.name;
+  const [errors, setErrors] = useState({});
 
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("CLICKED THE SUBMIT");
 
+    let newErrors = {};
+
+    // Field-by-field validation
+    if (formData.name.trim() === "") newErrors.name = "Please enter your name";
+    if (formData.email.trim() === "")
+      newErrors.email = "Please enter your email";
+    else if (!formData.email.includes("@"))
+      newErrors.email = "This email is invalid";
+    if (formData.message.trim() === "")
+      newErrors.message = "Please enter your message";
+
+    // If any errors, update and stop
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      console.log("Validation failed:", newErrors);
+      return;
+    }
+
+    // Clear errors before request
+    setErrors({});
+
+    try {
+      const res = await handleFeedback(formData);
+      console.log("SERVER RESPONSE:", res);
+
+      if (res?.success) {
+        alert("Feedback submitted successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        alert(res?.message || "Something went wrong on server.");
+      }
+    } catch (error) {
+      console.error("SERVER ERROR:", error);
+      alert("Some error encountered, please try again!");
+    }
   };
 
   return (
@@ -119,7 +157,11 @@ function ContactUs() {
             <p className="md:text-2xl text-xl font-bold text-seasalt">
               Send us a message
             </p>
-            <form action="" className="flex flex-col gap-5">
+            <form
+              action=""
+              className="flex flex-col gap-5"
+              onSubmit={handleSubmit}
+            >
               <label className="flex flex-col">
                 <span className="mb-1 md:text-[1rem] text-seasalt text-sm font-medium">
                   Name
@@ -132,6 +174,8 @@ function ContactUs() {
                   required
                 />
               </label>
+
+              {errors?.name ? <FormError title={errors?.name} /> : null}
 
               <label className="flex flex-col">
                 <span className="mb-1 md:text-[1rem] text-sm  text-seasalt font-medium">
@@ -146,6 +190,8 @@ function ContactUs() {
                 />
               </label>
 
+              {errors?.email ? <FormError title={errors?.email} /> : null}
+
               <label className="flex flex-col">
                 <span className="mb-1 md:text-[1rem] text-sm    text-seasalt font-medium">
                   Message
@@ -155,14 +201,16 @@ function ContactUs() {
                   value={formData.message}
                   onChange={handleChange}
                   rows="4"
-                  className="resize-none  border border-[#80bfe437] ] rounded-md"
+                  className="resize-none text-seasalt border border-[#80bfe437] ] rounded-md"
                   required
                 ></textarea>
               </label>
 
+              {errors?.message ? <FormError title={errors?.message} /> : null}
+
               <button
                 type="submit"
-                className="bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition-all"
+                className="bg-blue-600 text-white  cursor-pointer font-semibold py-2 rounded-lg hover:bg-blue-700 transition-all"
               >
                 Submit
               </button>
