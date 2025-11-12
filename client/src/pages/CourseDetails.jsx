@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import ImageCard from "../components/cards/ImageCard";
 import { engineeringCourses } from "../../types/CourseData";
-
+import coursePoster from "/images/course_page_poster.png";
 function ShowDetailCard({ title, description }) {
   return (
     <div className="border-1 p-5 border-gray-300  bg-gray-200 w-full">
@@ -16,8 +16,12 @@ function CourseDetails() {
   const { courseId } = useParams();
   const course = engineeringCourses.find((course) => course.id === courseId);
   return (
-    <div className=" w-full h-full bg-[#F6FAFF]">
-      <ImageCard title={course.name} buttonRequired={false} />
+    <div className=" w-full h-full bg-raisin-black">
+      <ImageCard
+        title={course.name}
+        buttonRequired={false}
+        imageUrl={coursePoster}
+      />
       <div className="flex flex-col  justify-center items-center w-full h-full mt-20 relative">
         {/*  Ptogram overview */}
         <div className="flex gap-5 flex-col md:absolute md:-top-50 bg-[#F6FAFF]  md:p-5 lg:px-20  px-5 rounded-2xl">
