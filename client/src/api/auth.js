@@ -39,7 +39,3 @@ export const handleAdminRegister = async (formData) => {
     throw new Error("Could not Register", error?.message);
   }
 };
-
-export const handleAdminLogOut = async () => {
-  localStorage.removeItem("token");
-};
