@@ -61,10 +61,11 @@ exports.getAllCourses = async (req, res) => {
     const courses = await Course.findAll({
       include: [CourseOverview, ProgramDetail, AdmissionDetail, TutionFee],
     });
-    res.json(courses);
+    res.json({ success: true, message: "Succesfully Loaded", data: courses });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Failed to fetch courses" });
+    res
+      .status(500)
+      .json({ success: false, message: "Failed to fetch courses" });
   }
 };
 

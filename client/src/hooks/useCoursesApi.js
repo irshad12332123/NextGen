@@ -26,11 +26,7 @@ export const useCoursesApi = (fetchData) => {
       };
     }
 
-    return {
-      success: true,
-      message: "Successfully retrieved courses",
-      data,
-    };
+    return data;
   };
 
   return { getCoursesBySlug, getAllCourses };

@@ -4,10 +4,26 @@ import { GrUserExpert } from "react-icons/gr";
 import { SiGooglemarketingplatform } from "react-icons/si";
 import { BsCircleSquare } from "react-icons/bs";
 import CustomCard from "../components/cards/CustomCard";
-import { engineeringCourses } from "../../types/CourseData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useApiContext } from "@/providers/ApiContext";
+import { useCoursesApi } from "@/hooks/useCoursesApi";
 
 const Courses = () => {
+  const [engineeringCourses, setEngineeringCourses] = useState([]);
+  const { fetchData, loading, setLoading } = useApiContext();
+  const { getCourseBySlug, getAllCourses } = useCoursesApi(fetchData);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    async function fetchCourse() {
+      const response = await getAllCourses();
+
+      if (response?.success) {
+        setEngineeringCourses(response?.data);
+      }
+    }
+    fetchCourse();
+  }, []);
+
   function cleanText(str) {
     return str
       .replace(/[^\w\s]/g, "")
@@ -16,7 +32,7 @@ const Courses = () => {
   }
 
   const [filteredCourses, setFilteredCourses] = useState(
-    engineeringCourses.slice(0, 6)
+    engineeringCourses?.slice(0, 6)
   );
 
   const [activeFilter, setActiveFilter] = useState("All");
@@ -105,17 +121,18 @@ const Courses = () => {
       {/* Filter Options */}
       <div className="md:px-15 2xl:px-50 px-5 w-full">
         <div className="flex gap-5 mt-5">
-          {courseFilterOp.map((filter, i) => (
-            <p
-              key={i}
-              onClick={() => handleSearch(filter)}
-              className={`md:px-4 md:py-2 px-3 py-2 text-sm md:text-[1rem] font-bold text-seasalt rounded-full cursor-pointer transition-all duration-300 ${
-                activeFilter === filter ? "bg-celestial-blue" : ""
-              }`}
-            >
-              {filter}
-            </p>
-          ))}
+          {engineeringCourses?.length > 0 &&
+            courseFilterOp.map((filter, i) => (
+              <p
+                key={i}
+                onClick={() => handleSearch(filter)}
+                className={`md:px-4 md:py-2 px-3 py-2 text-sm md:text-[1rem] font-bold text-seasalt rounded-full cursor-pointer transition-all duration-300 ${
+                  activeFilter === filter ? "bg-celestial-blue" : ""
+                }`}
+              >
+                {filter}
+              </p>
+            ))}
         </div>
       </div>
 
