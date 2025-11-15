@@ -1,7 +1,5 @@
 import React from "react";
-import rightCircleArrow from "../../assets/angle-circle-right.png";
 import { Link } from "react-router-dom";
-import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import { ArrowRight } from "lucide-react";
 function CustomCard({ cardDetails, link }) {
   if (!cardDetails) return;
