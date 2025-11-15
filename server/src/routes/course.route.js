@@ -5,8 +5,9 @@ const {
   getAllCourses,
   getCourseBySlug,
 } = require("../controllers/course.controller");
+const upload = require("../middlewares/upload.middleware");
 
-router.post("/", createCourse);
+router.post("/", upload.single("image"), createCourse);
 router.get("/", getAllCourses);
 router.get("/:slug", getCourseBySlug);
 
