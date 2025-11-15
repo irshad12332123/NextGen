@@ -7,22 +7,27 @@ import CustomCard from "../components/cards/CustomCard";
 import { useEffect, useState } from "react";
 import { useApiContext } from "@/providers/ApiContext";
 import { useCoursesApi } from "@/hooks/useCoursesApi";
+import Loader from "@/components/Loader";
 
 const Courses = () => {
   const [engineeringCourses, setEngineeringCourses] = useState([]);
   const { fetchData, loading, setLoading } = useApiContext();
   const { getCourseBySlug, getAllCourses } = useCoursesApi(fetchData);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     async function fetchCourse() {
       const response = await getAllCourses();
-
       if (response?.success) {
         setEngineeringCourses(response?.data);
       }
     }
     fetchCourse();
   }, []);
+
+  useEffect(() => {
+    setFilteredCourses(engineeringCourses);
+  }, [engineeringCourses]);
 
   function cleanText(str) {
     return str
@@ -31,22 +36,18 @@ const Courses = () => {
       .trim();
   }
 
-  const [filteredCourses, setFilteredCourses] = useState(
-    engineeringCourses?.slice(0, 6)
-  );
+  const [filteredCourses, setFilteredCourses] = useState(engineeringCourses);
 
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filterCourses = (search) => {
-    if (search === "All") return engineeringCourses.slice(0, 6);
+    if (search === "All") return engineeringCourses;
 
     const searchTerm = cleanText(search.toLowerCase());
 
-    return engineeringCourses
-      .filter((course) =>
-        cleanText(course.name.toLowerCase()).includes(searchTerm)
-      )
-      .slice(0, 6);
+    return engineeringCourses.filter((course) =>
+      cleanText(course.name.toLowerCase()).includes(searchTerm)
+    );
   };
 
   const handleSearch = (courseName) => {
@@ -119,32 +120,39 @@ const Courses = () => {
       </div>
 
       {/* Filter Options */}
-      <div className="md:px-15 2xl:px-50 px-5 w-full">
-        <div className="flex gap-5 mt-5">
-          {engineeringCourses?.length > 0 &&
-            courseFilterOp.map((filter, i) => (
-              <p
-                key={i}
-                onClick={() => handleSearch(filter)}
-                className={`md:px-4 md:py-2 px-3 py-2 text-sm md:text-[1rem] font-bold text-seasalt rounded-full cursor-pointer transition-all duration-300 ${
-                  activeFilter === filter ? "bg-celestial-blue" : ""
-                }`}
-              >
-                {filter}
-              </p>
-            ))}
-        </div>
-      </div>
+      <div className="">
+        {loading ? (
+          <Loader />
+        ) : (
+          <div className="md:px-15 2xl:px-50 px-5 w-full">
+            <div className="flex gap-5 mt-5">
+              {engineeringCourses?.length > 0 &&
+                courseFilterOp.map((filter, i) => (
+                  <p
+                    key={i}
+                    onClick={() => handleSearch(filter)}
+                    className={`md:px-4 md:py-2 px-3 py-2 text-sm md:text-[1rem] font-bold text-seasalt rounded-full cursor-pointer transition-all duration-300 ${
+                      activeFilter === filter ? "bg-celestial-blue" : ""
+                    }`}
+                  >
+                    {filter}
+                  </p>
+                ))}
+            </div>
+            {/* Filtered Courses */}
 
-      {/* Filtered Courses */}
-      <div className="mt-10 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 py-5 2xl:px-50 md:py-10 md:px-15 px-5 gap-5">
-        {filteredCourses.map((course, i) => (
-          <CustomCard
-            cardDetails={course}
-            key={i}
-            link={`/courses/${course.id}`}
-          />
-        ))}
+            <div className="mt-10 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 py-5 md:py-10 md:px-10 px-5 gap-5">
+              {engineeringCourses?.length > 0 &&
+                filteredCourses.map((course, i) => (
+                  <CustomCard
+                    cardDetails={course}
+                    key={i}
+                    link={`/courses/${course.id}`}
+                  />
+                ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
