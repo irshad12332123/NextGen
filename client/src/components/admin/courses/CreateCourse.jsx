@@ -4,15 +4,9 @@ import CustomForm from "../form-components/CustomForm";
 import { useApi } from "@/hooks/useApi";
 import { replace, useNavigate } from "react-router-dom";
 
-const CreateEvent = ({}) => {
+const CreateCourse = ({}) => {
   const navigate = useNavigate();
-  const {
-    loading,
-    error: fetchError,
-    refetch,
-    fetchData,
-    data: result,
-  } = useApi();
+  const { loading, error: fetchError, fetchData, data: result } = useApi();
 
   const [formData, setFormData] = useState({
     title: "",
@@ -23,8 +17,6 @@ const CreateEvent = ({}) => {
     end: "",
   });
   const [error, setError] = useState({});
-
-  const customFormStyles = {};
 
   const formFields = [
     {
@@ -134,4 +126,4 @@ const CreateEvent = ({}) => {
   );
 };
 
-export default CreateEvent;
+export default CreateCourse;
