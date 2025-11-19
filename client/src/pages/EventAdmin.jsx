@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import MainEventAdmin from "@/components/admin-events/MainEventAdmin";
-import { Sidebar } from "lucide-react";
+import React from "react";
+import MainEventAdmin from "@/components/admin/MainEventAdmin";
 
 const EventAdmin = () => {
   return (
