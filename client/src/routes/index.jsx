@@ -19,8 +19,10 @@ import Event from "@/pages/Event";
 import { AdminLogin } from "@/pages/AdminLogin";
 import { AdminRegister } from "@/pages/AdminRegister";
 import EventAdmin from "@/pages/EventAdmin";
-import CreateEvent from "@/components/admin-events/CreateEvent";
-import UpdateEvent from "@/components/admin-events/UpdateEvent";
+import CreateEvent from "@/components/admin/CreateEvent";
+import UpdateEvent from "@/components/admin/UpdateEvent";
+import CourseAdmin from "@/pages/CourseAdmin";
+import CreateCourse from "@/components/admin/courses/CreateCourse";
 
 export const router = createBrowserRouter([
   // Public routes
@@ -68,6 +70,8 @@ export const router = createBrowserRouter([
       { path: "admin-event", element: <EventAdmin /> },
       { path: "admin-event/create", element: <CreateEvent /> },
       { path: "admin-event/update/:id", element: <UpdateEvent /> },
+      { path: "admin-course", element: <CourseAdmin /> },
+      { path: "admin-course/create", element: <CreateCourse /> },
     ],
   },
 ]);

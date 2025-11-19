@@ -101,27 +101,6 @@ const CreateEvent = ({}) => {
   return (
     <div className="min-h-screen bg-[#111518] w-full p-10 justify-center items-center">
       <p className="font-bold text-seasalt text-xl mb-10">Create New Event</p>
-      <div className="flex flex-col gap-2 w-full mx-auto bg-[#111925] border border-[#3B4754] p-8 rounded-md">
-        <CustomForm
-          formData={formData}
-          setErrors={setError}
-          setFormData={setFormData}
-          formFields={formFields}
-          method="POST"
-          handleSubmit={handleSubmit}
-          error={error}
-          submitBtnTitle="Create Event"
-          customObjStyles={""}
-          customLabelStyles={"bg-[#18212E] border-[#374151] border-2"}
-          cancelBtnTitle={"Cancel"}
-          handleCancel={() => {
-            navigate("/admin-event");
-          }}
-        />
-        {error.submitError && (
-          <p className="text-red-500">{error.submitError}</p>
-        )}
-      </div>
     </div>
   );
 };

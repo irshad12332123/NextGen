@@ -10,8 +10,6 @@ const ProtectedRoute = ({ children }) => {
   // redirect unauthenticated users to login
   useEffect(() => {
     if (!token) {
-      console.log("Prortexted route", location.pathname);
-
       navigate("/admin-login", { replace: true });
     }
   }, [token, navigate]);

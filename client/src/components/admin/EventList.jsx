@@ -24,8 +24,8 @@ const EventList = ({ fetchData, refetch, events, onDelete, filter }) => {
           </Link>
         </p>
       ) : (
-        <table className="w-full text-left">
-          <thead>
+        <table className="w-full text-left ">
+          <thead className="">
             <tr className="border-b border-[#2B333A] text-seasalt text-sm">
               <th className="py-3 px-2">Event Name</th>
               <th className="px-2">Date</th>
@@ -34,7 +34,7 @@ const EventList = ({ fetchData, refetch, events, onDelete, filter }) => {
               <th className="px-2">Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="">
             {visibleEvents &&
               visibleEvents.map((event) => (
                 <EventRow

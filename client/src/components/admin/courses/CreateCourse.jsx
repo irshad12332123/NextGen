@@ -1,6 +1,6 @@
 import { createEvent } from "@/api/events";
 import React, { useState } from "react";
-import CustomForm from "../form-components/CustomForm";
+import CustomForm from "../../form-components/CustomForm";
 import { useApi } from "@/hooks/useApi";
 import { replace, useNavigate } from "react-router-dom";
 
@@ -100,7 +100,7 @@ const CreateCourse = ({}) => {
   };
   return (
     <div className="min-h-screen bg-[#111518] w-full p-10 justify-center items-center">
-      <p className="font-bold text-seasalt text-xl mb-10">Create New Event</p>
+      <p className="font-bold text-seasalt text-xl mb-10">Add New Course</p>
       <div className="flex flex-col gap-2 w-full mx-auto bg-[#111925] border border-[#3B4754] p-8 rounded-md">
         <CustomForm
           formData={formData}
@@ -115,7 +115,7 @@ const CreateCourse = ({}) => {
           customLabelStyles={"bg-[#18212E] border-[#374151] border-2"}
           cancelBtnTitle={"Cancel"}
           handleCancel={() => {
-            navigate("/admin-event");
+            navigate("/admin-course");
           }}
         />
         {error.submitError && (

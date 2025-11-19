@@ -76,19 +76,7 @@ const MainEventAdmin = () => {
   const [filter, setFilter] = useState("All");
   return (
     <main className="overflow-y-auto bg-[#111518] h-full p-5">
-      <div className="flex  py-2 border-b items-center border-[#3B4954] ">
-        <p className="text-xl text-center">Events Management</p>
-        <div className="flex-grow"></div>
-        <div>
-          <IoIosLogOut
-            onClick={handleLogout}
-            size={50}
-            className="p-2 rounded-md bg-[#1C2227] text-center"
-          />
-        </div>
-      </div>
-
-      <div className="p-15  h-full w-full">
+      <div className="px-15  h-full w-full">
         <div className="w-full flex items-center">
           <p className="font-bold text-4xl flex-1">Events</p>
           <div className="">
