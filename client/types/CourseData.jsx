@@ -14,7 +14,6 @@ export const engineeringCourses = [
       { title: "Eligibility", description: "10+2 with PCM" },
       { title: "Specialization", description: "Software, AI, Data Science" },
       { title: "Degree", description: "Bachelor of Technology" },
-      { title: "Mode", description: "Full-time" },
     ],
     admissionDetails: [
       { title: "Entrance Exam", description: "JEE Main / State Level" },

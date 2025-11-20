@@ -22,7 +22,7 @@ import EventAdmin from "@/pages/EventAdmin";
 import CreateEvent from "@/components/admin/CreateEvent";
 import UpdateEvent from "@/components/admin/UpdateEvent";
 import CourseAdmin from "@/pages/CourseAdmin";
-import CreateCourse from "@/components/admin/courses/CreateCourse";
+import CreateCourse from "@/components/admin/courses/create.course/CreateCourse";
 
 export const router = createBrowserRouter([
   // Public routes

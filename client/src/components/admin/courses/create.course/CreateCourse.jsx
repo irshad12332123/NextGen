@@ -1,0 +1,31 @@
+import React, { useState } from "react";
+import GeneralInformation from "./GeneralInformation";
+import ProgramDetails from "./ProgramDetails";
+import AdmissionDetails from "./AdmissionDetails";
+import FeeStructure from "./FeeStructure";
+
+function CreateCourse() {
+  const [formData, setFormData] = useState({
+    slug: "",
+    title: "",
+    description: "",
+    programDetails: [],
+    admissionDetails: [],
+    feeStructure: [],
+  });
+
+  return (
+    <div className="p-15 space-y-6">
+      <GeneralInformation formData={formData} setFormData={setFormData} />
+      <ProgramDetails formData={formData} setFormData={setFormData} />
+      <AdmissionDetails formData={formData} setFormData={setFormData} />
+      <FeeStructure formData={formData} setFormData={setFormData} />
+
+      <button className="bg-blue-600 text-white px-6 py-3 rounded-lg">
+        Save Course
+      </button>
+    </div>
+  );
+}
+
+export default CreateCourse;

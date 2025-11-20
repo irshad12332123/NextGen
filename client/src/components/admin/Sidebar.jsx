@@ -66,7 +66,7 @@ const Sidebar = () => {
         <div className="flex-grow"></div>
 
         <div>
-          <CustomBtn title={"Log out"} onClick={logOut} />
+          <CustomBtn title={"Log out"} onClick={logOut} styleType="tertiary" />
         </div>
       </nav>
     </aside>
