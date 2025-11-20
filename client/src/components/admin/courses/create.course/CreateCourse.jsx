@@ -6,12 +6,15 @@ import FeeStructure from "./FeeStructure";
 
 function CreateCourse() {
   const [formData, setFormData] = useState({
-    slug: "",
-    title: "",
-    description: "",
-    programDetails: [],
-    admissionDetails: [],
-    feeStructure: [],
+    course: {
+      slug: "",
+      name: "",
+      description: "",
+      image_url: "",
+    },
+    programDetails: {},
+    admissionDetails: {},
+    tutionFee: {},
   });
 
   return (
