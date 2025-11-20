@@ -1,9 +1,10 @@
 const sequelize = require("../config/db");
-const Course = require("./course.model");
-const CourseOverview = require("./courseOverview.model");
-const ProgramDetail = require("./programDetails.model");
-const AdmissionDetail = require("./admissionDetails.model");
-const TutionFee = require("./tutionFee.model");
+
+const CourseOverview = require("./course.model/courseOverview.model");
+const ProgramDetail = require("./course.model/programDetails.model");
+const AdmissionDetail = require("./course.model/admissionDetails.model");
+const TutionFee = require("./course.model/tutionFee.model");
+const Course = require("./course.model/course.model");
 
 // Associations
 Course.hasOne(CourseOverview, { foreignKey: "courseId" });
