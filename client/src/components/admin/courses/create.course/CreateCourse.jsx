@@ -17,17 +17,25 @@ function CreateCourse() {
     tutionFee: {},
   });
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    alert("SUBMITTED");
+  };
+
   return (
-    <div className="p-15 space-y-6">
+    <form onSubmit={handleSubmit} className="p-15 space-y-6">
       <GeneralInformation formData={formData} setFormData={setFormData} />
       <ProgramDetails formData={formData} setFormData={setFormData} />
       <AdmissionDetails formData={formData} setFormData={setFormData} />
       <FeeStructure formData={formData} setFormData={setFormData} />
 
-      <button className="bg-blue-600 text-white px-6 py-3 rounded-lg">
+      <button
+        className="bg-blue-600 text-white px-6 py-3 rounded-lg"
+        type="submit"
+      >
         Save Course
       </button>
-    </div>
+    </form>
   );
 }
 
