@@ -65,7 +65,7 @@ const Sidebar = () => {
 
         <div className="flex-grow"></div>
 
-        <div>
+        <div className="hover:scale-110">
           <CustomBtn title={"Log out"} onClick={logOut} styleType="tertiary" />
         </div>
       </nav>
