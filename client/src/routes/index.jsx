@@ -6,7 +6,7 @@ import MainLayout from "@/layouts/MainLayout";
 
 // Routes
 import PublicRoute from "./PublicRoute";
-import ProtectedRoute from "./ProtectedRoute.jsx";
+import ProtectedRoute from "./ProtectedRoute";
 
 // Pages
 import Home from "@/pages/Home";
