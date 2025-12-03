@@ -15,6 +15,8 @@ const adminLogin = async (req, res) => {
         .json({ success: false, message: "Fields are empty" });
     }
 
+    console.log(password);
+
     // Check if admin exists
     const admin = await Admin.findOne({ where: { username_id } });
 

@@ -11,7 +11,7 @@ const Event = sequelize.define(
     thumbnail: { type: DataTypes.STRING, allowNull: false },
     start: { type: DataTypes.DATEONLY, allowNull: false },
     end: { type: DataTypes.DATEONLY, allowNull: false },
-  },
+  },  
   {
     tableName: "events",
     timestamps: true,
