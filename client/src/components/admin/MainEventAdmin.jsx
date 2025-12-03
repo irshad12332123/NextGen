@@ -9,10 +9,8 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 import withReactContent from "sweetalert2-react-content";
-import { useApiContext } from "@/providers/ApiContext";
 
 const MainEventAdmin = () => {
-  const { handleLogOut } = useApiContext();
 
   const MySwal = withReactContent(Swal);
   const navigate = useNavigate();
@@ -68,10 +66,7 @@ const MainEventAdmin = () => {
     });
   };
 
-  const handleLogout = () => {
-    const hasLoggedOut = handleLogOut();
-    if (hasLoggedOut) navigate("/admin-login");
-  };
+
 
   const [filter, setFilter] = useState("All");
   return (
