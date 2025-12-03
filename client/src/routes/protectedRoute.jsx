@@ -1,11 +1,10 @@
 import { useApiContext } from "@/providers/ApiContext";
 import { useEffect } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
   const { token } = useApiContext();
   const navigate = useNavigate();
-  const location = useLocation();
 
   // redirect unauthenticated users to login
   useEffect(() => {

@@ -5,8 +5,8 @@ import AdminLayout from "@/layouts/AdminLayout";
 import MainLayout from "@/layouts/MainLayout";
 
 // Routes
-import PublicRoute from "./publicRoute";
-import ProtectedRoute from "./protectedRoute";
+import PublicRoute from "./PublicRoute";
+import ProtectedRoute from "./ProtectedRoute";
 
 // Pages
 import Home from "@/pages/Home";
